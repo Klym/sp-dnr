@@ -37,7 +37,36 @@ p {
 	height:40px;
 	top:70px;
 	right:10px;
-	background-color:#FFF;
+	opacity:.9;
+}
+
+#search > form > input[type=search] {
+	width:250px;
+	height:40px;
+	border:none;
+	font-size:17px;
+	padding:3px 15px 0 10px;
+	border-radius:8px;
+	background-image:url(../img/input.png);
+}
+
+#search > form > input[type=submit] {
+	position:absolute;
+	top:0px;
+	right:0;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;	
+	width:40px;
+	height:40px;
+	border:none;
+	cursor:pointer;
+	background-image:url(../img/search.png);
+}
+
+::-webkit-input-placeholder {
+	color:#000;
+	font-style:italic;
+	font-size:17px;
 }
 
 nav {
@@ -181,6 +210,16 @@ header > .title {
 	padding:0 10px;
 	margin-top:45px;
 	height:113px;
+	border-bottom:2px solid #c7cfff;
+}
+
+#regText {
+	position:relative;
+	top:20px;
+}
+
+#regText > p {
+	font-size:18px;
 }
 
 #wrapper > footer {

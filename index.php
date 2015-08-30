@@ -10,7 +10,12 @@
 	<div id="wrapper">
     	<header>
         	<div id="logo"></div>
-            <div id="search"></div>
+            <div id="search">
+            	<form method="get" name="search"> 
+                    <input type="search" placeholder="Поиск" name="keywords">
+                    <input type="submit" value="">
+				</form>
+            </div>
         </header>
         <nav></nav>
         <section>
@@ -86,6 +91,9 @@
         	<header>
             	<span class="title">Стать членом союза »</span>
 			</header>
+            <div id="regText">
+	            <p>Для того что-бы стать членом союза перейдите <a href="#">по этой ссылке</a> заполните форму.</p>
+           	</div>
         </div>
         <footer>
         	<div id="dnr-big-flag"></div>
