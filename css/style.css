@@ -4,6 +4,11 @@ body {
 	background-color:#282828;
 }
 
+p {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
 #wrapper {
 	position:relative;
 	width:1000px;
@@ -69,14 +74,15 @@ article > header {
 
 .articleBody {
 	margin:6px 0 0 2px;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
 	line-height:25px;
 }
 
 .articleTitle {
 	width:257px;
 	float:left;
+}
+
+.articleTitle > p {
 	font-size:14px;
 	font-weight:bold;
 }
@@ -91,8 +97,6 @@ article > header {
 }
 
 article a {
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
 	text-decoration:none;
 }
 
@@ -147,4 +151,26 @@ header > .title {
 	margin-top:50px;
 	height:100px;
 	background-color:#c7cfff;
+	line-height:16px;
+}
+
+#dnr-big-flag {
+	float:left;
+	width:45px;
+	height:100%;
+	background-image:url(../img/dnr-big.png);
+}
+
+#copyright {
+	position:relative;
+	float:left;
+	top:15px;
+	left:15px;
+}
+
+#wrapper > footer > address {
+	position:relative;
+	float:right;
+	top:10px;
+	right:10px;
 }
