@@ -1,0 +1,55 @@
+/* CSS Document */
+
+#wrapper {
+	position:relative;
+	width:1000px;
+	margin:0 auto;
+	outline:1px solid black
+}
+
+header {
+	position:relative;
+	height:170px;
+	outline:1px solid red;
+}
+
+nav {
+	position:relative;
+	height:50px;
+	outline:1px solid blue;
+}
+
+section {
+	position:relative;
+	margin-top:15px;
+	height:435px;
+	outline:1px solid green;
+}
+
+#partners {
+	position:relative;
+	margin-top:20px;
+	height:130px;
+	outline:1px dashed green;
+}
+
+#about {
+	position:relative;
+	margin-top:15px;
+	height:310px;
+	outline:1px solid blue;
+}
+
+#reg {
+	position:relative;
+	margin-top:45px;
+	height:113px;
+	outline:1px solid red;
+}
+
+footer {
+	position:relative;
+	margin-top:50px;
+	height:100px;
+	background-color:#c7cfff;
+}
