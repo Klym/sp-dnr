@@ -1,10 +1,14 @@
 /* CSS Document */
 
+body {
+	background-color:#282828;
+}
+
 #wrapper {
 	position:relative;
 	width:1000px;
 	margin:0 auto;
-	outline:1px solid black;
+	background-color:#FFF;
 	background-image:url(../img/background.jpg);
 	background-repeat:no-repeat;
 }
@@ -99,12 +103,32 @@ article a:hover {
 #partners {
 	position:relative;
 	margin-top:20px;
-	height:132px;
-	outline:1px dashed green;
+	height:127px;
+	border-bottom:2px solid #c7cfff;
+}
+
+#partners > header, #about > header, #reg > header {
+	height:25px;
+	border-bottom:2px solid #c7cfff;
+}
+
+header > .title {
+	line-height:25px;
+	background-color:#c7cfff;
+	font-family:"Times New Roman", Times, serif;
+	font-size:24px;
+	font-weight:bold;
+	text-decoration:underline;
+	padding:0 15px 0px 10px;
+}
+
+#partnersBody {
+	height:100px;
 }
 
 #about {
 	position:relative;
+	padding:0 10px;
 	margin-top:15px;
 	height:310px;
 	outline:1px solid blue;
@@ -112,6 +136,7 @@ article a:hover {
 
 #reg {
 	position:relative;
+	padding:0 10px;
 	margin-top:45px;
 	height:113px;
 	outline:1px solid red;

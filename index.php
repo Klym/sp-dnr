@@ -55,9 +55,22 @@
                 <footer><a href="#">Перейти ко всем новостям чего-то</a></footer>
             </article>
         </section>
-        <div id="partners"></div>
-        <div id="about"></div>
-        <div id="reg"></div>
+        <div id="partners">
+        	<header>
+            	<span class="title">Партнеры СП »</span>
+			</header>
+            <div id="partnersBody"></div>
+        </div>
+        <div id="about">
+        	<header>
+            	<span class="title">О Союзе Предпринимателей »</span>
+			</header>
+        </div>
+        <div id="reg">
+        	<header>
+            	<span class="title">Стать членом союза »</span>
+			</header>
+        </div>
         <footer></footer>
     </div>
 </body>
