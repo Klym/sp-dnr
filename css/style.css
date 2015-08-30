@@ -132,10 +132,48 @@ header > .title {
 
 #about {
 	position:relative;
-	padding:0 10px;
+	margin:0 10px;
 	margin-top:15px;
 	height:310px;
-	outline:1px solid blue;
+	border-bottom:2px solid #c7cfff;
+}
+
+#aboutBody {
+	position:relative;
+	top:14px;
+	width:386px;
+	height:280px;
+	display:-webkit-box;
+	line-height:23px;
+}
+
+#aboutLogo {
+	width:250px;
+}
+
+#aboutText {
+	padding-right:3px;
+	position:relative;
+	height:225px;
+	left:16px;
+	border-right:2px solid #c7cfff;
+}
+
+#aboutBody p.title {
+	font-size:20px;
+}
+
+#aboutBody p.link {
+	font-style:italic;
+}
+
+#aboutText > p {
+	font-size:14px;
+}
+
+#aboutContacts {
+	position:relative;
+	left:28px;
 }
 
 #reg {
@@ -143,7 +181,6 @@ header > .title {
 	padding:0 10px;
 	margin-top:45px;
 	height:113px;
-	outline:1px solid red;
 }
 
 #wrapper > footer {
