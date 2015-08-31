@@ -1,11 +1,18 @@
 // JavaScript Document
+var interval;
 window.onload = function() {
 	if (document.getElementById("partners")) {
-		partners();
+		startLeft(15, false);
+		var next = document.getElementById("next");
+		next.onmouseover = speedUpLeft;
+		next.onmouseout = slowDownLeft;
 	}
 }
 
-function partners() {
+// Ф-ция запуска анимации баннеров
+// int delay - задержка сдвига баннеров
+// bool flag - была ли запущенна анимация ранее.
+function startLeft(delay, flag) {
 	var banners = document.getElementById("banners");
 	var imgs = banners.getElementsByTagName("img");
 	var width = 0;
@@ -20,10 +27,9 @@ function partners() {
 	banners.style.width = width + 1 + maxWidth + 16 + "px";
 	// Определяем стандартный сдвиг блока баннеров
 	var margin = banners.offsetLeft;
-	var flag = false;	// Отвечает за определения вышел ли первый баннер из виду пользователя
-	
-	window.setInterval(function() {
-		margin -= 1;
+	// Запускаем анимацию	
+	interval = window.setInterval(function() {
+		margin--;
 		var node = imgs[0].parentNode;
 		if (margin < 25 && !flag) {
 			// Если первый баннер стартанул, клонируем его и пихаем в конец очереди
@@ -32,12 +38,22 @@ function partners() {
 			banners.appendChild(clone);
 			flag = true;
 		}
-		if ((-margin + 25 - 8) == imgs[0].width) {
+		if ((-margin + 25 - 8) >= imgs[0].width) {
 			// Если первый баннер уехал, сбрасыаем сдвиг на стандартный и удаляем его из очереди
 			margin = 25;
 			banners.removeChild(node);
 			flag = false;
 		}
 		banners.style.left = margin + "px";
-	}, 15);
+	}, delay);
+}
+
+function speedUpLeft() {
+	window.clearInterval(interval);
+	startLeft(0.1, true);
+}
+
+function slowDownLeft() {
+	window.clearInterval(interval);
+	startLeft(15, true);
 }
