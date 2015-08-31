@@ -5,7 +5,7 @@ function Animation(banners, images) {
 	this.maxWidth = 0;						// Ширина саого большого баннера
 	this.offset = this.banners.offsetLeft;	// Текущий сдвиг блока
 	this.interval;							// Объект интервала
-	this.isTurned = false;					// НЕ создавать ли копию первого/последнего блока
+	this.isTurned = false;					// Нужно ли менять направление
 	
 	// Устанавливаем ширину блока баннеров
 	for (var i = 0; i < this.images.length; i++) {
@@ -18,7 +18,7 @@ function Animation(banners, images) {
 	
 	// Ф-ция запуска анимации баннеров влево
 	// int delay - задержка сдвига баннеров
-	// bool flag - была ли запущенна анимация ранее.
+	// bool flag - НЕ создавать ли копию первого/последнего блока
 	this._startLeft = function(delay, flag) {
 		var self = this;
 		this.interval = window.setInterval(function() {
