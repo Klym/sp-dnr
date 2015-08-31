@@ -6,6 +6,7 @@ function Animation(banners, images) {
 	this.offset = this.banners.offsetLeft;	// Текущий сдвиг блока
 	this.interval;							// Объект интервала
 	this.isTurned = false;					// Нужно ли менять направление
+	this.flag = true;						// Создавать ли копию первого/последнего блока
 	
 	// Устанавливаем ширину блока баннеров
 	for (var i = 0; i < this.images.length; i++) {
@@ -18,47 +19,46 @@ function Animation(banners, images) {
 	
 	// Ф-ция запуска анимации баннеров влево
 	// int delay - задержка сдвига баннеров
-	// bool flag - НЕ создавать ли копию первого/последнего блока
-	this._startLeft = function(delay, flag) {
+	this._startLeft = function(delay) {
 		var self = this;
 		this.interval = window.setInterval(function() {
 			self.offset--;
 			var node = self.images[0].parentNode;
-			if (self.offset < 25 && !flag) {
+			if (self.flag) {
 				// Если первый баннер стартанул, клонируем его и пихаем в конец очереди
 				var clone = node.cloneNode(true);
 				clone.style.marginRight = 8 + "px";
 				self.banners.appendChild(clone);
-				flag = true;
+				self.flag = false;
 			}
 			if ((-self.offset + 25 - 8) >= self.images[0].width) {
 				// Если первый баннер уехал, сбрасыаем сдвиг на стандартный и удаляем его из очереди
 				self.offset = 25;
 				self.banners.removeChild(node);
-				flag = false;
+				self.flag = true;
 			}
 			self.banners.style.left = self.offset + "px";
 		}, delay);
 	}
 	
 	// Ф-ция запуска анимации баннеров вправо
-	this._startRight = function(delay, flag) {
+	this._startRight = function(delay) {
 		var self = this;
 		this.interval = window.setInterval(function() {
 			self.offset++;
 			var node = self.images[self.images.length - 1].parentNode;
-			if (node.lastChild.width - self.offset >= self.offset && !flag) {
+			if (self.flag) {
 				// Если первый баннер стартанул, клонируем его и пихаем в конец очереди
 				var clone = node.cloneNode(true);
 				clone.style.marginRight = 8 + "px";
-				self.offset -= clone.firstChild.width + 8; // -8
+				self.offset -= clone.firstChild.width + 8;
 				self.banners.insertBefore(clone, self.images[0].parentNode);
-				flag = true;
+				self.flag = false;
 			}
-			if (self.offset == 25) {
+			if (self.offset >= 25) {
 				// Если первый баннер уехал, удаляем его из очереди
 				self.banners.removeChild(node);
-				flag = false;
+				self.flag = true;
 			}
 			self.banners.style.left = self.offset + "px";
 		}, delay);
@@ -68,26 +68,26 @@ function Animation(banners, images) {
 	this.speedUpRight = function() {
 		window.clearInterval(this.interval);
 		if (this.isTurned) {
-			this._startRight(0.1, true);
+			this._startRight(0.1);
 		} else {
 			this.isTurned = true;
-			this._startRight(15, true);
+			this._startRight(15);
 		}
 	}
 	
 	// Замедляем движение вправо
 	this.slowDownRight = function() {
 		window.clearInterval(this.interval);
-		this._startRight(15, true);
+		this._startRight(15);
 	}
 	
 	// Ускоряем/запускаем движение влево
 	this.speedUpLeft = function() {
 		window.clearInterval(this.interval);	
 		if (this.isTurned) {
-			this._startLeft(15, true);
+			this._startLeft(15);
 		} else {
-			this._startLeft(0.1, true);
+			this._startLeft(0.1);
 		}	
 		this.isTurned = false;
 	}
@@ -95,15 +95,15 @@ function Animation(banners, images) {
 	// Замедляем движение влево
 	this.slowDownLeft = function() {
 		window.clearInterval(this.interval);
-		this._startLeft(15, true);
+		this._startLeft(15);
 	}
 	
 	// Запуск анимации
 	this.startAnimation = function(flag) {
 		if (this.isTurned) {
-			this._startRight(15, flag);
+			this._startRight(15);
 		} else {
-			this._startLeft(15, flag);
+			this._startLeft(15);
 		}
 	}
 	

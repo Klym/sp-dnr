@@ -5,7 +5,7 @@ window.onload = function() {
 		var images = banners.getElementsByTagName("img");
 		
 		var animation = new Animation(banners, images);
-		animation.startAnimation(false);
+		animation.startAnimation();
 		
 		prev.onmouseover = function() {
 			animation.speedUpRight();
@@ -23,7 +23,7 @@ window.onload = function() {
 			animation.stopAnimation();
 		}
 		banners.onmouseout = function() {
-			animation.startAnimation(true);
+			animation.startAnimation();
 		}
 	}
 }
