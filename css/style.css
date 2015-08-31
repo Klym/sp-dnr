@@ -182,21 +182,19 @@ header > .title {
 #aboutBody {
 	position:relative;
 	top:14px;
-	width:386px;
 	height:280px;
 	display:-webkit-box;
+	display:-moz-box;
+	display:-ms-box;
+	display:flex;
 	line-height:23px;
 }
 
-#aboutLogo {
-	width:250px;
-}
-
 #aboutText {
+	width:455px;
+	margin-left:15px;
 	padding-right:3px;
-	position:relative;
 	height:225px;
-	left:16px;
 	border-right:2px solid #c7cfff;
 }
 
@@ -213,8 +211,7 @@ header > .title {
 }
 
 #aboutContacts {
-	position:relative;
-	left:28px;
+	margin-left:10px;
 }
 
 #reg {
