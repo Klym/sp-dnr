@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="js/scripts.js"></script>
 <title>Союз Предпринимателей ДНР</title>
 </head>
 <body>
@@ -64,7 +65,16 @@
         	<header>
             	<span class="title">Партнеры СП »</span>
 			</header>
-            <div id="partnersBody"></div>
+            <div id="partnersBody">
+            	<div id="prev"></div>
+                <div id="banners">
+                	<a href="#"><img src="partners/amd.jpg"></a>
+                    <a href="#"><img src="partners/hp.jpg"></a>
+                    <a href="#"><img src="partners/oracle.jpg"></a>
+                    <a href="#"><img src="partners/actvis.jpg"></a>
+                </div>
+                <div id="next"></div>
+            </div>
         </div>
         <div id="about">
         	<header>

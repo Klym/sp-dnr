@@ -157,6 +157,44 @@ article a:hover {
 	border-bottom:2px solid #c7cfff;
 }
 
+#partnersBody {
+	overflow:hidden;
+	background-color:#999;
+}
+
+#prev, #next {
+	position:absolute;
+	width:25px;
+	height:100px;
+	background-image:url(../img/prevnext.png);
+	background-repeat:no-repeat;
+	z-index:2;
+	background-color:#FFF;
+}
+
+#prev {
+	float:left;	
+	background-position:left;
+}
+
+#next {
+	background-position:right;
+	top:27px;
+	right:0;
+}
+
+#banners {
+	position:relative;
+	width:3000px;
+	height:100px;
+	left:25px;
+	z-index:1;
+}
+
+#banners > a {
+	margin-right:5px;
+}
+
 header > .title {
 	line-height:25px;
 	background-color:#c7cfff;
