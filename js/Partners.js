@@ -32,7 +32,7 @@ function Animation(banners, images) {
 				self.flag = false;
 			}
 			if ((-self.offset + 25 - 8) >= self.images[0].width) {
-				// Если первый баннер уехал, сбрасыаем сдвиг на стандартный и удаляем его из очереди
+				// Если последний баннер уехал, сбрасыаем сдвиг на стандартный и удаляем его из очереди
 				self.offset = 25;
 				self.banners.removeChild(node);
 				self.flag = true;
