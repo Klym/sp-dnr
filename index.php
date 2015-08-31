@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="js/scripts.js"></script>
+<script src="js/Animation.js"></script>
 <title>Союз Предпринимателей ДНР</title>
 </head>
 <body>
