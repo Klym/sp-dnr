@@ -9,11 +9,15 @@ function partners() {
 	var banners = document.getElementById("banners");
 	var imgs = banners.getElementsByTagName("img");
 	var width = 0;
+	var maxWidth = 0;
 	// Устанавливаем ширину блока баннеров
 	for (var i = 0; i < imgs.length; i++) {
+		if (imgs[i].width > maxWidth){
+			maxWidth = imgs[i].width;
+		}
 		width += imgs[i].width + 8;
 	}
-	banners.style.width = width + 1 + "px";
+	banners.style.width = width + 1 + maxWidth + 16 + "px";
 	// Определяем стандартный сдвиг блока баннеров
 	var margin = banners.offsetLeft;
 	var flag = false;	// Отвечает за определения вышел ли первый баннер из виду пользователя
@@ -24,7 +28,6 @@ function partners() {
 		if (margin < 25 && !flag) {
 			// Если первый баннер стартанул, клонируем его и пихаем в конец очереди
 			var clone = node.cloneNode(true);
-			banners.style.width = banners.clientWidth + clone.firstChild.width + 16 + "px";
 			clone.style.marginRight = 8 + "px";
 			banners.appendChild(clone);
 			flag = true;
