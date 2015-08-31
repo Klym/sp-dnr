@@ -32,7 +32,7 @@ function Animation(banners, images) {
 				self.flag = false;
 			}
 			if ((-self.offset + 25 - 8) >= self.images[0].width) {
-				// Если первый баннер уехал, сбрасыаем сдвиг на стандартный и удаляем его из очереди
+				// Если последний баннер уехал, сбрасываем сдвиг на стандартный и удаляем его из очереди
 				self.offset = 25;
 				self.banners.removeChild(node);
 				self.flag = true;
@@ -48,7 +48,7 @@ function Animation(banners, images) {
 			self.offset++;
 			var node = self.images[self.images.length - 1].parentNode;
 			if (self.flag) {
-				// Если первый баннер стартанул, клонируем его и пихаем в конец очереди
+				// Если последний баннер уехал, клонируем его и пихаем в начало очереди
 				var clone = node.cloneNode(true);
 				clone.style.marginRight = 8 + "px";
 				self.offset -= clone.firstChild.width + 8;
