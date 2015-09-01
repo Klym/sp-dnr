@@ -66,7 +66,33 @@
                 </article>
             </section>
             <aside>
-                
+                <nav>
+                	<div class="newsNavItem">
+                    	<div class="newsNavItemMark"></div>
+                        <div class="newsNavItemText">Все новости</div>
+                    </div>
+                    <div class="newsNavItem">
+                    	<div class="newsNavItemMark"></div>
+                        <div class="newsNavItemText">Новости союза</div>
+                    </div>
+                    <div class="newsNavItem">
+                    	<div class="newsNavItemMark"></div>
+                        <div class="newsNavItemText">Мероприятия</div>
+                    </div>
+                    <div class="newsNavItem">
+                    	<div class="newsNavItemMark"></div>
+                        <div class="newsNavItemText">Экономика</div>
+                    </div>
+                    <div class="newsNavItem">
+                    	<div class="newsNavItemMark"></div>
+                        <div class="newsNavItemText">Что-то</div>
+                    </div>
+                </nav>
+                <div class="line"></div>
+                    <div class="newsNavItem">
+                    	<div class="newsNavItemMark"></div>
+                        <div class="newsNavItemText">Фильтр</div>
+                    </div>
             </aside>
         </div>
         <footer>
