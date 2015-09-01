@@ -6,10 +6,10 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="js/scripts.js"></script>
 <script src="js/Partners.js"></script>
-<title>Союз Предпринимателей ДНР</title>
+<title>Союз Предпринимателей ДНР - Главная</title>
 </head>
 <body>
-	<div id="wrapper">
+	<div id="wrapper" class="main">
     	<header>
         	<div id="logo"></div>
             <div id="search">
