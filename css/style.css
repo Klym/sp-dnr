@@ -140,7 +140,7 @@ section {
 	float:right;
 }
 
-.articleBody > p > img {
+.articleBody p > img {
 	float:left;
 	margin-right:16px;
 }
@@ -164,10 +164,8 @@ article a:hover {
 
 #news > section {
 	width:787px;
-	/*height:100%;*/
-	height:500px;
+	height:100%;
 	background-color:#FFF;
-	padding-right:7px;
 }
 
 #news > section > article {
@@ -178,6 +176,10 @@ article a:hover {
 	border-bottom:1px solid #404040;
 	border-right:1px solid #404040;
 	margin-bottom:15px;
+}
+
+#news > section > article:nth-child(even) {
+	margin-right:7px;
 }
 
 #news > section > article .newsTitle {
@@ -241,6 +243,40 @@ article a:hover {
 
 #news > section > nav > ul > li.active, #news > section > nav > ul > li:hover {
 	background-color:#ebebeb;
+}
+
+#news > section > article.view {
+	float:none;
+	width:775px;
+	margin-top:20px;
+	padding:0 0 50px 5px;
+	margin-left:0px;
+	border-bottom:none;
+	border-right:none;
+	margin-bottom:0;;
+}
+
+#news > section > article.view .newsTitle {
+	text-align:left;
+}
+
+#news > section > article.view .newsInfo {
+	font-size:18px;
+	border-top:1px solid #4d67ac;
+	border-bottom:1px solid #4d67ac
+}
+
+.pull-right {
+	position:relative;
+	left:300px;
+}
+
+#news > section > article > p {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	color:#767676;
+	line-height:23px;
 }
 
 #news > aside {
@@ -413,6 +449,7 @@ header > .title {
 	margin-top:45px;
 	height:113px;
 	border-bottom:2px solid #c7cfff;
+	margin-bottom:50px;
 }
 
 #regText {
@@ -426,7 +463,6 @@ header > .title {
 
 #wrapper > footer {
 	position:relative;
-	margin-top:50px;
 	height:100px;
 	background-color:#c7cfff;
 	line-height:16px;
