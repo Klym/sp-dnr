@@ -176,11 +176,8 @@ article a:hover {
 	margin-left:4px;
 	border-bottom:1px solid #404040;
 	border-right:1px solid #404040;
+	margin-bottom:15px;
 }
-
-/*#news > section > article:nth-child(even) {
-	padding-bottom:40px;
-}*/
 
 #news > section > article .newsTitle {
 	font-size:24px;
