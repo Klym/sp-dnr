@@ -68,6 +68,7 @@
             <aside>
                 <nav>
                 	<div class="newsNavItem">
+	                    <div class="active"></div>
                     	<div class="newsNavItemMark"></div>
                         <div class="newsNavItemText">Все новости</div>
                     </div>

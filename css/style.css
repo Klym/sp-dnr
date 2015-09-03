@@ -318,10 +318,12 @@ article a:hover {
 }
 
 #news > aside .newsNavItem {
+	position:relative;
 	width:190px;
 	height:36px;
 	border-left:1px solid #dddddd;
 	border-top:1px solid #dddddd;
+	margin-left:5px;
 	margin-bottom:6px;
 	display:-webkit-box;
 	display:-moz-box;
@@ -330,8 +332,14 @@ article a:hover {
 	cursor:pointer;
 }
 
-#news > aside .newsNavItem {
-	margin-left:5px;
+#news > aside .newsNavItem > .active {
+	position:absolute;
+	top:9px;
+	right:2px;
+	width:12px;
+	height:17px;
+	z-index:2;
+	background-image:url(../img/drop.png);
 }
 
 #news > aside .newsNavItemMark {
