@@ -26,4 +26,15 @@ window.onload = function() {
 			animation.startAnimation();
 		}
 	}
+	
+	if (document.getElementById("search")) {
+		var searchBlock = document.getElementById("search");
+		searchForm.search.onfocus = function() {
+			searchBlock.style.opacity = 1;
+		}
+		
+		searchForm.search.onblur = function() {
+			searchBlock.style.opacity = 0.9;
+		}
+	}
 }
