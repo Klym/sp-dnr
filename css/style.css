@@ -323,7 +323,7 @@ header > .title {
 #committees > aside {
 	margin-left:10px;
 	width:323px;
-	height:200px;
+	height:100%;
 	background-color:#FFF;
 	padding:20px 0 0 7px;
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
