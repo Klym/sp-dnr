@@ -209,36 +209,73 @@ article a:hover {
 }
 
 #news > section > nav {
-	height:40px;
 	position:relative;
+	height:10px;
 	left:5px;
 	top:7px;
 	display:inline-block;
 	background-color:#bbbbbb;
-	border-radius:10px;
-	box-shadow:#9b80ff -2px -2px 1px 0px;
+	border-radius:3px;
+	padding:10px;
 }
 
-#news > section > nav > ul > li {
-	float:left;
-	padding:11px 8px;
-	height:inherit;
-	font-size:18px;
+#news > section > nav > a {
+	text-decoration:none;
+	color:#000;
+}
+
+#news > section > nav > a:hover {
+	text-decoration:underline;
+}
+
+#news > section > nav > .active {
+	color:indigo;
+}
+
+#eventReg {
+	width:200px;
+	height:60px;
+	position:relative;
+	top:7px;
+	right:9px;
+	float:right;
 	cursor:pointer;
-}
-
-#news > section > nav > ul > li:first-child {
-	border-bottom-left-radius:10px;
-	border-top-left-radius:10px;
-}
-
-#news > section > nav > ul > li:last-child {
-	border-bottom-right-radius:10px;
-	border-top-right-radius:10px;
-}
-
-#news > section > nav > ul > li.active, #news > section > nav > ul > li:hover {
 	background-color:#ebebeb;
+	border:0;
+	padding:0;
+	text-align:left;
+	box-shadow:#000 3px 3px 6px -1px;
+}
+
+#eventReg:hover {
+	box-shadow:none;
+}
+
+#eventReg:active  {
+	box-shadow:inset #000 3px 3px 6px -1px;
+}
+
+#pen {
+	position:relative;
+	float:left;
+	left:4px;
+	width:35px;
+	height:38px;
+	background-image:url(../img/pen.png);
+	background-repeat:no-repeat;
+	border-right:1px solid #4d67ac;
+}
+
+#eventRegText {
+	position:relative;
+	left:8px;
+	top:2px;
+}
+
+#eventRegText > p {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	color:#a3a3a3;
 }
 
 #news > section > article.view {
@@ -267,7 +304,7 @@ article a:hover {
 	left:300px;
 }
 
-#news > section > article > p {
+#news > section > article.view > p {
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:16px;
 	font-weight:normal;
