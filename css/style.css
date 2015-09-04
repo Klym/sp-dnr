@@ -9,12 +9,23 @@ p {
 	font-size:12px;
 }
 
+select {
+	border-radius:4px;
+	padding:4px;
+	box-shadow:#29D9F8 0 0 0 0;
+	transition:box-shadow .3s;
+}
+
+select:focus {
+	box-shadow:#29D9F8 0 0 5px 0px;
+	border:1px solid #29D9F8;
+}
+
 #wrapper {
 	position:relative;
 	width:1000px;
 	margin:0 auto;
 	background-color:#FFF;
-	
 	background-repeat:no-repeat;
 }
 
@@ -375,6 +386,37 @@ article a:hover {
 	height:1px;
 	background-color:#959595;
 	margin:10px 0 10px 0;
+}
+
+#filterForm  {
+	margin:10px 0 0 5px;
+}
+
+#filterForm > form > select {
+	margin:10px 0;
+}
+
+#filterForm > form > input[type=submit] {
+	width:98px;
+	height:35px;
+	border-radius:4px;
+	color:#fff;
+    background-color: #337ab7;
+    border:1px solid #2e6da4;
+	cursor:pointer;
+	padding:8px;
+}
+
+#filterForm > form > input[type=submit]:hover {
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.checkboxText {
+	position:relative;
+	left:5px;
+    top:-2px;
+    cursor:pointer;
 }
 
 #partners {
