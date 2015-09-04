@@ -65,7 +65,7 @@
                         <div class="newsNavItemText">Что-то</div>
                     </div>
                 </nav>
-                <div class="line"></div>
+                <div class="delimiterLine"></div>
                 <div class="newsNavItem">
                     <div class="newsNavItemMark"></div>
                     <div class="newsNavItemText">Фильтр</div>
