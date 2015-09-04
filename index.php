@@ -27,9 +27,9 @@
                 	<p><img src="img/articleLogo.jpg" width="123" height="98" alt="Логотип статьи"></p>
                     <div class="articleTitle"><p>Заголовок новости</p></div>
                     <div class="articleDate"><p>26,11,2015</p></div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="#">Читать далее...</a></p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="viewArticle.php">Читать далее...</a></p>
                 </div>
-                <footer><p><a href="#">Перейти ко всем новостям союза</a></p></footer>
+                <footer><p><a href="news.php">Перейти ко всем новостям союза</a></p></footer>
             </article>
             <article>
             	<header>Мероприятия</header>
@@ -37,9 +37,9 @@
                 	<p><img src="img/articleLogo.jpg" width="123" height="98" alt="Логотип статьи"></p>
                     <div class="articleTitle"><p>Заголовок новости</p></div>
                     <div class="articleDate"><p>26,11,2015</p></div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="#">Читать далее...</a></p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="viewArticle.php">Читать далее...</a></p>
                 </div>
-                <footer><p><a href="#">Перейти ко всем мероприятиям</a></p></footer>
+                <footer><p><a href="news.php">Перейти ко всем мероприятиям</a></p></footer>
             </article>
             <article>
             <header>Новости финансов</header>
@@ -47,9 +47,9 @@
                 	<p><img src="img/articleLogo.jpg" width="123" height="98" alt="Логотип статьи"></p>
                     <div class="articleTitle"><p>Заголовок новости</p></div>
                     <div class="articleDate"><p>26,11,2015</p></div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="#">Читать далее...</a></p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="viewArticle.php">Читать далее...</a></p>
                 </div>
-                <footer><p><a href="#">Перейти ко всем новостям финансов</a></p></footer>
+                <footer><p><a href="news.php">Перейти ко всем новостям финансов</a></p></footer>
             </article>
             <article>
             	<header>Новости чего-то</header>
@@ -57,9 +57,9 @@
                 	<p><img src="img/articleLogo.jpg" width="123" height="98" alt="Логотип статьи"></p>
                     <div class="articleTitle"><p>Заголовок новости</p></div>
                     <div class="articleDate"><p>26,11,2015</p></div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="#">Читать далее...</a></p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="viewArticle.php">Читать далее...</a></p>
                 </div>
-                <footer><p><a href="#">Перейти ко всем новостям чего-то</a></p></footer>
+                <footer><p><a href="news.php">Перейти ко всем новостям чего-то</a></p></footer>
             </article>
         </section>
         <div id="partners">
