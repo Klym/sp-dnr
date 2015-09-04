@@ -37,4 +37,36 @@ window.onload = function() {
 			searchBlock.style.opacity = 0.9;
 		}
 	}
+	
+	if (document.getElementById("filterForm")) {
+		var items = document.getElementsByClassName("newsNavItem");
+		var filterDiv = items[items.length - 1];
+		var filterForm = document.getElementById("filterForm")
+		// Вешаем событие click на последний элемент навигации
+		filterDiv.onclick = function() {
+			if (filterDiv.getAttribute("class") == "newsNavItem") {
+				// Если элемент не был нажат до этого, показываем форму фильтра
+				filterDiv.setAttribute("class", "newsNavItem active");
+				filterForm.style.display = "block";
+			} else {
+				// Иначе, прячем форму
+				filterDiv.setAttribute("class", "newsNavItem");
+				filterForm.style.display = "none";
+			}
+		}
+		
+		var endDate = document.getElementById("endDate");
+		var paragraphs = filter.getElementsByTagName("p");
+		// Вешаем событие change на checkbox отвечающий за диапазон дат
+		filter.exactDate.onchange = function() {
+			if (this.checked) {
+				// Если он активен удаляем элементы с конечной датой
+				filter.removeChild(endDate);
+				paragraphs[0].innerText = "Дата:";
+			} else {
+				filter.insertBefore(endDate, this.parentNode.parentNode);
+				paragraphs[0].innerText = "От:";
+			}
+		}
+	}
 }

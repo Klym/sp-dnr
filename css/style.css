@@ -371,12 +371,12 @@ article a:hover {
 	padding:7px 0 0 6px;
 }
 
-#news > aside  .newsNavItem:hover .newsNavItemText {
+#news > aside  .newsNavItem:hover .newsNavItemText, #news > aside .newsNavItem.active .newsNavItemText {
 	color:#000;
 	background-color:#ebebeb;
 }
 
-#news > aside  .newsNavItem:hover .newsNavItemMark {
+#news > aside  .newsNavItem:hover .newsNavItemMark, #news > aside .newsNavItem.active .newsNavItemMark {
 	background-color:#FFF;
 	border-right:1px solid #bfbfbf;
 }
@@ -390,9 +390,10 @@ article a:hover {
 
 #filterForm  {
 	margin:10px 0 0 5px;
+	display:none;
 }
 
-#filterForm > form > select {
+#filterForm > form select {
 	margin:10px 0;
 }
 
