@@ -409,7 +409,7 @@ article a:hover {
 	height:35px;
 	border-radius:4px;
 	color:#fff;
-    background-color: #337ab7;
+    background-color:#337ab7;
     border:1px solid #2e6da4;
 	cursor:pointer;
 	padding:8px;
@@ -790,6 +790,15 @@ section > header {
 	width:142px;
 	margin-left:20px;
 	margin-top:-3px;
+}
+
+#appForm input[disabled] {
+	opacity:0.6;
+	cursor:default;
+}
+
+#appForm input[disabled]:hover {
+	background-color:#337ab7;
 }
 
 #addRepresentative {

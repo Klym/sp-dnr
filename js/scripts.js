@@ -69,4 +69,14 @@ window.onload = function() {
 			}
 		}
 	}
+	
+	if (appForm) {
+		appForm.confirm.onchange = function() {
+			if (this.checked) {
+				appForm.submit.disabled = false;
+			} else {
+				appForm.submit.disabled = true;
+			}
+		}
+	}
 }

@@ -132,7 +132,7 @@
                         <div class="checkbox">
                             <input type="checkbox" name="confirm" id="confirm"><label for="confirm">Согласен с условиями союза</label>
                         </div>
-                        <input type="submit" value="Зарегистрироваться">
+                        <input type="submit" name="submit" value="Зарегистрироваться" disabled>
 					</div>
                 </div>
             </form>
