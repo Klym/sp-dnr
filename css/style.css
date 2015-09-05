@@ -12,11 +12,14 @@ p {
 select {
 	border-radius:4px;
 	padding:4px;
+}
+
+select, input, textarea {
 	box-shadow:#29D9F8 0 0 0 0;
 	transition:box-shadow .3s;
 }
 
-select:focus {
+select:focus, input:focus, textarea:focus {
 	box-shadow:#29D9F8 0 0 5px 0px;
 	border:1px solid #29D9F8;
 }
@@ -401,7 +404,7 @@ article a:hover {
 	margin:10px 0;
 }
 
-#filterForm > form > input[type=submit] {
+#filterForm > form > input[type=submit], #appForm input[type=submit] {
 	width:98px;
 	height:35px;
 	border-radius:4px;
@@ -412,7 +415,7 @@ article a:hover {
 	padding:8px;
 }
 
-#filterForm > form > input[type=submit]:hover {
+#filterForm > form > input[type=submit]:hover, #appForm input[type=submit]:hover {
     background-color: #286090;
     border-color: #204d74;
 }
@@ -564,7 +567,7 @@ header > .title {
 	background-color:#FFF;
 }
 
-#committees > section > header {
+section > header {
 	height:44px;
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size:24px;
@@ -587,7 +590,7 @@ header > .title {
 }
 
 .headerText {
-    position: absolute;
+    position:absolute;
     left:73px;
     width:537px;
     height:30px;
@@ -655,6 +658,163 @@ header > .title {
 	background-color:#c6cad2;
 }
 
+#regSection {
+	position:relative;
+	height:100%;
+	padding:25px 10px;
+	background-color:#ebebeb;
+}
+
+#regSection > header > .parallelogram {
+	width:55px;
+	transform:skew(-30deg);
+}
+
+#regSection > header > .headerText {
+	position:relative;
+    left:12px;
+    height:30px;
+    top:11px;
+    border-bottom:none;
+    padding-left:30px;
+}
+
+.regLine {
+	width:542px;
+	position:relative;
+	float:right;
+	top:-5px;
+	height:3px;
+	background-color:#2980b9;
+}
+
+#appFormFields {
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:21px;
+	margin-top:30px;
+}
+
+#appFormFields > fieldset {
+	border-top:3px solid #2980b9
+}
+
+#appFormFields > fieldset > legend {
+	font-size:23px;
+	padding-right:15px;
+	padding:0 15px 3px 90px;
+	margin-bottom:5px;
+}
+
+#appFormFields div {
+	height:35px;
+	margin-bottom:10px;
+}
+
+#appFormFields div > label > span {
+    position:relative;
+    bottom:-3px;
+}
+
+#appFormFields div > label > input, textarea {
+	position:relative;
+	float:right;
+	height:23px;
+	border-radius:5px;
+	border:1px solid #ccc;
+	padding:6px 12px;
+}
+
+#appFormFields div > label {
+	cursor:pointer;
+}
+
+#appFormFields div > label > input.wide, textarea.wide {
+	width:376px;
+}
+
+#appFormFields div > label > input.middle {
+	width:250px;
+	right:126px;
+}
+
+#appFormFields div > label > input.short {
+	width:130px;
+	right:246px;
+}
+
+#appFormFields div.noteField {
+	height:130px;
+}
+
+#appFormFields div > label > textarea {
+	height:130px;
+	resize:none;
+}
+
+#regButtons {
+	margin-left:60px;
+	display:flex;
+}
+
+#appFormFields input[type=checkbox] {
+	display:none;
+}
+
+#appFormFields .checkbox > label {
+	display:inline-block;
+	cursor:pointer;
+	position:relative;
+	padding-left:40px;
+	padding-top:4px;
+	height:20px;
+}
+
+#appFormFields div.checkbox:before {
+	position:absolute;
+	content:"";
+	display: inline-block;
+	width:20px;
+	height:20px;
+	border-radius:5px;
+	border:4px solid #919191;
+}
+
+#appFormFields input[type=checkbox]:checked + label:before {
+	content:url(../img/confirm.png);
+	position:absolute;
+	left:0;
+	top:-2px;
+}
+
+#appForm input[type=submit] {
+	width:142px;
+	margin-left:20px;
+	margin-top:-3px;
+}
+
+#addRepresentative {
+	position:relative;
+	float:right;
+	right:150px;
+	cursor:pointer;
+	width:253px;
+	font-size:16px;
+}
+
+#addRepresentative > img {
+	transform:rotate(0deg);
+	transition:transform .3s;
+}
+
+#addRepresentative:hover > img {
+	transform:rotate(180deg);
+}
+
+#addRepresentative > span {
+	position:relative;
+	top:10px;
+	left:10px;
+}
 
 #wrapper > footer {
 	position:relative;
