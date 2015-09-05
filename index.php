@@ -19,7 +19,33 @@
 				</form>
             </div>
         </header>
-        <nav></nav>
+        <nav>
+        	<a href="index.php">
+            	<div class="active">Главная<div class="delimiter"></div></div>
+            </a>
+            <a href="news.php">
+                <div>
+                    Новости
+                    <div class="delimiter"></div>
+                    <div class="navCircle"></div>
+                </div>
+			</a>
+            <a href="committees.php">
+                <div>
+                    Комитеты
+                    <div class="delimiter"></div>
+                    <div class="navCircle"></div>
+                </div>
+            </a>
+            <a href="#">
+                <div>
+                    О союзе
+                    <div class="delimiter"></div>
+                    <div class="navCircle"></div>
+                </div>
+            </a>
+            <a href="applicationForm.php"><div>Регистрация в союзе</div></a>
+        </nav>
         <section>
         	<article>
             	<header>Новости союза</header>

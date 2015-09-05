@@ -121,6 +121,66 @@ select:focus, input:focus, textarea:focus {
 	position:relative;
 	height:50px;
 	background-color:#FFF;
+	display:flex;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:30px;
+}
+
+#wrapper > nav > a {
+	text-decoration:none;
+	color:#000;
+}
+
+#wrapper > nav > a:last-child > div {
+	font-size:22px;
+}
+
+#wrapper > nav > a > div {
+	padding-left:20px;
+	padding-top:10px;
+	height:40px;
+	cursor:pointer;
+}
+
+#wrapper > nav > a > div.active {
+	background-image:url(../img/dnr-small.png);
+	background-repeat:repeat-y;
+}
+
+#wrapper > nav > a > div:hover {
+	background-color:#e2e3e4
+}
+
+#wrapper > nav > a > div:nth-of-type(1) {
+	width:140px;
+}
+
+#wrapper > nav > a:nth-of-type(2) > div, #wrapper > nav > a:nth-of-type(3) > div, #wrapper > nav > a:nth-of-type(4) > div {
+	width:180px;
+}
+
+#wrapper > nav > a:nth-of-type(5) > div {
+	width:220px;
+	padding-top:15px;
+	height:35px;
+}
+
+#wrapper > nav > a > div > div.navCircle {
+	position:relative;
+	float:right;
+	right:4px;
+	width:26px;
+	height:26px;
+	background-image:url(../img/navCircle.png);
+}
+
+#wrapper > nav > a > div > div.delimiter {
+	position:relative;
+	float:right;
+	height:40px;
+	width:1px;
+	bottom:5px;
+	background-color:#dbdbdb;
 }
 
 section {
