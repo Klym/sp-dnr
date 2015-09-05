@@ -19,6 +19,16 @@ select, input, textarea {
 	transition:box-shadow .3s;
 }
 
+input[type=checkbox] {
+	box-shadow:none;
+	transition:none;
+}
+
+input:focus[type=checkbox] {
+	box-shadow:none;
+	border:none;
+}
+
 select:focus, input:focus, textarea:focus {
 	box-shadow:#29D9F8 0 0 5px 0px;
 	border:1px solid #29D9F8;
