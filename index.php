@@ -20,31 +20,58 @@
             </div>
         </header>
         <nav>
-        	<a href="index.php">
-            	<div class="active">Главная<div class="delimiter"></div></div>
-            </a>
-            <a href="news.php">
-                <div>
-                    Новости
-                    <div class="delimiter"></div>
-                    <div class="navCircle"></div>
+        	<div>
+                <a href="index.php" class="navButton">
+                    <div class="active">Главная<div class="delimiter"></div></div>
+                </a>
+                <div class="hidden"></div>
+            </div>
+            
+            <div>
+                <a href="news.php" class="navButton">
+                    <div>
+                        Новости
+                        <div class="delimiter"></div>
+                        <div class="navCircle"></div>
+                    </div>
+                </a>
+                <div class="hidden">
+                    <a href="news.php"><div>Новости союза</div></a>
+                    <a href="news.php"><div>Мероприятия</div></a>
+                    <a href="news.php"><div>Экономика</div></a>
+                    <a href="news.php"><div>Что-то</div></a>
                 </div>
-			</a>
-            <a href="committees.php">
-                <div>
-                    Комитеты
-                    <div class="delimiter"></div>
-                    <div class="navCircle"></div>
+            </div>
+            
+            <div>
+                <a href="committees.php" class="navButton">
+                    <div>
+                        Комитеты
+                        <div class="delimiter"></div>
+                        <div class="navCircle"></div>
+                    </div>
+                </a>
+                <div class="hidden">
+                    <a href="committees.php"><div>Комитет 1</div></a>
+                    <a href="committees.php"><div>Комитет 2</div></a>
+                    <a href="committees.php"><div>Комитет 3</div></a>
                 </div>
-            </a>
-            <a href="#">
-                <div>
-                    О союзе
-                    <div class="delimiter"></div>
-                    <div class="navCircle"></div>
-                </div>
-            </a>
-            <a href="applicationForm.php"><div>Регистрация в союзе</div></a>
+            </div>
+            
+            <div>
+                <a href="#" class="navButton">
+                    <div>
+                        О союзе
+                        <div class="delimiter"></div>
+                        <div class="navCircle"></div>
+                    </div>
+                </a>
+                <div class="hidden"></div>
+            </div>
+            <div>
+            	<a href="applicationForm.php" class="navButton"><div>Регистрация в союзе</div></a>
+                <div class="hidden"></div>
+            </div>
         </nav>
         <section>
         	<article>

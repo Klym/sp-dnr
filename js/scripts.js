@@ -1,5 +1,31 @@
 // JavaScript Document
 window.onload = function() {
+	// Находим блок навигации на странице
+	var nav = document.getElementsByTagName("nav")[0];
+	var buttons = nav.getElementsByClassName("navButton");
+	var count;	// Количество вложенных блоков в кнопку
+	for (var i = 0; i < buttons.length; i++) {
+		// Вешаем события наведения на все кнопки и вложенные блоки
+		buttons[i].onmouseover = function() {
+			// Считаем количество вложенных блоков
+			count = this.parentNode.getElementsByClassName("hidden")[0].getElementsByTagName("a").length;
+			// Устанавливаем значение высоты родителю вложенных ссылок
+			this.nextSibling.nextSibling.style.height = 100 * count + "%";
+		}
+		
+		buttons[i].onmouseout = function() {
+			this.nextSibling.nextSibling.style.height = 0 + "%";
+		}
+		
+		buttons[i].nextSibling.nextSibling.onmouseover = function() {
+			this.style.height = 100 * count + "%";
+		}
+		
+		buttons[i].nextSibling.nextSibling.onmouseout = function() {
+			this.style.height = 0 + "%";
+		}
+	}
+	
 	if (document.getElementById("partners")) {
 		var banners = document.getElementById("banners");
 		var images = banners.getElementsByTagName("img");
