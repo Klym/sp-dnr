@@ -1,14 +1,14 @@
 <nav>
-    <div>
+    <div class="<?= ($page == "index") ? "active" : "";  ?>">
         <a href="index.php" class="navButton">
-            <div class="<?= ($page == "index") ? "active" : "";  ?>">Главная<div class="delimiter"></div></div>
+            <div>Главная<div class="delimiter"></div></div>
         </a>
         <div class="hidden"></div>
     </div>
     
-    <div>
+    <div class="<?= ($page == "news") ? "active" : "";  ?>">
         <a href="news.php" class="navButton">
-            <div class="<?= ($page == "news") ? "active" : "";  ?>">
+            <div >
                 Новости
                 <div class="delimiter"></div>
                 <div class="navCircle"></div>
@@ -22,9 +22,9 @@
         </div>
     </div>
     
-    <div>
+    <div class="<?= ($page == "committees") ? "active" : "";  ?>">
         <a href="committees.php" class="navButton">
-            <div class="<?= ($page == "committees") ? "active" : "";  ?>">
+            <div>
                 Комитеты
                 <div class="delimiter"></div>
                 <div class="navCircle"></div>
@@ -37,9 +37,9 @@
         </div>
     </div>
     
-    <div>
+    <div class="<?= ($page == "about") ? "active" : "";  ?>">
         <a href="#" class="navButton">
-            <div class="<?= ($page == "about") ? "active" : "";  ?>">
+            <div>
                 О союзе
                 <div class="delimiter"></div>
                 <div class="navCircle"></div>
@@ -48,9 +48,9 @@
         <div class="hidden"></div>
     </div>
     
-    <div>
+    <div class="<?= ($page == "applicationForm") ? "active" : "";  ?>">
         <a href="applicationForm.php" class="navButton">
-        	<div class="<?= ($page == "applicationForm") ? "active" : "";  ?>">Регистрация в союзе</div>
+        	<div>Регистрация в союзе</div>
 		</a>
         <div class="hidden"></div>
     </div>

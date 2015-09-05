@@ -148,7 +148,7 @@ select:focus, input:focus, textarea:focus {
 	cursor:pointer;
 }
 
-#wrapper > nav  a > div.active {
+#wrapper > nav > div.active > a > div, #wrapper > nav > div.active > div.hidden div {
 	background-image:url(../img/dnr-small.png);
 	background-repeat:repeat-y;
 }
@@ -203,7 +203,7 @@ select:focus, input:focus, textarea:focus {
 
 #wrapper > nav  div.hidden > a > div {
 	height:30px;
-	padding:14px 0px 6px 20px;
+	padding:14px 0 6px 20px;
 	cursor:pointer;
 }
 
