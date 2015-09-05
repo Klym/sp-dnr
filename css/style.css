@@ -804,11 +804,31 @@ section > header {
 
 #appFormFields > fieldset > .representetive {
 	height:100%;
+	position:relative;
 }
 
 .representetive:not(:nth-of-type(1)) {
 	padding-top:5px;
 	border-top:2px solid #919191;
+}
+
+#delRepresentative {
+	position:absolute;
+	top:45px;
+	right:20px;
+	cursor:pointer;
+}
+
+#delRepresentative > img {
+	margin-left:11px;
+}
+
+#delRepresentative:hover > img {
+	transform:scale(1.1);
+}
+
+#delRepresentative > div {
+	text-align:center;
 }
 
 #addRepresentative {

@@ -94,6 +94,10 @@
                     <fieldset>
                     	<legend>Представители</legend>
                         <div class="representetive">
+                        	<!--<div id="delRepresentative">
+                                <img src="img/del.png" width="35" height="35" alt="Удалить представителя">
+                                <div>Удалить</div>
+                            </div>-->
                             <div>
                                 <label>
                                     <span>Имя</span>

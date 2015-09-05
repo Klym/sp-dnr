@@ -72,12 +72,37 @@ window.onload = function() {
 	
 	if (appForm) {
 		var addButton = document.getElementById("addRepresentative");
+		var fields = document.getElementsByClassName("representetive")[0];
+		// Вешаем событие на кнопку добавления представителя
 		addButton.onclick = function() {
-			var fields = document.getElementsByClassName("representetive")[0];
-			var copy = fields.cloneNode(true);
+			var copy = fields.cloneNode(true);	// Клонируем все поля
+			var inputs = copy.getElementsByTagName("input");
+			for (var i = 0; i < inputs.length; i++) {	// Устанавливаем стандартное значение всех полей
+				inputs[i].value = "";
+			}
+			// Создаем кнопку удаления представителя
+			var delButton = document.createElement("div");
+			delButton.setAttribute("id", "delRepresentative");
+			var delImg = new Image();
+			delImg.src = "img/del.png";
+			delImg.width = 35;
+			delImg.height = 35;
+			delImg.alt = "Удалить представителя";
+			delButton.appendChild(delImg);
+			var text = document.createElement("div");
+			text.appendChild(document.createTextNode("Удалить"));
+			delButton.appendChild(text);
+			// Вставляем ее в скопированный блок
+			copy.insertBefore(delButton, copy.firstChild);
+			// Добавляем весь блок
 			fields.parentNode.insertBefore(copy, this);
+			// При нажатии на кнопку удаления, удаляем добавленный блок
+			delButton.onclick = function() {
+				this.parentNode.parentNode.removeChild(this.parentNode);
+			}
 		}
 		
+		// Разблокируем кнопку при устанавлении флажка, и наоборот
 		appForm.confirm.onchange = function() {
 			if (this.checked) {
 				appForm.submit.disabled = false;
