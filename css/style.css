@@ -124,6 +124,8 @@ select:focus, input:focus, textarea:focus {
 	display:flex;
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size:30px;
+	box-shadow:#000 0 2px 15px 2px;
+	z-index:2;
 }
 
 #wrapper > nav > div {
@@ -290,6 +292,7 @@ article a:hover {
 	border-bottom:1px solid #404040;
 	border-right:1px solid #404040;
 	margin-bottom:15px;
+	box-shadow:#000 1px 1px 1px -1px;
 }
 
 #news > section > article .newsTitle {
@@ -400,7 +403,8 @@ article a:hover {
 	margin-left:0px;
 	border-bottom:none;
 	border-right:none;
-	margin-bottom:0;;
+	margin-bottom:0;
+	box-shadow:none;
 }
 
 #news > section > article.view .newsTitle {
@@ -444,6 +448,11 @@ article a:hover {
 	display:-ms-box;
 	display:flex;
 	cursor:pointer;
+	box-shadow:rgba(0,0,0,.1) -1px -1px 0 0px;
+}
+
+#news > aside .newsNavItem:hover {
+	box-shadow:rgba(0,0,0,.1) 1px 1px 0 0px;
 }
 
 #news > aside .newsNavItem > .active {
