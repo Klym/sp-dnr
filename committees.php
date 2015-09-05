@@ -10,16 +10,8 @@
 </head>
 <body>
 	<div id="wrapper" class="smallbg">
-    	<header>
-        	<div id="logo"></div>
-            <div id="search">
-            	<form method="get" name="searchForm"> 
-                    <input type="search" name="search" placeholder="Поиск" name="keywords">
-                    <input type="submit" value="">
-				</form>
-            </div>
-        </header>
-        <nav></nav>
+    	<? include("blocks/header.php"); ?>
+        <? $page = "committees"; include("blocks/nav.php"); ?>
         <div id="committees">
             <section>
             	<header>
@@ -58,20 +50,7 @@
                 </div>
             </aside>
         </div>
-        <footer>
-        	<div id="dnr-big-flag"></div>
-            <div id="copyright">
-            	<p>© Союз Предпринимателей ДНР<br>
-                Использование любых материалов,<br>
-                размещённых на данном сайте,<br>
-                разрешается при условии ссылки<br>
-                на sp-dnr.ru</p>
-            </div>
-            <address>
-                <p>Адрес: ул. Лермонтова 25, Донецк, ДНР<br>
-                Телефон: 071-356-22-22</p>
-            </address>
-        </footer>
+        <? include("blocks/footer.php"); ?>
     </div>
 </body>
 </html>

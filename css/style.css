@@ -201,9 +201,9 @@ select:focus, input:focus, textarea:focus {
 	transition:height .2s;
 }
 
-#wrapper > nav  div.hidden > div {
+#wrapper > nav  div.hidden > a > div {
 	height:30px;
-	padding:12px 20px 8px 20px;
+	padding:14px 0px 6px 20px;
 	cursor:pointer;
 }
 

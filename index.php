@@ -10,69 +10,8 @@
 </head>
 <body>
 	<div id="wrapper" class="main">
-    	<header>
-        	<div id="logo"></div>
-            <div id="search">
-            	<form method="get" name="searchForm"> 
-                    <input type="search" name="search" placeholder="Поиск" name="keywords">
-                    <input type="submit" value="">
-				</form>
-            </div>
-        </header>
-        <nav>
-        	<div>
-                <a href="index.php" class="navButton">
-                    <div class="active">Главная<div class="delimiter"></div></div>
-                </a>
-                <div class="hidden"></div>
-            </div>
-            
-            <div>
-                <a href="news.php" class="navButton">
-                    <div>
-                        Новости
-                        <div class="delimiter"></div>
-                        <div class="navCircle"></div>
-                    </div>
-                </a>
-                <div class="hidden">
-                    <a href="news.php"><div>Новости союза</div></a>
-                    <a href="news.php"><div>Мероприятия</div></a>
-                    <a href="news.php"><div>Экономика</div></a>
-                    <a href="news.php"><div>Что-то</div></a>
-                </div>
-            </div>
-            
-            <div>
-                <a href="committees.php" class="navButton">
-                    <div>
-                        Комитеты
-                        <div class="delimiter"></div>
-                        <div class="navCircle"></div>
-                    </div>
-                </a>
-                <div class="hidden">
-                    <a href="committees.php"><div>Комитет 1</div></a>
-                    <a href="committees.php"><div>Комитет 2</div></a>
-                    <a href="committees.php"><div>Комитет 3</div></a>
-                </div>
-            </div>
-            
-            <div>
-                <a href="#" class="navButton">
-                    <div>
-                        О союзе
-                        <div class="delimiter"></div>
-                        <div class="navCircle"></div>
-                    </div>
-                </a>
-                <div class="hidden"></div>
-            </div>
-            <div>
-            	<a href="applicationForm.php" class="navButton"><div>Регистрация в союзе</div></a>
-                <div class="hidden"></div>
-            </div>
-        </nav>
+    	<? include("blocks/header.php"); ?>
+        <? $page = "index"; include("blocks/nav.php"); ?>
         <section>
         	<article>
             	<header>Новости союза</header>
@@ -159,20 +98,7 @@
 	            <p>Для того что-бы стать членом союза перейдите <a href="applicationForm.php">по этой ссылке</a> и заполните форму.</p>
            	</div>
         </div>
-        <footer>
-        	<div id="dnr-big-flag"></div>
-            <div id="copyright">
-            	<p>© Союз Предпринимателей ДНР<br>
-                Использование любых материалов,<br>
-                размещённых на данном сайте,<br>
-                разрешается при условии ссылки<br>
-                на sp-dnr.ru</p>
-            </div>
-            <address>
-                <p>Адрес: ул. Лермонтова 25, Донецк, ДНР<br>
-                Телефон: 071-356-22-22</p>
-            </address>
-        </footer>
+        <? include("blocks/footer.php"); ?>
     </div>
 </body>
 </html>
