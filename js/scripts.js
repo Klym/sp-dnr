@@ -71,6 +71,13 @@ window.onload = function() {
 	}
 	
 	if (appForm) {
+		var addButton = document.getElementById("addRepresentative");
+		addButton.onclick = function() {
+			var fields = document.getElementsByClassName("representetive")[0];
+			var copy = fields.cloneNode(true);
+			fields.parentNode.insertBefore(copy, this);
+		}
+		
 		appForm.confirm.onchange = function() {
 			if (this.checked) {
 				appForm.submit.disabled = false;

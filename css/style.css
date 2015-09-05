@@ -690,7 +690,7 @@ section > header {
 
 #appFormFields {
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size:21px;
+	font-size:16px;
 	margin-top:30px;
 }
 
@@ -765,8 +765,9 @@ section > header {
 	cursor:pointer;
 	position:relative;
 	padding-left:40px;
-	padding-top:4px;
+	padding-top:7px;
 	height:20px;
+	font-size:16px;
 }
 
 #appFormFields div.checkbox:before {
@@ -799,6 +800,15 @@ section > header {
 
 #appForm input[disabled]:hover {
 	background-color:#337ab7;
+}
+
+#appFormFields > fieldset > .representetive {
+	height:100%;
+}
+
+.representetive:not(:nth-of-type(1)) {
+	padding-top:5px;
+	border-top:2px solid #919191;
 }
 
 #addRepresentative {

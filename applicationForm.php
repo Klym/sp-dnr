@@ -93,30 +93,32 @@
                     </fieldset>
                     <fieldset>
                     	<legend>Представители</legend>
-                        <div>
-                            <label>
-                                <span>Имя</span>
-                                <input type="text" name="reprName" class="middle">
-                            </label>
-                        </div>
-                        <div>
-                            <label>
-                                <span>Фамилия</span>
-                                <input type="text" name="reprSurname" class="middle">
-                            </label>
-                        </div>
-                        <div>
-                            <label>
-                                <span>Отчество</span>
-                                <input type="text" name="reprPatronymic" class="middle">
-                            </label>
-                        </div>
-                        <div>
-                            <label>
-                                <span>Телефон</span>
-                                <input type="tel" name="reprTel" class="middle">
-                            </label>
-                        </div>
+                        <div class="representetive">
+                            <div>
+                                <label>
+                                    <span>Имя</span>
+                                    <input type="text" name="reprName" class="middle">
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <span>Фамилия</span>
+                                    <input type="text" name="reprSurname" class="middle">
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <span>Отчество</span>
+                                    <input type="text" name="reprPatronymic" class="middle">
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <span>Телефон</span>
+                                    <input type="tel" name="reprTel" class="middle">
+                                </label>
+                            </div>
+						</div>
                         <div id="addRepresentative">
                             <img src="img/add.png" width="34" height="34" alt="Добавить представителя" align="left">
                             <span>Добавить еще представителя</span>
