@@ -70,7 +70,7 @@ window.onload = function() {
 		}
 	}
 	
-	if (appForm) {
+	if (document.getElementById("regSection")) {
 		var addButton = document.getElementById("addRepresentative");
 		var fields = document.getElementsByClassName("representetive")[0];
 		// Вешаем событие на кнопку добавления представителя
