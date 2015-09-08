@@ -14,14 +14,14 @@
         <? $page = "index"; include("blocks/nav.php"); ?>
         <section>
         	<article>
-            	<header>Новости союза</header>
+            	<header>Новости Союза Предпринимателей</header>
                 <div class="articleBody">
                 	<p><img src="img/articleLogo.jpg" width="123" height="98" alt="Логотип статьи"></p>
                     <div class="articleTitle"><p>Заголовок новости</p></div>
                     <div class="articleDate"><p>26,11,2015</p></div>
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="viewArticle.php">Читать далее...</a></p>
                 </div>
-                <footer><p><a href="news.php">Перейти ко всем новостям союза</a></p></footer>
+                <footer><p><a href="news.php">Перейти ко всем новостям Союза Предпринимателей</a></p></footer>
             </article>
             <article>
             	<header>Мероприятия</header>
@@ -56,7 +56,7 @@
         </section>
         <div id="partners">
         	<header>
-            	<span class="title">Партнеры СП »</span>
+            	<span class="title">Партнеры Союза Предпринимателей »</span>
 			</header>
             <div id="partnersBody">
             	<div id="prev"></div>
@@ -92,10 +92,10 @@
         </div>
         <div id="reg">
         	<header>
-            	<span class="title">Стать членом союза »</span>
+            	<span class="title">Стать членом Союза Предпринимателей»</span>
 			</header>
             <div id="regText">
-	            <p>Для того что-бы стать членом союза перейдите <a href="applicationForm.php">по этой ссылке</a> и заполните форму.</p>
+	            <p>Для того чтобы стать членом Союза Предпринимателей перейдите <a href="applicationForm.php">по этой ссылке</a> и заполните форму.</p>
            	</div>
         </div>
         <? include("blocks/footer.php"); ?>
