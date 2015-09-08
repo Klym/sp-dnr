@@ -1,3 +1,6 @@
+<?php
+include("blocks/connect.php");
+?>
 <!doctype html>
 <html>
 <head>
