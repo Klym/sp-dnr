@@ -1,5 +1,18 @@
 <?php
-include("blocks/connect.php");
+require("blocks/connect.php");
+require("packages/info/Data.php");
+require("packages/info/News.php");
+
+$test = new info\News($pdo);
+try {
+	$arr = $test->getLatestData();
+} catch(Exception $e) {
+	die($e->getMessage());
+}
+/*echo "<pre>";
+print_r($arr);
+echo "</pre>";
+die();*/
 ?>
 <!doctype html>
 <html>
