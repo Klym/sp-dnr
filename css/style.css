@@ -483,6 +483,10 @@ article a:hover {
 	padding:7px 0 0 6px;
 }
 
+.newsNavItemLink {
+	text-decoration:none;
+}
+
 #news > aside  .newsNavItem:hover .newsNavItemText, #news > aside .newsNavItem.active .newsNavItemText {
 	color:#000;
 	background-color:#ebebeb;

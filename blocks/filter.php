@@ -1,25 +1,20 @@
 <nav>
-    <div class="newsNavItem">
-        <div class="active"></div>
-        <div class="newsNavItemMark"></div>
-        <div class="newsNavItemText">Все новости</div>
-    </div>
-    <div class="newsNavItem">
-        <div class="newsNavItemMark"></div>
-        <div class="newsNavItemText">Новости союза</div>
-    </div>
-    <div class="newsNavItem">
-        <div class="newsNavItemMark"></div>
-        <div class="newsNavItemText">Мероприятия</div>
-    </div>
-    <div class="newsNavItem">
-        <div class="newsNavItemMark"></div>
-        <div class="newsNavItemText">Экономика</div>
-    </div>
-    <div class="newsNavItem">
-        <div class="newsNavItemMark"></div>
-        <div class="newsNavItemText">Что-то</div>
-    </div>
+    <a href="news.php" class="newsNavItemLink">
+        <div class="newsNavItem">
+            <?=(!isset($_GET["id"])) ? "<div class=\"active\"></div>" : ""; ?>
+            <div class="newsNavItemMark"></div>
+            <div class="newsNavItemText">Все новости</div>
+        </div>
+	</a>
+    <? foreach($categories as $cat) : ?>
+    <a href="news.php?id=<?=$cat->getId(); ?>" class="newsNavItemLink">
+        <div class="newsNavItem">
+        	<?=($_GET["id"] == $cat->getId()) ? "<div class=\"active\"></div>" : ""; ?>
+            <div class="newsNavItemMark"></div>
+            <div class="newsNavItemText"><?=$cat->getTitle(); ?></div>
+        </div>
+	</a>
+    <? endforeach; ?>
 </nav>
 <div class="delimiterLine"></div>
 <div class="newsNavItem">
