@@ -137,4 +137,26 @@ window.onload = function() {
 			}
 		}
 	}
+	
+	// Проверяем существует ли навигация на странице
+	if (document.getElementsByClassName("pagination")[0]) {
+		var pagination = document.getElementsByClassName("pagination")[0];
+		var params = {};
+		// Разбиваем параметры адресной строки и сохраняем их в объект
+		var paramsArr = window.location.search.substr(1).split("&");
+		for (var i = 0; i < paramsArr.length; i++) {
+			var kv = paramsArr[i].split("=");
+			params[kv[0]] = kv[1];
+		}
+		// Удаляем параметр page
+		delete params.page;
+		// Добавляем всем ссылкам навигации сохраненные параметры
+		var links = pagination.getElementsByTagName("a");
+		for (var i = 0; i < links.length; i++) {
+			for (prop in params) {
+				if (params[prop] == undefined) break;
+				links[i].href += "&" + prop + "=" + params[prop];
+			}
+		}
+	}
 }
