@@ -48,6 +48,14 @@ class Pagination {
 	function toEnd() {
 		return $this->countPages - 1;
 	}
+	
+	function isPrevDisabled() {
+		return ($this->selected == 0) ? "class=\"disabled\"" : "";
+	}
+	
+	function isNextDisabled() {
+		return ($this->selected == $this->countPages - 1) ? "class=\"disabled\"" : "";
+	}
 }
 
 ?>

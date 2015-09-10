@@ -334,6 +334,14 @@ article a:hover {
 	height:35px;
 }
 
+nav.pagination > ul > a.disabled {
+	  pointer-events:none;
+}
+
+nav.pagination > ul > a.disabled > li {
+	color:#999;
+}
+
 nav.pagination > ul > a > li {
 	float:left;
 	height:25px;
