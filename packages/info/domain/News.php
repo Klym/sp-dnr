@@ -8,15 +8,17 @@ require_once("packages/info/mapper/CategoryMapper.php");
 class News extends DomainObject {
 	private $author;
 	private $type;
+	private $views;
 	private $date;
 	
-	function __construct($id, $title, $text, $author, $type, $date) {
+	function __construct($id, $title, $text, $author, $type, $views, $date) {
 		parent::__construct($id, $title, $text);
 		$this->author = $author;
 		$db = \database\Db::getInstance();
 		$pdo = $db->getDb();
 		$category = new CategoryMapper($pdo);
 		$this->type = $category->find($type);
+		$this->views = $views;
 		$this->date = $date;
 	}
 	
@@ -26,6 +28,10 @@ class News extends DomainObject {
 	
 	public function getType() {
 		return $this->type;
+	}
+	
+	public function getViews() {
+		return $this->views;
 	}
 	
 	public function getDate() {

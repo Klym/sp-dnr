@@ -17,7 +17,7 @@ require("blocks/connect.php");
         <? $page = "news"; include("blocks/nav.php"); ?>
         <div id="news">
             <section>
-                <nav>
+                <nav class="breadcrumbs">
                     <a href="index.php">Главная</a> /
                     <a href="news.php">Новости</a> /
                     <a href="news.php">Мероприятия</a> / <span class="active">Заголовок мероприятия</span>

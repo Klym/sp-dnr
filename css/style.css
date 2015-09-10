@@ -282,10 +282,12 @@ article a:hover {
 	width:787px;
 	height:100%;
 	background-color:#FFF;
+	display:flex;
+	flex-wrap:wrap;
+	padding-bottom:15px;
 }
 
 #news > section > article {
-	float:left;
 	width:380px;
 	padding:7px 0 10px 0;
 	margin-left:4px;
@@ -325,7 +327,47 @@ article a:hover {
 	font-weight:bold;
 }
 
-#news > section > nav {
+#news > section > nav.pagination {
+	position:relative;
+	display:inline-block;
+	margin:0 auto;
+	height:35px;
+}
+
+nav.pagination > ul > a > li {
+	float:left;
+	height:25px;
+	border-left:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	border-top:1px solid #ddd;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	padding:10px 13px 0 13px;
+	color:#337ab7;
+	cursor:pointer;
+}
+
+nav.pagination > ul > a:first-child > li {
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+}
+
+nav.pagination > ul > a:last-child > li {
+	border-right:1px solid #ddd;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+
+nav.pagination > ul > a:hover > li {
+	background-color:#E4E9E7;
+}
+
+nav.pagination > ul > a > li.active {
+	background-color:#337ab7;
+	color:#FFF;
+}
+
+#news > section > nav.breadcrumbs {
 	position:relative;
 	height:10px;
 	left:5px;
@@ -336,16 +378,16 @@ article a:hover {
 	padding:10px;
 }
 
-#news > section > nav > a {
+#news > section > nav.breadcrumbs > a {
 	text-decoration:none;
 	color:#000;
 }
 
-#news > section > nav > a:hover {
+#news > section > nav.breadcrumbs > a:hover {
 	text-decoration:underline;
 }
 
-#news > section > nav > .active {
+#news > section > nav.breadcrumbs > .active {
 	color:indigo;
 }
 

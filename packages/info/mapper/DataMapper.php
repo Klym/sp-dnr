@@ -10,6 +10,9 @@ abstract class DataMapper {
 	}
 	
 	public function find($id) {
+		if (!preg_match("|^[\d]+$|",$id)) {
+			throw new \Exception("Ошибка. Параметр не является числом");
+		}
 		$result = $this->selectStmt()->execute(array($id));
 		if (!$result) {
 			throw new \Exception("Ошибка базы данных. Запрос на выборку данных не прошел");
@@ -19,7 +22,7 @@ abstract class DataMapper {
 			throw new \Exception("Ошибка базы данных. Таблица пуста");
 		}
 		if (!isset($array["id"])) {
-			throw new \Exception("Ошибка запроса. Данные не имеют идентификатора");
+			throw new \Exception("Ошибка запроса. Данные в базе не имеют идентификатора");
 		}
 		return $this->createObject($array);
 	}
