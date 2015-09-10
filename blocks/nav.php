@@ -48,7 +48,7 @@
     <div class="<?= ($page == "about") ? "active" : "";  ?>">
         <a href="#" class="navButton">
             <div>
-                О союзе
+                О Союзе
                 <div class="delimiter"></div>
                 <div class="navCircle"></div>
             </div>
@@ -58,7 +58,7 @@
     
     <div class="<?= ($page == "applicationForm") ? "active" : "";  ?>">
         <a href="applicationForm.php" class="navButton">
-        	<div>Регистрация в союзе</div>
+        	<div>Регистрация в Союзе</div>
 		</a>
         <div class="hidden"></div>
     </div>
