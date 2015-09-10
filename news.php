@@ -3,13 +3,18 @@ require("blocks/connect.php");
 require("packages/info/mapper/NewsMapper.php");
 require("packages/info/domain/News.php");
 require("packages/info/domain/Category.php");
+require("packages/pagination/Pagination.php");
 
 $news = new info\mapper\NewsMapper($pdo);
 try {
 	$limitNews = $news->getLmitData();
+	$count = $news->getCount();
 } catch(Exception $e) {
 	die($e->getMessage());
 }
+$selected = isset($_GET["page"]) ? $_GET["page"] : 0;
+$pagination = new pagination\Pagination($count, $selected);
+$pagination->generate();
 ?>
 <!doctype html>
 <html>
@@ -17,7 +22,6 @@ try {
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-
 <script src="js/scripts.js"></script>
 <script src="js/Partners.js"></script>
 <title>Союз Предпринимателей ДНР - Новости</title>
@@ -38,21 +42,17 @@ try {
                 <? endforeach; ?>
                 <nav class="pagination">
                 	<ul>
-                    	<a><li>&larr;&nbsp;Первая</li></a>
-                    	<a><li>&laquo;</li></a>
-                    	<a><li >1</li></a>
-                        <a><li>2</li></a>
-                        <a><li class="active">3</li></a>
-                        <a><li>4</li></a>
-                        <a><li>5</li></a>
-                        <a><li>6</li></a>
-                        <a><li>7</li></a>
-                        <a><li>8</li></a>
-                        <a><li>9</li></a>
-                        <a><li>10</li></a>
-                        <a><li>11</li></a>
-                        <a><li>&raquo;</li></a>
-                        <a><li>Последняя&nbsp;&rarr;</li></a>
+                    	<a href="news.php?page=0"><li>&larr;&nbsp;Первая</li></a>
+                    	<a href="news.php?page=<?=$pagination->getPrev(); ?>"><li>&laquo;</li></a>
+                    	
+						<? for ($c = 0, $i = $pagination->getFrom(); $c < $pagination->count; $i++, $c++) { ?>
+                            <a href="news.php?page=<?=$i; ?>">
+                                <li <?=($pagination->getSelected() == $i) ? "class=\"active\"" : 0; ?>><?=($i + 1); ?></li>
+                            </a>
+                        <? } ?>
+                        
+                        <a href="news.php?page=<?=$pagination->getNext(); ?>"><li>&raquo;</li></a>
+                        <a href="news.php?page=<?=$pagination->toEnd(); ?>"><li>Последняя&nbsp;&rarr;</li></a>
                     </ul>
                 </nav>
             </section>
