@@ -13,15 +13,28 @@ class Category {
 		}
 		$this->db = $db;
 		$this->selectStmt = $this->db->prepare("SELECT * FROM categories WHERE id = ?");
+		$this->selectAllStmt = $this->db->prepare("SELECT * FROM categories");
 	}
 	
 	public function find($id) {
 		$result = $this->selectStmt->execute(array($id));
 		if (!$result) {
-			throw new Exception("Ошибка базы данных. Запрос на выборку типов новостей не прошел");
+			throw new \Exception("Ошибка базы данных. Запрос на выборку типов новостей не прошел");
 		}
 		$category = $this->selectStmt->fetch();
 		return $this->doCreateObject($category);
+	}
+	
+	public function findAll() {
+		$result = $this->selectAllStmt->execute();
+		if (!$result) {
+			throw new \Exception("Ошибка базы данных. Запрос на выборку типов новостей не прошел");
+		}
+		$categories = $this->selectAllStmt->fetchAll();
+		for ($i = 0; $i < count($categories); $i++) {
+			$data[] = $this->doCreateObject($categories[$i]);
+		}
+		return $data;
 	}
 	
 	private function doCreateObject(array $array) {

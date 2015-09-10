@@ -5,15 +5,13 @@ require("packages/info/News.php");
 require("packages/info/Category.php");
 
 $news = new info\News($pdo);
+
 try {
 	$latestNews = $news->getLatestData();
 } catch(Exception $e) {
 	die($e->getMessage());
 }
-/*echo "<pre>";
-print_r($latestNews);
-echo "</pre>";
-die();*/
+
 ?>
 <!doctype html>
 <html>

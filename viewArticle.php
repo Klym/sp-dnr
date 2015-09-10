@@ -1,3 +1,6 @@
+<?php
+require("blocks/connect.php");
+?>
 <!doctype html>
 <html>
 <head>

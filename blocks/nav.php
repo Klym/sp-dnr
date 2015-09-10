@@ -15,10 +15,18 @@
             </div>
         </a>
         <div class="hidden">
-            <a href="news.php"><div>Новости союза</div></a>
-            <a href="news.php"><div>Мероприятия</div></a>
-            <a href="news.php"><div>Экономика</div></a>
-            <a href="news.php"><div>Что-то</div></a>
+        	<?php
+				require_once("packages/info/Category.php");	
+				$category = new info\Category($pdo);
+				try {
+					$categories = $category->findAll();
+				} catch(Exception $e) {
+					die($e->getMessage());
+				}
+			?>
+        	<? foreach($categories as $cat) : ?>
+                <a href="news.php?id=<?=$cat->id ?>"><div><?=$cat->title ?></div></a>
+            <? endforeach; ?>
         </div>
     </div>
     
