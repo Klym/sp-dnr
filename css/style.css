@@ -321,6 +321,10 @@ article a:hover {
 	top:3px;
 }
 
+#news > section.view {
+	display:block;
+}
+
 #news > section > article > p {
 	font-family:"Times New Roman", Times, serif;
 	font-size:16px;
@@ -403,8 +407,9 @@ nav.pagination > ul > a > li.active {
 	width:200px;
 	height:60px;
 	position:relative;
+	float:right;
 	top:7px;
-	left:130px;
+	right:9px;
 	cursor:pointer;
 	background-color:#ebebeb;
 	border:0;
