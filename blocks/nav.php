@@ -15,7 +15,7 @@
             </div>
         </a>
         <div class="hidden">
-            <a href="news.php"><div>Новости союза</div></a>
+            <a href="news.php"><div>Новости Союза</div></a>
             <a href="news.php"><div>Мероприятия</div></a>
             <a href="news.php"><div>Экономика</div></a>
             <a href="news.php"><div>Что-то</div></a>
@@ -40,7 +40,7 @@
     <div class="<?= ($page == "about") ? "active" : "";  ?>">
         <a href="#" class="navButton">
             <div>
-                О союзе
+                О Союзе
                 <div class="delimiter"></div>
                 <div class="navCircle"></div>
             </div>
@@ -50,7 +50,7 @@
     
     <div class="<?= ($page == "applicationForm") ? "active" : "";  ?>">
         <a href="applicationForm.php" class="navButton">
-        	<div>Регистрация в союзе</div>
+        	<div>Регистрация в Союзе</div>
 		</a>
         <div class="hidden"></div>
     </div>

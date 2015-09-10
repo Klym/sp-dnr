@@ -54,14 +54,14 @@
                         <legend>Руководитель</legend>
 						<div>
                             <label>
-                                <span>Имя*</span>
-                                <input type="text" name="name" class="middle">
-                            </label>
-                        </div>
-                        <div>
-                            <label>
                                 <span>Фамилия*</span>
                                 <input type="text" name="surname" class="middle">
+                            </label>
+                        </div>
+						<div>
+                            <label>
+                                <span>Имя*</span>
+                                <input type="text" name="name" class="middle">
                             </label>
                         </div>
                         <div>
@@ -92,14 +92,14 @@
                             </div>-->
                             <div>
                                 <label>
-                                    <span>Имя</span>
-                                    <input type="text" name="reprName" class="middle">
-                                </label>
-                            </div>
-                            <div>
-                                <label>
                                     <span>Фамилия</span>
                                     <input type="text" name="reprSurname" class="middle">
+                                </label>
+                            </div>
+							<div>
+                                <label>
+                                    <span>Имя</span>
+                                    <input type="text" name="reprName" class="middle">
                                 </label>
                             </div>
                             <div>
@@ -120,9 +120,25 @@
                             <span>Добавить еще представителя</span>
                         </div>
 					</fieldset>
+					<div>
+						<label>
+							<span>
+								Юридический адрес
+							</span>				
+							<input type="text" name="jurAddr" class="wide">
+						</label>					
+					</div>
+					<div>
+						<label>
+							<span>
+								Фактический адрес
+							</span>				
+							<input type="text" name="actAddr" class="wide">
+						</label>					
+					</div>
 					<div class="noteField">
                         <label>
-                            <span>Примечание</span>
+                            <span>Примечания, интересующие вопросы</span>
                             <textarea name="note" class="wide"></textarea>
                         </label>
 					</div>
