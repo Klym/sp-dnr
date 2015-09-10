@@ -16,8 +16,9 @@
         </a>
         <div class="hidden">
         	<?php
-				require_once("packages/info/Category.php");	
-				$category = new info\Category($pdo);
+				require_once("packages/info/mapper/CategoryMapper.php");
+				require_once("packages/info/domain/Category.php");	
+				$category = new info\mapper\CategoryMapper($pdo);
 				try {
 					$categories = $category->findAll();
 				} catch(Exception $e) {
@@ -25,7 +26,7 @@
 				}
 			?>
         	<? foreach($categories as $cat) : ?>
-                <a href="news.php?id=<?=$cat->id ?>"><div><?=$cat->title ?></div></a>
+                <a href="news.php?id=<?=$cat->getId(); ?>"><div><?=$cat->getTitle(); ?></div></a>
             <? endforeach; ?>
         </div>
     </div>
@@ -39,9 +40,19 @@
             </div>
         </a>
         <div class="hidden">
-            <a href="committees.php"><div>Комитет 1</div></a>
-            <a href="committees.php"><div>Комитет 2</div></a>
-            <a href="committees.php"><div>Комитет 3</div></a>
+        	<?php
+				require_once("packages/info/mapper/CommitteesMapper.php");
+				require_once("packages/info/domain/Committees.php");
+				$comMapper = new \info\mapper\CommitteesMapper($pdo);
+				try {
+					$committees = $comMapper->findAll();
+				} catch (Exception $e) {
+					die($e->getMessage());
+				}
+			?>
+            <? foreach($committees as $comm) : ?>
+	            <a href="committees.php?id=<?=$comm->getId(); ?>"><div><?=$comm->getTitle(); ?></div></a>
+            <? endforeach; ?>
         </div>
     </div>
     

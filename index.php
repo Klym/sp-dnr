@@ -1,11 +1,10 @@
 <?php
 require("blocks/connect.php");
-require("packages/info/Data.php");
-require("packages/info/News.php");
-require("packages/info/Category.php");
+require("packages/info/mapper/NewsMapper.php");
+require("packages/info/domain/News.php");
+require("packages/info/domain/Category.php");
 
-$news = new info\News($pdo);
-
+$news = new info\mapper\NewsMapper($pdo);
 try {
 	$latestNews = $news->getLatestData();
 } catch(Exception $e) {
@@ -30,15 +29,15 @@ try {
         <section>
         	<? foreach($latestNews as $newsItem) : ?>
             <article>
-            	<header><?=$newsItem->type->title; ?></header>
+            	<header><?=$newsItem->getType()->getTitle(); ?></header>
                 <div class="articleBody">
                 	<p><img src="img/articleLogo.jpg" width="123" height="98" alt="Логотип статьи"></p>
-                    <div class="articleTitle"><p><?=$newsItem->title; ?></p></div>
-                    <div class="articleDate"><p><?=$newsItem->date; ?></p></div>
-                    <p><?=$newsItem->shortText; ?><a href="viewArticle.php?id=<?=$newsItem->id; ?>">Читать далее...</a></p>
+                    <div class="articleTitle"><p><?=$newsItem->getTitle(); ?></p></div>
+                    <div class="articleDate"><p><?=$newsItem->getDate(); ?></p></div>
+                    <p><?=$newsItem->getShortText(); ?><a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">Читать далее...</a></p>
                 </div>
                 <footer>
-                	<p><a href="news.php?id=<?=$newsItem->type->id; ?>">Перейти к категории "<?=$newsItem->type->title; ?>"</a></p>
+                	<p><a href="news.php?id=<?=$newsItem->getType()->getId(); ?>">Перейти к категории "<?=$newsItem->getType()->getTitle(); ?>"</a></p>
 				</footer>
             </article>
             <? endforeach; ?>
