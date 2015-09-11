@@ -9,8 +9,13 @@ $selected = isset($_GET["page"]) ? $_GET["page"] : 0;
 
 $news = new info\mapper\NewsMapper($pdo);
 try {
-	$limitNews = $news->getLmitData($selected);
-	$count = $news->getCount();
+	if (isset($_GET["type"])) {
+		$limitNews = $news->getByTypeData($selected, $_GET["type"]);
+		$count = $news->getByTypeCount($_GET["type"]);
+	} else {
+		$limitNews = $news->getLmitData($selected);
+		$count = $news->getCount();
+	}
 } catch(Exception $e) {
 	die($e->getMessage());
 }

@@ -18,8 +18,8 @@ abstract class DataMapper {
 			throw new \Exception("Ошибка базы данных. Запрос на выборку данных не прошел");
 		}
 		$array = $this->selectStmt()->fetch();
-		if (!is_array($array)) {
-			throw new \Exception("Ошибка базы данных. Таблица пуста");
+		if (empty($array)) {
+			throw new \Exception("Ошибка базы данных. Данных по запросу не обнаружено");
 		}
 		if (!isset($array["id"])) {
 			throw new \Exception("Ошибка запроса. Данные в базе не имеют идентификатора");
@@ -33,8 +33,19 @@ abstract class DataMapper {
 			throw new \Exception("Ошибка базы данных. Запрос на выборку данных не прошел");
 		}
 		$array = $this->selectAllStmt()->fetchAll();
-		if (!is_array($array)) {
-			throw new \Exception("Ошибка базы данных. Таблица пуста");
+		if (empty($array)) {
+			throw new \Exception("Ошибка базы данных. Данных по запросу не обнаружено");
+		}
+		for ($i = 0; $i < count($array); $i++) {
+			$data[] = $this->createObject($array[$i]);
+		}
+		return $data;
+	}
+	
+	protected function getCollection($handleStatement) {
+		$array = $handleStatement->fetchAll();
+		if (empty($array)) {
+			throw new \Exception("Ошибка базы данных. Данных по запросу не обнаружено");
 		}
 		for ($i = 0; $i < count($array); $i++) {
 			$data[] = $this->createObject($array[$i]);
