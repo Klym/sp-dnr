@@ -26,7 +26,7 @@
 				}
 			?>
         	<? foreach($categories as $cat) : ?>
-                <a href="news.php?id=<?=$cat->getId(); ?>"><div><?=$cat->getTitle(); ?></div></a>
+                <a href="news.php?type=<?=$cat->getId(); ?>"><div><?=$cat->getTitle(); ?></div></a>
             <? endforeach; ?>
         </div>
     </div>

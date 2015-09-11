@@ -9,8 +9,8 @@ class NewsMapper extends DataMapper {
 		parent::__construct($pdo);
 		
 		// Запрос на выборку самых новых данных каждого типа
-		$this->selectLatestStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d,%m,%Y') AS date FROM news WHERE date IN (SELECT MAX(date) FROM news GROUP BY type) ORDER BY type");
-		$this->selectLimitStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d,%m,%Y в %H,%i') AS date FROM news LIMIT 0, 10");
+		$this->selectLatestStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y') AS date FROM news WHERE date IN (SELECT MAX(date) FROM news GROUP BY type) ORDER BY type");
+		$this->selectLimitStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y в %H:%i') AS date FROM news ORDER BY date DESC LIMIT ?, 10");
 		//$this->selectStmt = $this->pdo->prepare("SELECT * FROM news WHERE id = ?");
 		$this->selectCountStmt = $this->pdo->prepare("SELECT COUNT(*) AS count FROM news");
 	}
@@ -27,7 +27,11 @@ class NewsMapper extends DataMapper {
 		return $data;
 	}
 	
-	function getLmitData() {
+	function getLmitData($page) {
+		if (!preg_match("|^[\d]+$|", $page)) {
+			$page = 0;
+		}
+		$this->selectLimitStmt->bindValue(1, $page * 10, \PDO::PARAM_INT);
 		$result = $this->selectLimitStmt->execute();
 		if (!$result) {
 			throw new \Exception("Ошибка базы данных. Запрос на выборку новостей не прошел");

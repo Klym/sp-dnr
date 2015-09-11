@@ -5,14 +5,15 @@ require("packages/info/domain/News.php");
 require("packages/info/domain/Category.php");
 require("packages/pagination/Pagination.php");
 
+$selected = isset($_GET["page"]) ? $_GET["page"] : 0;
+
 $news = new info\mapper\NewsMapper($pdo);
 try {
-	$limitNews = $news->getLmitData();
+	$limitNews = $news->getLmitData($selected);
 	$count = $news->getCount();
 } catch(Exception $e) {
 	die($e->getMessage());
 }
-$selected = isset($_GET["page"]) ? $_GET["page"] : 0;
 $pagination = new pagination\Pagination($count, $selected);
 $pagination->generate();
 ?>
