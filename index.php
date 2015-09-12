@@ -37,7 +37,7 @@ try {
                     <p><?=$newsItem->getShortText(); ?><a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">Читать далее...</a></p>
                 </div>
                 <footer>
-                	<p><a href="news.php?id=<?=$newsItem->getType()->getId(); ?>">Перейти к категории "<?=$newsItem->getType()->getTitle(); ?>"</a></p>
+                	<p><a href="news.php?type=<?=$newsItem->getType()->getId(); ?>">Перейти к категории "<?=$newsItem->getType()->getTitle(); ?>"</a></p>
 				</footer>
             </article>
             <? endforeach; ?>
