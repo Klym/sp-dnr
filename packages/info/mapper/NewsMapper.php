@@ -11,7 +11,7 @@ class NewsMapper extends DataMapper {
 		// Запрос на выборку самых новых данных каждого типа
 		$this->selectLatestStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y') AS date FROM news WHERE date IN (SELECT MAX(date) FROM news GROUP BY type) ORDER BY type");		
 		
-		$this->selectStmt = $this->pdo->prepare("SELECT * FROM news WHERE id = ?");
+		$this->selectStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y в %H:%i') AS date FROM news WHERE id = ?");
 		$this->selectYearsStmt = $this->pdo->prepare("SELECT MAX(DATE_FORMAT(`date`, '%Y')) AS max, MIN(DATE_FORMAT(`date`, '%Y')) AS min FROM news");
 	}
 	
