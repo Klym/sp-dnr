@@ -22,20 +22,26 @@
     <div class="newsNavItemText">Фильтр</div>
 </div>
 <div id="filterForm">
+	<?
+	   $monthes = Array("Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь");
+	?>
     <form method="get" name="filter">
         <p>От:</p>
         <select>
-            <option>1</option>
-            <option>2</option>
+        	<? for ($i = 1; $i <= 31; $i++) { ?>
+                <option><?=$i; ?></option>
+			<? } ?>
         </select>
         <select>
-            <option>Январь</option>
-            <option>Февраль</option>
+            <? for ($i = 0; $i < 12; $i++) { ?>
+                <option value="<?=$i; ?>"><?=$monthes[$i]; ?></option>
+			<? } ?>
         </select>
         <select>
             <option>2015</option>
             <option>2014</option>
         </select>
+        
         <div id="endDate">
             <p>До:</p>
             <select>

@@ -564,6 +564,7 @@ nav.pagination > ul > a > li.active {
 
 #filterForm > form select {
 	margin:10px 0;
+	padding:2px;
 }
 
 #filterForm > form > input[type=submit], #appForm input[type=submit] {
