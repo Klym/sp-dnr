@@ -13,9 +13,11 @@ class SelectionFactory {
 	function __construct(\PDO $pdo, $page = null, $type = null, $from = null, $to = null) {
 		$this->pdo = $pdo;
 		$this->page = $page;
-		$this->type = $type;
-		$this->from = $from;
-		$this->to = $to;
+		$this->type = $this->check("|^[\d]+$|", $type);
+		
+		$datePattern = "/\d{4}-(?:[1-9]|1[0-2])-(?:3[0-1]|[1-2]\d|[1-9]$)/";
+		$this->from = $this->check($datePattern, $from);
+		$this->to = $this->check($datePattern, $to);
 	}
 	
 	function selectData() {
@@ -31,6 +33,9 @@ class SelectionFactory {
 	}
 	
 	private function buildStatement() {
+		if (!is_null($this->type) && $this->type <= 0) {
+			$this->type = null;
+		}
 		if (!is_null($this->type) || !is_null($this->from)) {
 			$this->query .= " WHERE";
 		}
@@ -68,6 +73,13 @@ class SelectionFactory {
 			$stmt->bindValue($i, $this->page * 10, \PDO::PARAM_INT);
 		}
 		return $stmt;
+	}
+	
+	private function check($pattern, $param) {
+		if (!is_null($param) && !preg_match($pattern, $param)) {
+			return null;
+		}
+		return $param;
 	}
 }
 

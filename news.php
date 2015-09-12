@@ -6,11 +6,21 @@ require("packages/info/domain/Category.php");
 require("packages/pagination/Pagination.php");
 
 $selected = isset($_GET["page"]) ? $_GET["page"] : 0;
+if (!isset($_GET["startYear"]) || !isset($_GET["startMonth"]) || !isset($_GET["startDay"])) {
+	$from = null;
+} else {
+	$from = $_GET["startYear"]."-".$_GET["startMonth"]."-".$_GET["startDay"];
+}
 
+if (!isset($_GET["endYear"]) || !isset($_GET["endMonth"]) || !isset($_GET["endDay"])) {
+	$to = null;
+} else {
+	$to = $_GET["endYear"]."-".$_GET["endMonth"]."-".$_GET["endDay"];
+}
 $news = new info\mapper\NewsMapper($pdo);
 try {
-	$limitNews = $news->getData($selected, $_GET["type"], $_GET["from"], $_GET["to"]);
-	$count = $news->getCount($_GET["type"], $_GET["from"], $_GET["to"]);
+	$limitNews = $news->getData($selected, $_GET["type"], $from, $to);
+	$count = $news->getCount($_GET["type"], $from, $to);
 } catch(Exception $e) {
 	die($e->getMessage());
 }
@@ -33,14 +43,15 @@ $pagination->generate();
         <? $page = "news"; include("blocks/nav.php"); ?>
         <div id="news">
             <section>
-                <? foreach ($limitNews as $newsItem) : ?>
+            	<? 	if (!empty($limitNews)) {
+					foreach ($limitNews as $newsItem) : ?>
                     <article>
                         <div class="newsTitle"><?=$newsItem->getTitle(); ?></div>
                         <div class="newsImg"><img src="img/newsImg.jpg" width="380" height="160" alt="Изображение новости"></div>
                         <div class="newsInfo">Добавлено <?=$newsItem->getDate(); ?> | <span class="eye"><img src="img/eye.png" width="28" height="20" alt="Просмотры"></span> <?=$newsItem->getViews(); ?> | <?=$newsItem->getType()->getTitle(); ?></div>
                         <p><?=$newsItem->getShortText(); ?><br><p><a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">Читать далее...</a></a></p>
                     </article>
-                <? endforeach; ?>
+                <? endforeach; } ?>
                 <nav class="pagination">
                 	<ul>
                     	<a href="news.php?page=0" <?=$pagination->isPrevDisabled(); ?>>

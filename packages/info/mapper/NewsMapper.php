@@ -12,6 +12,7 @@ class NewsMapper extends DataMapper {
 		$this->selectLatestStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y') AS date FROM news WHERE date IN (SELECT MAX(date) FROM news GROUP BY type) ORDER BY type");		
 		
 		$this->selectStmt = $this->pdo->prepare("SELECT * FROM news WHERE id = ?");
+		$this->selectYearsStmt = $this->pdo->prepare("SELECT MAX(DATE_FORMAT(`date`, '%Y')) AS max, MIN(DATE_FORMAT(`date`, '%Y')) AS min FROM news");
 	}
 	
 	function getLatestData() {
@@ -27,16 +28,13 @@ class NewsMapper extends DataMapper {
 		if (!preg_match("|^[\d]+$|", $page)) {
 			$page = 0;
 		}
-		if (!is_null($type) && !preg_match("|^[\d]+$|", $type)) {
-			throw new \Exception("Ошибка входных данных. Параметр не является числом");
-		}
 		$selectionFactory = new SelectionFactory($this->pdo, $page, $type, $from, $to);
 		$stmt = $selectionFactory->selectData();
 		$result = $stmt->execute();
 		if (!$result) {
 			throw new \Exception("Ошибка базы данных. Запрос на выборку новостей не прошел");
 		}
-		$collection = parent::getCollection($stmt);
+		$collection = parent::getCollection($stmt, true);
 		return $collection;
 	}
 	
@@ -49,6 +47,12 @@ class NewsMapper extends DataMapper {
 		}
 		$arr = $stmt->fetch();
 		return $arr["count"];
+	}
+	
+	function getYears() {
+		$this->selectYearsStmt->execute();
+		$years = $this->selectYearsStmt->fetch();
+		return $years;
 	}
 	
 	protected function createObject(array $array) {

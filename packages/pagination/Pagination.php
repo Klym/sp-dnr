@@ -54,7 +54,7 @@ class Pagination {
 	}
 	
 	function isNextDisabled() {
-		return ($this->selected == $this->countPages - 1) ? "class=\"disabled\"" : "";
+		return ($this->selected >= $this->countPages - 1) ? "class=\"disabled\"" : "";
 	}
 }
 

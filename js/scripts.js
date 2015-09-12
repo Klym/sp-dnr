@@ -68,6 +68,10 @@ window.onload = function() {
 		var items = document.getElementsByClassName("newsNavItem");
 		var filterDiv = items[items.length - 1];
 		var filterForm = document.getElementById("filterForm")
+		var activation = filterDiv.getAttribute("class");
+		if (activation == "newsNavItem active") {
+			filterForm.style.display = "block";
+		}
 		// Вешаем событие click на последний элемент навигации
 		filterDiv.onclick = function() {
 			if (filterDiv.getAttribute("class") == "newsNavItem") {
@@ -83,6 +87,10 @@ window.onload = function() {
 		
 		var endDate = document.getElementById("endDate");
 		var paragraphs = filter.getElementsByTagName("p");
+		if (filter.exactDate.checked) {
+			filter.removeChild(endDate);
+			paragraphs[0].innerText = "Дата:";
+		}
 		// Вешаем событие change на checkbox отвечающий за диапазон дат
 		filter.exactDate.onchange = function() {
 			if (this.checked) {

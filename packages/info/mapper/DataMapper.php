@@ -32,19 +32,13 @@ abstract class DataMapper {
 		if (!$result) {
 			throw new \Exception("Ошибка базы данных. Запрос на выборку данных не прошел");
 		}
-		$array = $this->selectAllStmt()->fetchAll();
-		if (empty($array)) {
-			throw new \Exception("Ошибка базы данных. Данных по запросу не обнаружено");
-		}
-		for ($i = 0; $i < count($array); $i++) {
-			$data[] = $this->createObject($array[$i]);
-		}
-		return $data;
+		$array = $this->getCollection($this->selectAllStmt());
+		return $array;
 	}
 	
-	protected function getCollection($handleStatement) {
+	protected function getCollection($handleStatement, $noException = false) {
 		$array = $handleStatement->fetchAll();
-		if (empty($array)) {
+		if (empty($array) && !$noException) {
 			throw new \Exception("Ошибка базы данных. Данных по запросу не обнаружено");
 		}
 		for ($i = 0; $i < count($array); $i++) {
