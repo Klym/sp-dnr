@@ -44,7 +44,7 @@ try {
         </section>
         <div id="partners">
         	<header>
-            	<span class="title">Партнеры Союза Предпринимателей »</span>
+            	<span class="title"><a href="partners.php">Партнеры Союза Предпринимателей »</a></span>
 			</header>
             <div id="partnersBody">
             	<div id="prev"></div>
@@ -59,7 +59,7 @@ try {
         </div>
         <div id="about">
         	<header>
-            	<span class="title">О Союзе Предпринимателей »</span>
+            	<span class="title"><a href="about.php">О Союзе Предпринимателей »</a></span>
 			</header>
             <div id="aboutBody">
             	<div id="aboutLogo"><img src="img/aboutLogo.jpg" width="250" height="199" alt="О Союзе"></div>

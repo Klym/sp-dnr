@@ -641,7 +641,7 @@ nav.pagination > ul > a > li.active {
 	margin-right:5px;
 }
 
-header > .title {
+header > .title > a {
 	line-height:25px;
 	background-color:#c7cfff;
 	font-family:"Times New Roman", Times, serif;
@@ -649,6 +649,7 @@ header > .title {
 	font-weight:bold;
 	text-decoration:underline;
 	padding:0 15px 0px 10px;
+	color:#000;
 }
 
 #partnersBody {
