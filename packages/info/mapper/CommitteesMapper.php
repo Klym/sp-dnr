@@ -7,6 +7,7 @@ class CommitteesMapper extends DataMapper {
 	function __construct(\PDO $pdo) {
 		parent::__construct($pdo);
 		$this->selectAllStmt = $this->pdo->prepare("SELECT * FROM committees");
+		$this->selectStmt = $this->pdo->prepare("SELECT * FROM committees WHERE id = ?");
 	}
 	
 	protected function createObject(array $array) {
@@ -15,7 +16,7 @@ class CommitteesMapper extends DataMapper {
 	}
 	
 	protected function selectStmt() {
-		return null;
+		return $this->selectStmt;
 	}
 	
 	protected function selectAllStmt() {
