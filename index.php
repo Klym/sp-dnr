@@ -95,7 +95,7 @@ include("blocks/connect.php");
         </div>
         <div id="reg">
         	<header>
-            	<span class="title">Стать членом Союза Предпринимателей»</span>
+            	<span class="title"><a href="applicationForm.php">Стать членом Союза Предпринимателей»</a></span>
 			</header>
             <div id="regText">
 	            <p>Для того чтобы стать членом Союза Предпринимателей перейдите <a href="applicationForm.php">по этой ссылке</a> и заполните форму.</p>
