@@ -238,13 +238,14 @@ section {
 }
 
 .articleBody {
+	position:relative;
 	margin:6px 0 0 2px;
 	line-height:25px;
 }
 
 .articleTitle {
-	width:257px;
-	float:left;
+	position:relative;
+    width:400px;
 }
 
 .articleTitle > p {
@@ -253,7 +254,9 @@ section {
 }
 
 .articleDate {
-	float:right;
+	position:absolute;
+    right:0;
+    top:0;
 }
 
 .articleBody p > img {
