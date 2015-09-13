@@ -1,5 +1,16 @@
 <?php
-include("blocks/connect.php");
+require("blocks/connect.php");
+require("packages/info/mapper/NewsMapper.php");
+require("packages/info/domain/News.php");
+require("packages/info/domain/Category.php");
+
+$news = new info\mapper\NewsMapper($pdo);
+try {
+	$latestNews = $news->getLatestData();
+} catch(Exception $e) {
+	die($e->getMessage());
+}
+
 ?>
 <!doctype html>
 <html>
@@ -16,46 +27,20 @@ include("blocks/connect.php");
     	<? include("blocks/header.php"); ?>
         <? $page = "index"; include("blocks/nav.php"); ?>
         <section>
-        	<article>
-            	<header>Новости Союза Предпринимателей</header>
-                <div class="articleBody">
-                	<p><img src="img/articleLogo.jpg" width="123" height="98" alt="Логотип статьи"></p>
-                    <div class="articleTitle"><p>Заголовок новости</p></div>
-                    <div class="articleDate"><p>26,11,2015</p></div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="viewArticle.php">Читать далее...</a></p>
-                </div>
-                <footer><p><a href="news.php">Перейти ко всем новостям Союза Предпринимателей</a></p></footer>
-            </article>
+        	<? foreach($latestNews as $newsItem) : ?>
             <article>
-            	<header>Мероприятия</header>
+            	<header><?=$newsItem->getType()->getTitle(); ?></header>
                 <div class="articleBody">
                 	<p><img src="img/articleLogo.jpg" width="123" height="98" alt="Логотип статьи"></p>
-                    <div class="articleTitle"><p>Заголовок новости</p></div>
-                    <div class="articleDate"><p>26,11,2015</p></div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="viewArticle.php">Читать далее...</a></p>
+                    <div class="articleTitle"><p><?=$newsItem->getTitle(); ?></p></div>
+                    <div class="articleDate"><p><?=$newsItem->getDate(); ?></p></div>
+                    <p><?=$newsItem->getShortText(); ?><a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">Читать далее...</a></p>
                 </div>
-                <footer><p><a href="news.php">Перейти ко всем мероприятиям</a></p></footer>
+                <footer>
+                	<p><a href="news.php?type=<?=$newsItem->getType()->getId(); ?>">Перейти к категории "<?=$newsItem->getType()->getTitle(); ?>"</a></p>
+				</footer>
             </article>
-            <article>
-            <header>Новости финансов</header>
-                <div class="articleBody">
-                	<p><img src="img/articleLogo.jpg" width="123" height="98" alt="Логотип статьи"></p>
-                    <div class="articleTitle"><p>Заголовок новости</p></div>
-                    <div class="articleDate"><p>26,11,2015</p></div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="viewArticle.php">Читать далее...</a></p>
-                </div>
-                <footer><p><a href="news.php">Перейти ко всем новостям финансов</a></p></footer>
-            </article>
-            <article>
-            	<header>Новости чего-то</header>
-                <div class="articleBody">
-                	<p><img src="img/articleLogo.jpg" width="123" height="98" alt="Логотип статьи"></p>
-                    <div class="articleTitle"><p>Заголовок новости</p></div>
-                    <div class="articleDate"><p>26,11,2015</p></div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. <a href="viewArticle.php">Читать далее...</a></p>
-                </div>
-                <footer><p><a href="news.php">Перейти ко всем новостям чего-то</a></p></footer>
-            </article>
+            <? endforeach; ?>
         </section>
         <div id="partners">
         	<header>

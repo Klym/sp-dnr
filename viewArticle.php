@@ -1,3 +1,16 @@
+<?php
+require("blocks/connect.php");
+require("packages/info/mapper/NewsMapper.php");
+require("packages/info/domain/News.php");
+require("packages/info/domain/Category.php");
+
+$news = new info\mapper\NewsMapper($pdo);
+try {
+	$newsItem = $news->find($_GET["id"]);
+} catch(Exception $e) {
+	die($e->getMessage());
+}
+?>
 <!doctype html>
 <html>
 <head>
@@ -13,25 +26,22 @@
     	<? include("blocks/header.php"); ?>
         <? $page = "news"; include("blocks/nav.php"); ?>
         <div id="news">
-            <section>
-                <nav>
+            <section class="view">
+                <nav class="breadcrumbs">
                     <a href="index.php">Главная</a> /
-                    <a href="news.php">Новости</a> /
-                    <a href="news.php">Мероприятия</a> / <span class="active">Заголовок мероприятия</span>
+                    <a href="news.php?type=<?=$newsItem->getType()->getId(); ?>"><?=$newsItem->getType()->getTitle(); ?></a> /
+                    <span class="active"><?=$newsItem->getTitle(); ?></span>
                 </nav>
-                <button id="eventReg">
-                	<div id="pen"></div>
-                    <div id="eventRegText"><p>Регистрация на мероприятие</p></div>
-                </button>
+                 <? if ($newsItem->getType()->getId() == 2) { ?>
+                    <button id="eventReg">
+                        <div id="pen"></div>
+                        <div id="eventRegText"><p>Регистрация на мероприятие</p></div>
+                    </button>
+				<? } ?>
                 <article class="view">
-                	<div class="newsTitle">Заголовок новости Заголовок новости Заголовок новости Заголовок
-новости</div>
-					<div class="newsInfo">Добавлено 26,11,2015 в 14,55 | <span class="eye"><img src="img/eye.png" width="28" height="20" alt="Просмотры"></span> 150 <span class="pull-right">| Мероприятие</span></div>
-                    <p><img src="img/sea1.jpg" width="461" height="288" alt="Море 1" align="left" style="margin-right:5px;">Каждый веб-разработчик знает, что такое текст-«рыба». Текст этот, несмотря на название, не имеет никакого отношения к обитателям водоемов. Используется он веб-дизайнерами для вставки на интернет-страницы и демонстрации внешнего вида контента, просмотра шрифтов, абзацев, отступов и т.д. Так как цель применения такого текста исключительно демонстрационная, то и смысловую нагрузку ему нести совсем необязательно. Более того, нечитабельность текста сыграет на руку при оценке качества восприятия макета.
-
-Самым известным «рыбным» текстом является знаменитый Lorem ipsum. Считается, что впервые его применили в книгопечатании еще в XVI веке. Своим появлением Lorem ipsum обязан древнеримскому философу Цицерону, ведь именно из его трактата «О пределах добра и зла» средневековый книгопечатник вырвал отдельные фразы и слова, получив текст-«рыбу», широко используемый и по сей день. Конечно, возникают некоторые вопросы, связанные с использованием Lorem ipsum на сайтах и проектах, ориентированных на кириллический контент – написание символов на латыни и на кириллице значительно различается.<br><br>
-<img src="img/sea2.jpg" width="532" height="399" alt="Море 2" align="right">
-И даже с языками, использующими латинский алфавит, могут возникнуть небольшие проблемы: в различных языках те или иные буквы встречаются с разной частотой, имеется разница в длине наиболее распространенных слов. Отсюда напрашивается вывод, что все же лучше использовать в качестве «рыбы» текст на том языке, который планируется использовать при запуске проекта. Сегодня существует несколько вариантов Lorem ipsum, кроме того, есть специальные генераторы, создающие собственные варианты текста на основе оригинального трактата, благодаря чему появляется возможность получить более длинный неповторяющийся набор слов.</p>
+                	<div class="newsTitle"><?=$newsItem->getTitle(); ?></div>
+					<div class="newsInfo">Добавлено <?=$newsItem->getDate(); ?> | <span class="eye"><img src="img/eye.png" width="28" height="20" alt="Просмотры"></span> <?=$newsItem->getViews(); ?> <span class="pull-right">| <?=$newsItem->getType()->getTitle(); ?></span></div>
+                    <p><?=$newsItem->getText(); ?></p>
                 </article>
             </section>
             <aside>

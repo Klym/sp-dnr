@@ -1,5 +1,7 @@
 <?php
 
+namespace database;
+
 class Db {
 	private $DBH;
 	private static $instance;
@@ -15,11 +17,11 @@ class Db {
 	
 	public function setDb($host, $user, $pass, $db) {
 		try {
-			$this->DBH = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+			$this->DBH = new \PDO("mysql:host=$host;dbname=$db", $user, $pass);
 		} catch (PDOException $e) {
 			die($e->getMessage());
 		}
-		$this->DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
+		$this->DBH->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_WARNING );
 		$this->DBH->prepare("SET NAMES utf8")->execute();
 	}
 	

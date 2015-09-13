@@ -68,6 +68,10 @@ window.onload = function() {
 		var items = document.getElementsByClassName("newsNavItem");
 		var filterDiv = items[items.length - 1];
 		var filterForm = document.getElementById("filterForm")
+		var activation = filterDiv.getAttribute("class");
+		if (activation == "newsNavItem active") {
+			filterForm.style.display = "block";
+		}
 		// Вешаем событие click на последний элемент навигации
 		filterDiv.onclick = function() {
 			if (filterDiv.getAttribute("class") == "newsNavItem") {
@@ -83,6 +87,10 @@ window.onload = function() {
 		
 		var endDate = document.getElementById("endDate");
 		var paragraphs = filter.getElementsByTagName("p");
+		if (filter.exactDate.checked) {
+			filter.removeChild(endDate);
+			paragraphs[0].innerText = "Дата:";
+		}
 		// Вешаем событие change на checkbox отвечающий за диапазон дат
 		filter.exactDate.onchange = function() {
 			if (this.checked) {
@@ -134,6 +142,28 @@ window.onload = function() {
 				appForm.submit.disabled = false;
 			} else {
 				appForm.submit.disabled = true;
+			}
+		}
+	}
+	
+	// Проверяем существует ли навигация на странице
+	if (document.getElementsByClassName("pagination")[0]) {
+		var pagination = document.getElementsByClassName("pagination")[0];
+		var params = {};
+		// Разбиваем параметры адресной строки и сохраняем их в объект
+		var paramsArr = window.location.search.substr(1).split("&");
+		for (var i = 0; i < paramsArr.length; i++) {
+			var kv = paramsArr[i].split("=");
+			params[kv[0]] = kv[1];
+		}
+		// Удаляем параметр page
+		delete params.page;
+		// Добавляем всем ссылкам навигации сохраненные параметры
+		var links = pagination.getElementsByTagName("a");
+		for (var i = 0; i < links.length; i++) {
+			for (prop in params) {
+				if (params[prop] == undefined) break;
+				links[i].href += "&" + prop + "=" + params[prop];
 			}
 		}
 	}

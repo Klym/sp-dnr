@@ -282,10 +282,12 @@ article a:hover {
 	width:787px;
 	height:100%;
 	background-color:#FFF;
+	display:flex;
+	flex-wrap:wrap;
+	padding-bottom:15px;
 }
 
 #news > section > article {
-	float:left;
 	width:380px;
 	padding:7px 0 10px 0;
 	margin-left:4px;
@@ -319,13 +321,65 @@ article a:hover {
 	top:3px;
 }
 
+#news > section.view {
+	display:block;
+}
+
 #news > section > article > p {
 	font-family:"Times New Roman", Times, serif;
 	font-size:16px;
 	font-weight:bold;
 }
 
-#news > section > nav {
+#news > section > nav.pagination {
+	position:relative;
+	display:inline-block;
+	margin:0 auto;
+	height:35px;
+}
+
+nav.pagination > ul > a.disabled {
+	  pointer-events:none;
+}
+
+nav.pagination > ul > a.disabled > li {
+	color:#999;
+}
+
+nav.pagination > ul > a > li {
+	float:left;
+	height:25px;
+	border-left:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	border-top:1px solid #ddd;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	padding:10px 13px 0 13px;
+	color:#337ab7;
+	cursor:pointer;
+}
+
+nav.pagination > ul > a:first-child > li {
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+}
+
+nav.pagination > ul > a:last-child > li {
+	border-right:1px solid #ddd;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+
+nav.pagination > ul > a:hover > li {
+	background-color:#E4E9E7;
+}
+
+nav.pagination > ul > a > li.active {
+	background-color:#337ab7;
+	color:#FFF;
+}
+
+#news > section > nav.breadcrumbs {
 	position:relative;
 	height:10px;
 	left:5px;
@@ -336,16 +390,16 @@ article a:hover {
 	padding:10px;
 }
 
-#news > section > nav > a {
+#news > section > nav.breadcrumbs > a {
 	text-decoration:none;
 	color:#000;
 }
 
-#news > section > nav > a:hover {
+#news > section > nav.breadcrumbs > a:hover {
 	text-decoration:underline;
 }
 
-#news > section > nav > .active {
+#news > section > nav.breadcrumbs > .active {
 	color:indigo;
 }
 
@@ -353,9 +407,9 @@ article a:hover {
 	width:200px;
 	height:60px;
 	position:relative;
+	float:right;
 	top:7px;
 	right:9px;
-	float:right;
 	cursor:pointer;
 	background-color:#ebebeb;
 	border:0;
@@ -390,7 +444,6 @@ article a:hover {
 }
 
 #eventRegText > p {
-	font-family:Arial, Helvetica, sans-serif;
 	font-size:18px;
 	color:#a3a3a3;
 }
@@ -483,6 +536,10 @@ article a:hover {
 	padding:7px 0 0 6px;
 }
 
+.newsNavItemLink {
+	text-decoration:none;
+}
+
 #news > aside  .newsNavItem:hover .newsNavItemText, #news > aside .newsNavItem.active .newsNavItemText {
 	color:#000;
 	background-color:#ebebeb;
@@ -501,12 +558,14 @@ article a:hover {
 }
 
 #filterForm  {
-	margin:10px 0 0 5px;
+	margin:10px 0 10px 5px;
 	display:none;
 }
 
 #filterForm > form select {
-	margin:10px 0;
+	margin:8px 0;
+	padding:1px;
+	border:1px solid rgb(169, 169, 169);
 }
 
 #filterForm > form > input[type=submit], #appForm input[type=submit] {

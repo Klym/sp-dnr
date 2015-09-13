@@ -1,4 +1,7 @@
-﻿<!doctype html>
+<?php
+require("blocks/connect.php");
+?>
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
