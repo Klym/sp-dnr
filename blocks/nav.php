@@ -57,7 +57,7 @@
     </div>
     
     <div class="<?= ($page == "about") ? "active" : "";  ?>">
-        <a href="#" class="navButton">
+        <a href="about.php" class="navButton">
             <div>
                 О Союзе
                 <div class="delimiter"></div>

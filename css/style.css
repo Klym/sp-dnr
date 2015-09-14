@@ -477,7 +477,8 @@ nav.pagination > ul > a > li.active {
 
 .pull-right {
 	position:relative;
-	left:300px;
+	float:right;
+	top:5px;
 }
 
 #news > section > article.view > p, .committeesText > p {
@@ -830,6 +831,22 @@ section > header {
 	width:8px;
 	height:26px;
 	background-color:#c6cad2;
+}
+
+#committees > aside.about {
+	width:250px;
+}
+
+#committees > aside.about > ul > li {
+	margin-bottom:5px;
+}
+
+#committees > section.about {
+	width:713px;
+}
+
+.headerText.about {
+	width:610px;
 }
 
 #regSection {
