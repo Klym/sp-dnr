@@ -1,12 +1,16 @@
 <?php
 require("blocks/connect.php");
 require("packages/info/mapper/NewsMapper.php");
+require("packages/info/mapper/PartnerMapper.php");
 require("packages/info/domain/News.php");
 require("packages/info/domain/Category.php");
+require("packages/info/domain/Partner.php");
 
 $news = new info\mapper\NewsMapper($pdo);
+$partners = new info\mapper\PartnerMapper($pdo);
 try {
 	$latestNews = $news->getLatestData();
+	$bannerPartners = $partners->getBannerPartners();
 } catch(Exception $e) {
 	die($e->getMessage());
 }
@@ -49,10 +53,9 @@ try {
             <div id="partnersBody">
             	<div id="prev"></div>
                 <div id="banners">
-                	<a href="#"><img src="partners/amd.jpg"></a>
-                    <a href="#"><img src="partners/hp.jpg"></a>
-                    <a href="#"><img src="partners/oracle.jpg"></a>
-                    <a href="#"><img src="partners/actvis.jpg"></a>
+                	<? foreach($bannerPartners as $banner) : ?>					
+						<a href="#"><img src="partners/<?=$banner->getImg(); ?>"></a>
+					<? endforeach; ?>
                 </div>
                 <div id="next"></div>
             </div>
