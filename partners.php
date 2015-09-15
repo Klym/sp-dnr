@@ -9,31 +9,23 @@ require("blocks/connect.php");
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="js/scripts.js"></script>
 <script src="js/Partners.js"></script>
-<title>Союз Предпринимателей ДНР - О Союзе Предпринимателей</title>
+<title>Союз Предпринимателей ДНР - Партнеры</title>
 </head>
 <body>
 	<div id="wrapper" class="smallbg">
     	<? include("blocks/header.php"); ?>
         <? $page = "about"; include("blocks/nav.php"); ?>
-        <div id="committees">
+        <div id="partnersText">
             <section class="about">
             	<header>
                 	<div class="parallelogram"></div>
-                	<div class="headerText about">О Созе Предпринимателей</div>
+                	<div class="headerText about"></div>
                 </header>
-                <div class="committeesText">
+                <div class="partnersText">
                 	<!-- Хардкоженый текст о союзе -->
 					
 				</div>
             </section>
-            <aside class="about">
-				<!-- Right block -->
-				<ul>
-					<li><a href="#">О Союзе Предпринимателей</a></li>
-					<li><a href="#">Контакты</a></li>
-					<li><a href="partners.php">Партнеры</a></li>
-				</ul>				
-            </aside>
         </div>
         <? include("blocks/footer.php"); ?>
     </div>

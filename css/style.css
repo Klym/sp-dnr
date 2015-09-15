@@ -442,13 +442,13 @@ nav.pagination > ul > a > li.active {
 	border-right:1px solid #4d67ac;
 }
 
-#eventRegText {
+#eventRegText > p > a {
 	position:relative;
 	left:8px;
 	top:2px;
 }
 
-#eventRegText > p {
+#eventRegText > p  > a {
 	font-size:18px;
 	color:#a3a3a3;
 }
@@ -1073,3 +1073,4 @@ section > header {
 	top:10px;
 	right:10px;
 }
+

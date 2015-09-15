@@ -35,7 +35,7 @@ try {
                  <? if ($newsItem->getType()->getId() == 2) { ?>
                     <button id="eventReg">
                         <div id="pen"></div>
-                        <div id="eventRegText"><p>Регистрация на мероприятие</p></div>
+                        <div id="eventRegText"><p><a href="applicationFormEvent.php">Регистрация на мероприятие</a></p></div>
                     </button>
 				<? } ?>
                 <article class="view">
