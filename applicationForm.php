@@ -9,7 +9,7 @@ require("blocks/connect.php");
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="js/scripts.js"></script>
 <script src="js/Partners.js"></script>
-<title>Союз Предпринимателей ДНР - Заявка на регистрацию в союзе</title>
+<title>Союз Предпринимателей ДНР - Заявка на регистрацию в Союзе Предпринимателей</title>
 </head>
 <body>
 	<div id="wrapper" class="smallbg">
@@ -18,10 +18,10 @@ require("blocks/connect.php");
         <section id="regSection">
             <header>
                 <div class="parallelogram"></div>
-                <div class="headerText">Заявка на регистрацию в союзе</div>
+                <div class="headerText">Заявка на регистрацию в Союзе Предпринимателей</div>
                 <div class="regLine"></div>
             </header>
-            <form method="post" name="appForm" id="appForm">
+            <form action="regApplication.php" method="post" name="appForm" id="appForm">
             	<div id="appFormFields">
                     <div>
                         <label>
@@ -32,25 +32,25 @@ require("blocks/connect.php");
                     <div>
                         <label>
                             <span>Регистрационный номер или ИНН предпринимателя*</span>
-                            <input type="text" name="inn" class="middle">
+                            <input type="text" name="regNum" class="middle">
                         </label>
                     </div>
                     <div>
                         <label>
                             <span>Основной род деятельности</span>
-                            <input type="text" name="occupation" class="wide">
+                            <input type="text" name="activity" class="wide">
                         </label>
                     </div>
                     <div>
                         <label>
                             <span>Дополнительный род деятельности</span>
-                            <input type="text" name="dopOccupation" class="wide">
+                            <input type="text" name="additionalActivity" class="wide">
                         </label>
                     </div>
                     <div>
                         <label>
-                            <span>Средняя численность персонала*</span>
-                            <input type="text" name="staff" class="short">
+                            <span>Средняя численность персонала</span>
+                            <input type="text" name="headCount" class="short">
                         </label>
                     </div>
                     <fieldset>
@@ -75,7 +75,7 @@ require("blocks/connect.php");
                         </div>
                         <div>
                             <label>
-                                <span>E-Mail*</span>
+                                <span>E-Mail</span>
                                 <input type="email" name="email" class="middle">
                             </label>
                         </div>
@@ -96,25 +96,31 @@ require("blocks/connect.php");
                             <div>
                                 <label>
                                     <span>Фамилия</span>
-                                    <input type="text" name="reprSurname" class="middle">
+                                    <input type="text" name="reprSurname[]" class="middle">
                                 </label>
                             </div>
 							<div>
                                 <label>
                                     <span>Имя</span>
-                                    <input type="text" name="reprName" class="middle">
+                                    <input type="text" name="reprName[]" class="middle">
                                 </label>
                             </div>
                             <div>
                                 <label>
                                     <span>Отчество</span>
-                                    <input type="text" name="reprPatronymic" class="middle">
+                                    <input type="text" name="reprPatronymic[]" class="middle">
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <span>E-Mail</span>
+                                    <input type="email" name="reprEmail[]" class="middle">
                                 </label>
                             </div>
                             <div>
                                 <label>
                                     <span>Телефон</span>
-                                    <input type="tel" name="reprTel" class="middle">
+                                    <input type="tel" name="reprTel[]" class="middle">
                                 </label>
                             </div>
 						</div>
@@ -147,7 +153,7 @@ require("blocks/connect.php");
 					</div>
                     <div id="regButtons">
                         <div class="checkbox">
-                            <input type="checkbox" name="confirm" id="confirm"><label for="confirm">Согласен с условиями союза</label>
+                            <input type="checkbox" name="confirm" id="confirm"><label for="confirm">Согласен с условиями Союза</label>
                         </div>
                         <input type="submit" name="submit" value="Зарегистрироваться" disabled>
 					</div>

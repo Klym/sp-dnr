@@ -864,6 +864,7 @@ section > header {
 #regSection > header > .headerText {
 	position:relative;
     left:12px;
+	width:100%;
     height:30px;
     top:11px;
     border-bottom:none;
@@ -871,7 +872,7 @@ section > header {
 }
 
 .regLine {
-	width:542px;
+	width:315px;
 	position:relative;
 	float:right;
 	top:-5px;
