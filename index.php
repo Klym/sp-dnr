@@ -64,14 +64,14 @@ try {
         	<header>
             	<span class="title"><a href="about.php">О Союзе Предпринимателей »</a></span>
 			</header>
-            <div id="aboutBody">
-            	<div id="aboutLogo"><img src="img/aboutLogo.jpg" width="250" height="199" alt="О Союзе"></div>
-                <div id="aboutText">
+            <div class="aboutBody">
+            	<div class="aboutLogo"><img src="img/aboutLogo.jpg" width="250" height="199" alt="О Союзе"></div>
+                <div class="aboutText">
                 	<p class="title">Союз Предпринимателей Донецкой Народной Республики -</p><br>
                 	<p>Каждый веб-разработчик знает, что такое текст-«рыба». Текст этот, несмотря на название, не имеет никакого отношения к обитателям водоемов. Используется он веб-дизайнерами для вставки на интернет-страницы и демонстрации внешнего вида контента, просмотра шрифтов, абзацев, отступов и т.д. Так как цель</p><br>
                     <p class="link"><a href="#">Подробно</a></p>
                 </div>
-                <div id="aboutContacts">
+                <div class="aboutContacts">
                 	<p class="title">Контакты:</p><br>
                     <address><p>109240, ул. Лермонтова, 25. Донецк, ДНР</p></address>
 					<p>Телефон: +38 071 555 22 22</p>

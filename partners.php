@@ -1,5 +1,14 @@
 <?php
 require("blocks/connect.php");
+require("packages/info/mapper/PartnerMapper.php");
+require("packages/info/domain/Partner.php");
+
+$partnerMapper = new info\mapper\PartnerMapper($pdo);
+try {
+	$partners = $partnerMapper->findAll();
+} catch(Exception $e) {
+	die($e->getMessage());
+}
 ?>
 <!doctype html>
 <html>
@@ -15,15 +24,29 @@ require("blocks/connect.php");
 	<div id="wrapper" class="smallbg">
     	<? include("blocks/header.php"); ?>
         <? $page = "about"; include("blocks/nav.php"); ?>
-        <div id="partnersText">
-            <section class="about">
+        <div id="partnersPage">
+            <section class="partners">
             	<header>
                 	<div class="parallelogram"></div>
-                	<div class="headerText about"></div>
+                	<div class="headerText partners">НАШИ ПАРТНЕРЫ</div>
                 </header>
-                <div class="partnersText">
-                	<!-- Хардкоженый текст о союзе -->
-					
+                <div id="partnersContent">
+					<? foreach($partners as $partner) : ?>
+						<div class="aboutBody">
+							<div class="aboutLogo"><img src="partners/<?=$partner->getImg(); ?>" width="250" alt="<?=$partner->getTitle(); ?>"></div>
+							<div class="aboutText">
+								<p class="title"><?=$partner->getTitle(); ?></p><br>
+								<p><?=$partner->getText(); ?></p><br>
+							</div>
+							<div class="aboutContacts">
+								<p class="title">Контакты:</p><br>
+								<address><p><?=$partner->getAddress(); ?></p></address>
+								<p>Телефон: <?=$partner->getTel1(); ?></p>
+								<p>Телефон: <?=$partner->getTel2(); ?></p>
+								<p>E-mail: <?=$partner->getEmail(); ?></p><br>
+							</div>						
+						</div>
+					<? endforeach; ?>
 				</div>
             </section>
         </div>
