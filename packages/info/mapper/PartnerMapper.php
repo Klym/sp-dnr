@@ -14,7 +14,7 @@ class PartnerMapper extends DataMapper {
 	function getBannerPartners() {
 		$result = $this->selectBannerStmt->execute();
 		if (!$result) {
-			throw new \Exception("Îøèáêà áàçû äàííûõ. Çàïðîñ íà âûáîðêó ïàðòíåðîâ íå ïðîøåë");
+			throw new \Exception("ÐžÑˆÐ¸Ð±ÐºÐ° Ð±Ð°Ð·Ñ‹ Ð´Ð°Ð½Ð½Ñ‹Ñ…. Ð—Ð°Ð¿Ñ€Ð¾Ñ Ð½Ð° Ð²Ñ‹Ð±Ð¾Ñ€ÐºÑƒ Ð¿Ð°Ñ€Ñ‚Ð½ÐµÑ€Ð¾Ð² Ð½Ðµ Ð¿Ñ€Ð¾ÑˆÐµÐ»");
 		}
 		$collection = parent::getCollection($this->selectBannerStmt);
 		return $collection;
