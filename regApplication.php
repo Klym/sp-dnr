@@ -11,6 +11,7 @@ if (isset($_POST["additionalActivity"])) { $additionalActivity = $_POST["additio
 if (isset($_POST["surname"])) { $surname = $_POST["surname"]; }
 if (isset($_POST["name"])) { $name = $_POST["name"]; }
 if (isset($_POST["patronymic"])) { $patronymic = $_POST["patronymic"]; }
+if (isset($_POST["email"])) { $email = $_POST["email"]; }
 if (isset($_POST["tel"])) { $tel = $_POST["tel"]; }
 if (isset($_POST["jurAddr"])) { $jurAddr = $_POST["jurAddr"]; }
 if (isset($_POST["actAddr"])) { $actAddr = $_POST["actAddr"]; }
@@ -27,8 +28,8 @@ if (isset($_POST["reprTel"])) { $reprTel[] = $_POST["reprTel"]; }
 
 $statement = new statement\Statement($title, $regNum, $activity, $additionalActivity, $surname, $name, $patronymic, $email, $tel, $jurAddr, $actAddr, $texation, $headCount, $note, time(), $state);
 
-for ($i = 0; $i < count($reprSurname); $i++) {
-	$agents[] = new statement\Agent($reprSurname[$i], $reprName[$i], $reprPatronymic[$i], $reprEmail[$i], $reprTel[$i], 0);
+for ($i = 0; $i < count($reprSurname[0]); $i++) {
+	$agents[] = new statement\Agent($reprSurname[0][$i], $reprName[0][$i], $reprPatronymic[0][$i], $reprEmail[0][$i], $reprTel[0][$i], 0);
 }
 
 $statement->sendStatement($agents);

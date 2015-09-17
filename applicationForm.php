@@ -26,13 +26,13 @@ require("blocks/connect.php");
                     <div>
                         <label>
                             <span>Название предприятия*</span>
-                            <input type="text" name="title" class="wide">
+                            <input type="text" name="title" class="wide" required>
                         </label>
                     </div>
                     <div>
                         <label>
                             <span>Регистрационный номер или ИНН предпринимателя*</span>
-                            <input type="text" name="regNum" class="middle">
+                            <input type="text" name="regNum" class="middle" required>
                         </label>
                     </div>
                     <div>
@@ -50,7 +50,12 @@ require("blocks/connect.php");
                     <div>
                         <label>
                             <span>Средняя численность персонала</span>
-                            <input type="text" name="headCount" class="short">
+                            <select name="headCount">
+                            	<option>до 15 чел.</option>
+                                <option>от 16 до 100 чел.</option>
+                                <option>от 100 до 500 чел.</option>
+                                <option>от 500 чел.</option>
+                            </select>
                         </label>
                     </div>
                     <fieldset>

@@ -907,13 +907,19 @@ section > header {
     bottom:-3px;
 }
 
-#appFormFields div > label > input, textarea {
+#appFormFields div > label > input, textarea, select {
 	position:relative;
 	float:right;
 	height:23px;
 	border-radius:5px;
 	border:1px solid #ccc;
 	padding:6px 12px;
+}
+
+#appFormFields div > label > select {
+	width:180px;
+	height:34px;
+	right:221px;
 }
 
 #appFormFields div > label {

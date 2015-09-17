@@ -4,12 +4,12 @@ namespace statement;
 
 class Agent {
 	private $id;
-	private $surname;
-	private $name;
-	private $patronymic;
-	private $email;
-	private $tel;
-	private $form;
+	public $surname;
+	public $name;
+	public $patronymic;
+	public $email;
+	public $tel;
+	public $form;
 	
 	function __construct($surname, $name, $patronymic, $email, $tel, $form) {
 		$this->surname = $surname;
