@@ -19,7 +19,7 @@ require("blocks/connect.php");
             <section class="about">
             	<header>
                 	<div class="parallelogram"></div>
-                	<div class="headerText about">О Созе Предпринимателей</div>
+                	<div class="headerText about">О СОЮЗЕ ПРЕДПРИНИМАТЕЛЕЙ</div>
                 </header>
                 <div class="committeesText">
                 	<!-- Хардкоженый текст о союзе -->
@@ -29,9 +29,9 @@ require("blocks/connect.php");
             <aside class="about">
 				<!-- Right block -->
 				<ul>
-				<li><a href="#">О Союзе Предпринимателй</a></li>
-				<li><a href="#">Контакты</a></li>
-				<li><a href="#">Пратнеры</a></li>
+					<li><a href="#">О Союзе Предпринимателей</a></li>
+					<li><a href="#">Контакты</a></li>
+					<li><a href="partners.php">Партнеры</a></li>
 				</ul>				
             </aside>
         </div>

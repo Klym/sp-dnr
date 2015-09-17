@@ -442,13 +442,13 @@ nav.pagination > ul > a > li.active {
 	border-right:1px solid #4d67ac;
 }
 
-#eventRegText {
+#eventRegText > p > a {
 	position:relative;
 	left:8px;
 	top:2px;
 }
 
-#eventRegText > p {
+#eventRegText > p  > a {
 	font-size:18px;
 	color:#a3a3a3;
 }
@@ -670,7 +670,7 @@ header > .title > a {
 	border-bottom:2px solid #c7cfff;
 }
 
-#aboutBody {
+.aboutBody {
 	position:relative;
 	top:14px;
 	height:280px;
@@ -681,7 +681,7 @@ header > .title > a {
 	line-height:23px;
 }
 
-#aboutText {
+.aboutText {
 	width:455px;
 	margin-left:15px;
 	padding-right:3px;
@@ -689,20 +689,33 @@ header > .title > a {
 	border-right:2px solid #c7cfff;
 }
 
-#aboutBody p.title {
+.aboutBody p.title {
 	font-size:20px;
 }
 
-#aboutBody p.link {
+.aboutBody p.link {
 	font-style:italic;
 }
 
-#aboutText > p {
+.aboutText > p {
 	font-size:14px;
 }
 
-#aboutContacts {
+.aboutContacts {
 	margin-left:10px;
+}
+
+#partnersPage {
+	background-color:#ebebeb;
+	padding:15px 10px 10px 10px;	
+}
+
+#partnersPage > section.partners {
+	width:980px;
+}
+
+.headerText.partners {
+	width:877px;
 }
 
 #reg {
@@ -732,7 +745,7 @@ header > .title > a {
 	display:-ms-box;
 }
 
-#committees > section {
+#committees > section, #partnersPage > section {
 	width:640px;
 	height:100%;
 	background-color:#FFF;
@@ -748,7 +761,7 @@ section > header {
 	font-size:24px;
 }
 
-#committees > section,  #committees > aside {
+#committees > section,  #committees > aside, #partnersPage > section  {
 	box-shadow:#81b5d8 2px 2px 9px 1px;
 }
 
@@ -1080,3 +1093,4 @@ section > header {
 	top:10px;
 	right:10px;
 }
+
