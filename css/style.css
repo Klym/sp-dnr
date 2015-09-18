@@ -9,6 +9,11 @@ p {
 	font-size:12px;
 }
 
+h1 {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+}
+
 select {
 	border-radius:4px;
 	padding:4px;
@@ -920,7 +925,7 @@ section > header {
     bottom:-3px;
 }
 
-#appFormFields div > label > input, textarea, select {
+#appFormFields div > label > input, #appFormFields div > label > textarea, #appFormFields div > label > select {
 	position:relative;
 	float:right;
 	height:23px;

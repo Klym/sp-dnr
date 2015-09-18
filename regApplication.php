@@ -1,4 +1,5 @@
 <?php
+require("blocks/connect.php");
 require("packages/statement/Statement.php");
 require("packages/statement/Agent.php");
 
@@ -32,6 +33,30 @@ for ($i = 0; $i < count($reprSurname[0]); $i++) {
 	$agents[] = new statement\Agent($reprSurname[0][$i], $reprName[0][$i], $reprPatronymic[0][$i], $reprEmail[0][$i], $reprTel[0][$i], 0);
 }
 
-$statement->sendStatement($agents);
-
 ?>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="js/scripts.js"></script>
+<script src="js/Partners.js"></script>
+<title>Союз Предпринимателей ДНР - Заявка на регистрацию в Союзе Предпринимателей</title>
+</head>
+<body>
+	<div id="wrapper" class="smallbg">
+    	<? include("blocks/header.php"); ?>
+        <? $page = "applicationForm"; include("blocks/nav.php"); ?>
+        <section id="regSection">
+            <header>
+                <div class="parallelogram"></div>
+                <div class="headerText">Заявка на регистрацию в Союзе Предпринимателей</div>
+                <div class="regLine"></div>
+            </header><br>
+            <h1><?=$statement->sendStatement($agents); ?></h1>
+		</section>
+        <? include("blocks/footer.php"); ?>
+    </div>
+</body>
+</html>

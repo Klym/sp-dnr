@@ -75,7 +75,12 @@ class Statement {
 						<strong>Примечания, интересующие вопросы:</strong> ".$this->note."
 					</body>
 					</html>";
-		mail($to, $subject, $message, $headers);
+		$result = mail($to, $subject, $message, $headers);
+		if ($result) {
+			echo "Ваша заявка принята на рассмотрение";
+		} else {
+			echo "Ошибка! Заявка не отправлена, повторите попытку.";
+		}
 	}
 }
 
