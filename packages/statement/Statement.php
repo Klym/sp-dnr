@@ -54,6 +54,7 @@ class Statement {
 	}
 	
 	public function sendStatement($agents = null) {
+		$counts = array(1 => 'до 15 чел.', 2 => 'от 16 до 100 чел.', 3 => 'от 100 до 500 чел.', 4 => 'от 500 чел.');
 		$to = "admin@sp-dnr.ru";
 		$subject = "Новая заявка на вступление в Союз";
 		$subject ='=?utf-8?B?'. base64_encode($subject).'?=';
@@ -68,7 +69,8 @@ class Statement {
 						<strong>Регистрационный номер или ИНН предпринимателя:</strong> ".$this->regNum."<br>
 						<strong>Основной род деятельности:</strong> ".$this->activity."<br>
 						<strong>Дополнительный род деятельности:</strong> ".$this->additionalActivity."<br>
-						<strong>Средняя численность персонала:</strong> ".$this->headCount."<br><br>
+						<strong>Средняя численность персонала:</strong> ".$counts[$this->headCount]."<br>
+						<strong>Система налогообложения:</strong> ".$this->taxation."<br><br>
 						<strong>Руководитель:</strong><br>
 						<strong>Фамилия:</strong> ".$this->surname."<br>
 						<strong>Имя:</strong> ".$this->name."<br>

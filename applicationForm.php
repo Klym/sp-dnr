@@ -58,6 +58,12 @@ require("blocks/connect.php");
                             </select>
                         </label>
                     </div>
+                    <div>
+                    	<label>
+                        	<span>Система налогообложения</span>
+                            <input type="text" name="taxation" class="wide">
+                        </label>
+                    </div>
                     <fieldset>
                         <legend>Руководитель</legend>
 						<div>
