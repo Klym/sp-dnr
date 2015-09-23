@@ -210,12 +210,34 @@ require("blocks/connect.php");
 				</div>
             </section>
             <aside class="about">
-				<!-- Right block -->
-				<ul>
-					<li><a href="#">О Союзе Предпринимателей</a></li>
-					<li><a href="#">Контакты</a></li>
-					<li><a href="partners.php">Партнеры</a></li>
-				</ul>				
+				<div class="committeesListItem">
+                    <div class="marker">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div> 
+                    <div class="comText"><a href="about.php#">О Союзе</a></div>
+                </div>
+                <div class="committeesListItem">
+                    <div class="marker">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div> 
+                    <div class="comText"><a href="#">Контакты</a></div>
+                </div>
+                <div class="committeesListItem">
+                    <div class="marker">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div> 
+                    <div class="comText"><a href="partners.php">Партнеры</a></div>
+                </div>
+                <div class="committeesListItem">
+                    <div class="marker">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div> 
+                    <div class="comText"><a href="documents.php">Документы</a></div>
+                </div>
             </aside>
         </div>
         <? include("blocks/footer.php"); ?>

@@ -864,7 +864,9 @@ section > header {
 }
 
 #committees > aside.about {
-	width:250px;
+	position:fixed;
+    width:175px;
+    height:190px;
 }
 
 #committees > aside.about > ul > li {
@@ -872,11 +874,11 @@ section > header {
 }
 
 #committees > section.about {
-	width:713px;
+	width:785px;
 }
 
 .headerText.about {
-	width:610px;
+	width:682px;
 }
 
 #regSection {
