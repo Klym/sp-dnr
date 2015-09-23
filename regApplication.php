@@ -16,10 +16,9 @@ if (isset($_POST["email"])) { $email = $_POST["email"]; }
 if (isset($_POST["tel"])) { $tel = $_POST["tel"]; }
 if (isset($_POST["jurAddr"])) { $jurAddr = $_POST["jurAddr"]; }
 if (isset($_POST["actAddr"])) { $actAddr = $_POST["actAddr"]; }
-if (isset($_POST["texation"])) { $texation = $_POST["texation"]; }
+if (isset($_POST["taxation"])) { $taxation = $_POST["taxation"]; }
 if (isset($_POST["headCount"])) { $headCount = $_POST["headCount"]; }
 if (isset($_POST["note"])) { $note = $_POST["note"]; }
-if (isset($_POST["state"])) { $state = $_POST["state"]; }
 
 if (isset($_POST["reprSurname"])) { $reprSurname[] = $_POST["reprSurname"]; }
 if (isset($_POST["reprName"])) { $reprName[] = $_POST["reprName"]; }
@@ -27,12 +26,21 @@ if (isset($_POST["reprPatronymic"])) { $reprPatronymic[] = $_POST["reprPatronymi
 if (isset($_POST["reprEmail"])) { $reprEmail[] = $_POST["reprEmail"]; }
 if (isset($_POST["reprTel"])) { $reprTel[] = $_POST["reprTel"]; }
 
-$statement = new statement\Statement($title, $regNum, $activity, $additionalActivity, $surname, $name, $patronymic, $email, $tel, $jurAddr, $actAddr, $texation, $headCount, $note, time(), $state);
-
-for ($i = 0; $i < count($reprSurname[0]); $i++) {
-	$agents[] = new statement\Agent($reprSurname[0][$i], $reprName[0][$i], $reprPatronymic[0][$i], $reprEmail[0][$i], $reprTel[0][$i], 0);
+$statement = new statement\Statement($title, $regNum, $activity, $additionalActivity, $surname, $name, $patronymic, $email, $tel, $jurAddr, $actAddr, $taxation, $headCount, $note, date("Y-m-d H:i:s",time()));
+try {
+	$statement->insertStatement($pdo);
+} catch (Exception $e) {
+	die($e->getMessage());
 }
 
+for ($i = 0; $i < count($reprSurname[0]); $i++) {
+	$agents[] = new statement\Agent($reprSurname[0][$i], $reprName[0][$i], $reprPatronymic[0][$i], $reprEmail[0][$i], $reprTel[0][$i], $statement->getId());
+	try {
+		$agents[$i]->insertAgent($pdo);
+	} catch (Exception $e) {
+		die($e->getMessage());
+	}
+}
 ?>
 <!doctype html>
 <html>
@@ -54,7 +62,7 @@ for ($i = 0; $i < count($reprSurname[0]); $i++) {
                 <div class="headerText">Заявка на регистрацию в Союзе Предпринимателей</div>
                 <div class="regLine"></div>
             </header><br>
-            <h1><?=$statement->sendStatement($agents); ?></h1>
+            <h1><? $statement->sendStatement($agents); ?></h1>
 		</section>
         <? include("blocks/footer.php"); ?>
     </div>

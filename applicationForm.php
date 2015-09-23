@@ -51,10 +51,10 @@ require("blocks/connect.php");
                         <label>
                             <span>Средняя численность персонала</span>
                             <select name="headCount">
-                            	<option>до 15 чел.</option>
-                                <option>от 16 до 100 чел.</option>
-                                <option>от 100 до 500 чел.</option>
-                                <option>от 500 чел.</option>
+                            	<option value="1">до 15 чел.</option>
+                                <option value="2">от 16 до 100 чел.</option>
+                                <option value="3">от 100 до 500 чел.</option>
+                                <option value="4">от 500 чел.</option>
                             </select>
                         </label>
                     </div>

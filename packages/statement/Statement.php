@@ -15,13 +15,13 @@ class Statement {
 	private $tel;
 	private $jurAddr;
 	private $actAddr;
-	private $texation;
+	private $taxation;
 	private $headCount;
 	private $note;
 	private $date;
 	private $state;
 	
-	function __construct($title, $regNum, $activity, $additionalActivity, $surname, $name, $patronymic, $email, $tel, $jurAddr, $actAddr, $texation, $headCount, $note, $date, $state) {
+	function __construct($title, $regNum, $activity, $additionalActivity, $surname, $name, $patronymic, $email, $tel, $jurAddr, $actAddr, $texation, $headCount, $note, $date) {
 		$this->title = self::checkData($title);
 		$this->regNum = self::checkData($regNum);
 		$this->activity = self::checkData($activity);
@@ -33,11 +33,24 @@ class Statement {
 		$this->tel = self::checkData($tel);
 		$this->jurAddr = self::checkData($jurAddr);
 		$this->actAddr = self::checkData($actAddr);
-		$this->texation = self::checkData($texation);
+		$this->taxation = self::checkData($texation);
 		$this->headCount = self::checkData($headCount);
 		$this->note = self::checkData($note);
 		$this->date = self::checkData($date);
-		$this->state = self::checkData($state);
+		$this->state = 0;
+	}
+	
+	public function getId() {
+		return $this->id;
+	}
+	
+	public function insertStatement(\PDO $pdo) {
+		$stmt = $pdo->prepare("INSERT INTO statements (title, regNum, activity, additionalActivity, surname, name, patronymic, email, tel, jurAddr, actAddr, taxation, headCount, note, date, state) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		$result = $stmt->execute(array($this->title, $this->regNum, $this->activity, $this->additionalActivity, $this->surname, $this->name, $this->patronymic, $this->email, $this->tel, $this->jurAddr, $this->actAddr, $this->taxation, $this->headCount, $this->note, $this->date, $this->state));
+		if (!$result) {
+			throw new \Exception("Ошибка базы данных. Данные не приняты");
+		}
+		$this->id = $pdo->lastInsertId();
 	}
 	
 	public function sendStatement($agents = null) {

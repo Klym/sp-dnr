@@ -20,6 +20,14 @@ class Agent {
 		$this->tel = Statement::checkData($tel);
 		$this->form = Statement::checkData($form);
 	}
+	
+	public function insertAgent(\PDO $pdo) {
+		$stmt = $pdo->prepare("INSERT INTO agents (surname, name, patronymic, email, tel, form) VALUES (?,?,?,?,?,?)");
+		$result = $stmt->execute(array($this->surname, $this->name, $this->patronymic, $this->email, $this->tel, $this->form));
+		if (!$result) {
+			throw new \Exception("Ошибка базы данных. Данные не приняты");
+		}
+	}
 }
 
 ?>
