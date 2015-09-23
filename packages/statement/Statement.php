@@ -15,32 +15,46 @@ class Statement {
 	private $tel;
 	private $jurAddr;
 	private $actAddr;
-	private $texation;
+	private $taxation;
 	private $headCount;
 	private $note;
 	private $date;
 	private $state;
 	
-	function __construct($title, $regNum, $activity, $additionalActivity, $surname, $name, $patronymic, $email, $tel, $jurAddr, $actAddr, $texation, $headCount, $note, $date, $state) {
-		$this->title = $title;
-		$this->regNum = $regNum;
-		$this->activity = $activity;
-		$this->additionalActivity = $additionalActivity;
-		$this->surname = $surname;
-		$this->name = $name;
-		$this->patronymic = $patronymic;
-		$this->email = $email;
-		$this->tel = $tel;
-		$this->jurAddr = $jurAddr;
-		$this->actAddr = $actAddr;
-		$this->texation = $texation;
-		$this->headCount = $headCount;
-		$this->note = $note;
-		$this->date = $date;
-		$this->state = $state;
+	function __construct($title, $regNum, $activity, $additionalActivity, $surname, $name, $patronymic, $email, $tel, $jurAddr, $actAddr, $texation, $headCount, $note, $date) {
+		$this->title = self::checkData($title);
+		$this->regNum = self::checkData($regNum);
+		$this->activity = self::checkData($activity);
+		$this->additionalActivity = self::checkData($additionalActivity);
+		$this->surname = self::checkData($surname);
+		$this->name = self::checkData($name);
+		$this->patronymic = self::checkData($patronymic);
+		$this->email = self::checkData($email);
+		$this->tel = self::checkData($tel);
+		$this->jurAddr = self::checkData($jurAddr);
+		$this->actAddr = self::checkData($actAddr);
+		$this->taxation = self::checkData($texation);
+		$this->headCount = self::checkData($headCount);
+		$this->note = self::checkData($note);
+		$this->date = self::checkData($date);
+		$this->state = 0;
+	}
+	
+	public function getId() {
+		return $this->id;
+	}
+	
+	public function insertStatement(\PDO $pdo) {
+		$stmt = $pdo->prepare("INSERT INTO statements (title, regNum, activity, additionalActivity, surname, name, patronymic, email, tel, jurAddr, actAddr, taxation, headCount, note, date, state) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		$result = $stmt->execute(array($this->title, $this->regNum, $this->activity, $this->additionalActivity, $this->surname, $this->name, $this->patronymic, $this->email, $this->tel, $this->jurAddr, $this->actAddr, $this->taxation, $this->headCount, $this->note, $this->date, $this->state));
+		if (!$result) {
+			throw new \Exception("Ошибка базы данных. Данные не приняты");
+		}
+		$this->id = $pdo->lastInsertId();
 	}
 	
 	public function sendStatement($agents = null) {
+		$counts = array(1 => 'до 15 чел.', 2 => 'от 16 до 100 чел.', 3 => 'от 100 до 500 чел.', 4 => 'от 500 чел.');
 		$to = "admin@sp-dnr.ru";
 		$subject = "Новая заявка на вступление в Союз";
 		$subject ='=?utf-8?B?'. base64_encode($subject).'?=';
@@ -55,7 +69,8 @@ class Statement {
 						<strong>Регистрационный номер или ИНН предпринимателя:</strong> ".$this->regNum."<br>
 						<strong>Основной род деятельности:</strong> ".$this->activity."<br>
 						<strong>Дополнительный род деятельности:</strong> ".$this->additionalActivity."<br>
-						<strong>Средняя численность персонала:</strong> ".$this->headCount."<br><br>
+						<strong>Средняя численность персонала:</strong> ".$counts[$this->headCount]."<br>
+						<strong>Система налогообложения:</strong> ".$this->taxation."<br><br>
 						<strong>Руководитель:</strong><br>
 						<strong>Фамилия:</strong> ".$this->surname."<br>
 						<strong>Имя:</strong> ".$this->name."<br>
@@ -81,6 +96,13 @@ class Statement {
 		} else {
 			echo "Ошибка! Заявка не отправлена, повторите попытку.";
 		}
+	}
+	
+	public static function checkData($data) {
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data, ENT_QUOTES | ENT_HTML5 | ENT_DISALLOWED | ENT_SUBSTITUTE, 'UTF-8');
+		return $data;
 	}
 }
 
