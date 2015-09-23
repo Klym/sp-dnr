@@ -22,22 +22,22 @@ class Statement {
 	private $state;
 	
 	function __construct($title, $regNum, $activity, $additionalActivity, $surname, $name, $patronymic, $email, $tel, $jurAddr, $actAddr, $texation, $headCount, $note, $date, $state) {
-		$this->title = $title;
-		$this->regNum = $regNum;
-		$this->activity = $activity;
-		$this->additionalActivity = $additionalActivity;
-		$this->surname = $surname;
-		$this->name = $name;
-		$this->patronymic = $patronymic;
-		$this->email = $email;
-		$this->tel = $tel;
-		$this->jurAddr = $jurAddr;
-		$this->actAddr = $actAddr;
-		$this->texation = $texation;
-		$this->headCount = $headCount;
-		$this->note = $note;
-		$this->date = $date;
-		$this->state = $state;
+		$this->title = self::checkData($title);
+		$this->regNum = self::checkData($regNum);
+		$this->activity = self::checkData($activity);
+		$this->additionalActivity = self::checkData($additionalActivity);
+		$this->surname = self::checkData($surname);
+		$this->name = self::checkData($name);
+		$this->patronymic = self::checkData($patronymic);
+		$this->email = self::checkData($email);
+		$this->tel = self::checkData($tel);
+		$this->jurAddr = self::checkData($jurAddr);
+		$this->actAddr = self::checkData($actAddr);
+		$this->texation = self::checkData($texation);
+		$this->headCount = self::checkData($headCount);
+		$this->note = self::checkData($note);
+		$this->date = self::checkData($date);
+		$this->state = self::checkData($state);
 	}
 	
 	public function sendStatement($agents = null) {
@@ -81,6 +81,13 @@ class Statement {
 		} else {
 			echo "Ошибка! Заявка не отправлена, повторите попытку.";
 		}
+	}
+	
+	public static function checkData($data) {
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data, ENT_QUOTES | ENT_HTML5 | ENT_DISALLOWED | ENT_SUBSTITUTE, 'UTF-8');
+		return $data;
 	}
 }
 

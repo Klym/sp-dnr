@@ -1,6 +1,7 @@
 <?php
 
 namespace statement;
+require_once("Statement.php");
 
 class Agent {
 	private $id;
@@ -12,12 +13,12 @@ class Agent {
 	public $form;
 	
 	function __construct($surname, $name, $patronymic, $email, $tel, $form) {
-		$this->surname = $surname;
-		$this->name = $name;
-		$this->patronymic = $patronymic;
-		$this->email = $email;
-		$this->tel = $tel;
-		$this->form = $form;
+		$this->surname = Statement::checkData($surname);
+		$this->name = Statement::checkData($name);
+		$this->patronymic = Statement::checkData($patronymic);
+		$this->email = Statement::checkData($email);
+		$this->tel = Statement::checkData($tel);
+		$this->form = Statement::checkData($form);
 	}
 }
 
