@@ -912,6 +912,7 @@ section > header {
 
 .document div.title {
 	margin-top:1px;
+	width:70%;
 }
 
 .document div.title > a {

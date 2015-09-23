@@ -31,7 +31,7 @@ try {
             	<div class="document">
                 	<a href="#" class="save"><div><p>docx</p></div></a>
                     <div class="title">
-	                    <a href="#"><p>Документ.docx</p></a>
+	                    <a href="#"><p>Устав Союза</p></a>
 						<div><p>9 июня 2015 в 23:11</p></div>
 					</div>
                     <div class="description">
@@ -41,7 +41,7 @@ try {
                 <div class="document">
                 	<a href="#" class="save"><div><p>docx</p></div></a>
                     <div class="title">
-	                    <a href="#"><p>Документ.docx</p></a>
+	                    <a href="#"><p>Документ</p></a>
 						<div><p>9 июня 2015 в 23:11</p></div>
 					</div>
                     <div class="description">
@@ -53,7 +53,7 @@ try {
             	<div class="document">
                 	<a href="#" class="save"><div><p>docx</p></div></a>
                     <div class="title">
-	                    <a href="#"><p>Документ.docx</p></a>
+	                    <a href="#"><p>Документ</p></a>
 						<div><p>9 июня 2015 в 23:11</p></div>
 					</div>
                     <div class="description">
@@ -64,7 +64,7 @@ try {
                 <div class="document">
                 	<a href="#" class="save"><div><p>docx</p></div></a>
                     <div class="title">
-	                    <a href="#"><p>Документ.docx</p></a>
+	                    <a href="#"><p>Документ</p></a>
 						<div><p>9 июня 2015 в 23:11</p></div>
 					</div>
                     <div class="description">
