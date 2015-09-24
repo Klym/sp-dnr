@@ -13,7 +13,7 @@ abstract class DomainObject {
 		$this->title = $title;
 		if (!is_null($text)) {
 			$this->text = $text;
-			$this->shortText = $this->cutText($this->text, 275);
+			$this->shortText = $this->cutText($this->text, 330);
 		}
 	}
 	
