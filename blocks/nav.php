@@ -36,24 +36,9 @@
             <div>
                 Комитеты
                 <div class="delimiter"></div>
-                <div class="navCircle"></div>
             </div>
         </a>
-        <div class="hidden">
-        	<?php
-				require_once("packages/info/mapper/CommitteesMapper.php");
-				require_once("packages/info/domain/Committees.php");
-				$comMapper = new \info\mapper\CommitteesMapper($pdo);
-				try {
-					$committees = $comMapper->findAll();
-				} catch (Exception $e) {
-					die($e->getMessage());
-				}
-			?>
-            <? foreach($committees as $comm) : ?>
-	            <a href="committees.php?id=<?=$comm->getId(); ?>"><div><?=$comm->getTitle(); ?></div></a>
-            <? endforeach; ?>
-        </div>
+        <div class="hidden"></div>
     </div>
     
     <div class="<?= ($page == "about") ? "active" : "";  ?>">

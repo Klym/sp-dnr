@@ -789,9 +789,9 @@ header > .title > a {
 }
 
 section > header {
-	height:44px;
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size:24px;
+	position:relative;
 }
 
 #committees > section,  #committees > aside, #partnersPage > section  {
@@ -801,7 +801,9 @@ section > header {
 .parallelogram {
 	float:left;
 	width:82px;
-	height:44px;
+	position:absolute;
+	bottom:2px;
+	height:45px;
 	display:inline-block;
 	-webkit-transform:skew(-25deg);
 	-moz-transform:skew(-25deg);
@@ -811,13 +813,13 @@ section > header {
 }
 
 .headerText {
-    position:absolute;
-    left:73px;
-    width:537px;
-    height:30px;
-    top:11px;
-    border-bottom:3px solid #2980b9;
-    padding-left:30px;
+        position: relative;
+    /* left: 73px; */
+    /* width: 537px; */
+    /* height: 30px; */
+    /* top: 11px; */
+    border-bottom: 3px solid #2980b9;
+    padding:10px 10px 10px 105px;
 }
 
 #committees > aside {
@@ -981,14 +983,14 @@ section > header {
     height:30px;
     top:11px;
     border-bottom:none;
-    padding-left:30px;
+    padding-left:65px;
 }
 
 .regLine {
 	width:315px;
 	position:relative;
 	float:right;
-	top:-5px;
+	top:-15px;
 	height:3px;
 	background-color:#2980b9;
 }
