@@ -813,12 +813,8 @@ section > header {
 }
 
 .headerText {
-        position: relative;
-    /* left: 73px; */
-    /* width: 537px; */
-    /* height: 30px; */
-    /* top: 11px; */
-    border-bottom: 3px solid #2980b9;
+    position:relative;
+    border-bottom:3px solid #2980b9;
     padding:10px 10px 10px 105px;
 }
 
