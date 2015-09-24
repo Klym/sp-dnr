@@ -479,7 +479,7 @@ nav.pagination > ul > a > li.active {
 	float:none;
 	width:765px;
 	margin-top:20px;
-	padding:0 5px 50px 5px;
+	padding:0 5px 5px 5px;
 	margin-left:0px;
 	border-bottom:none;
 	border-right:none;
@@ -869,7 +869,9 @@ section > header {
 }
 
 #committees > aside.about {
-	width:250px;
+	position:fixed;
+    width:175px;
+    height:190px;
 }
 
 #committees > aside.about > ul > li {
@@ -877,11 +879,74 @@ section > header {
 }
 
 #committees > section.about {
-	width:713px;
+	width:785px;
+}
+
+#committees > section.documents, #committees > aside.documents {
+	width:49.5%;
+	padding-bottom:10px;
+	padding-top:0px;
+	padding-left:0px;
+}
+
+.document {
+	padding:13px 0 15px 5px;
+	border-bottom:1px solid #CCC;
+	display:flex;
+}
+
+.document > a, .document > div {
+	margin-right:10px;
+}
+
+.save {
+	text-decoration:none;
+}
+
+.save > div {
+	min-width:25px;
+	height:13px;
+	background-color:#e1e7ed;
+	background-image:url(../img/save.gif);
+	background-repeat:no-repeat;
+	background-position:4px;
+	border-radius:3px;
+	padding:7px 10px 5px 20px;
+	color:#777777;
+}
+
+.document div.title {
+	margin-top:1px;
+}
+
+.document div.title > a {
+	font-weight:bold;
+	text-decoration:none;
+	color:#2B587A;
+}
+
+.document > div.title > a:hover {
+	text-decoration:underline;
+}
+
+.document div.title > div {
+	margin-top:2px;
+}
+
+.document div.title > div > p {
+	color:#777777;
+}
+
+.document div.description {
+	width:345px;
+}
+
+.document div.description > p {
+	line-height:15px;
 }
 
 .headerText.about {
-	width:610px;
+	width:682px;
 }
 
 #regSection {

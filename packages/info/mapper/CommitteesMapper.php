@@ -10,6 +10,11 @@ class CommitteesMapper extends DataMapper {
 		$this->selectStmt = $this->pdo->prepare("SELECT * FROM committees WHERE id = ?");
 	}
 	
+	function getDocuments($id) {
+		$documentsMapper = new documents\CommitteesDocuments($this->pdo);
+		return $documentsMapper->getDocuments($id);
+	}
+	
 	protected function createObject(array $array) {
 		$obj = new \info\domain\Committees($array["id"], $array["title"], $array["text"]);
 		return $obj;

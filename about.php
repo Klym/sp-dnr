@@ -1,5 +1,14 @@
 <?php
 require("blocks/connect.php");
+require("packages/info/domain/Document.php");
+require("packages/info/mapper/documents/AboutDocuments.php");
+
+$documentsMapper = new info\mapper\documents\AboutDocuments($pdo);
+try {
+	$documents = $documentsMapper->getDocuments();
+} catch (Exception $e) {
+	die($e->getMessage());
+}
 ?>
 <!doctype html>
 <html>
@@ -208,14 +217,50 @@ require("blocks/connect.php");
 					<strong>Деятельность Союза не может быть направлена на ограничение конкуренции или предоставление конкурентных преимуществ тем или иным субъектам хозяйствования. Организация не проводит рекламные кампании, промо-акции, маркетинговые меры или иные мероприятия, которые могут побуждать участников Союза к приобретению товаров, работ или услуг у третьих лиц.</strong></p>
 										
 				</div>
+                <? if (count($documents) > 0 ) foreach ($documents as $document) { ?>
+                    <div class="document">
+                        <a href="documents/<?=$document->getSrc(); ?>" class="save">
+                        	<div><p><?=$document->getFormat(); ?></p></div>
+						</a>
+                        <div class="title">
+                            <a href="documents/<?=$document->getSrc(); ?>"><p><?=$document->getTitle(); ?></p></a>
+                            <div><p><?=$document->getDate(); ?></p></div>
+                        </div>
+                        <div class="description">
+                            <p><?=$document->getDescription(); ?></p>
+                        </div>
+                    </div>
+				<? } ?>
             </section>
             <aside class="about">
-				<!-- Right block -->
-				<ul>
-					<li><a href="#">О Союзе Предпринимателей</a></li>
-					<li><a href="#">Контакты</a></li>
-					<li><a href="partners.php">Партнеры</a></li>
-				</ul>				
+				<div class="committeesListItem">
+                    <div class="marker">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div> 
+                    <div class="comText"><a href="about.php#">О Союзе</a></div>
+                </div>
+                <div class="committeesListItem">
+                    <div class="marker">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div> 
+                    <div class="comText"><a href="#">Контакты</a></div>
+                </div>
+                <div class="committeesListItem">
+                    <div class="marker">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div> 
+                    <div class="comText"><a href="partners.php">Партнеры</a></div>
+                </div>
+                <div class="committeesListItem">
+                    <div class="marker">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div> 
+                    <div class="comText"><a href="documents.php">Документы</a></div>
+                </div>
             </aside>
         </div>
         <? include("blocks/footer.php"); ?>

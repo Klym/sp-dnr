@@ -64,7 +64,11 @@
                 <div class="navCircle"></div>
             </div>
         </a>
-        <div class="hidden"></div>
+        <div class="hidden">
+        	<a href="contacts.php"><div>Контакты</div></a>
+            <a href="partners.php"><div>Партнеры</div></a>
+            <a href="documents.php"><div>Документы</div></a>
+        </div>
     </div>
     
     <div class="<?= ($page == "applicationForm") ? "active" : "";  ?>">
