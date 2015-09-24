@@ -1,13 +1,11 @@
 <?php
 require("blocks/connect.php");
-require("packages/info/mapper/CommitteesMapper.php");
-require("packages/info/domain/Committees.php");
-$comMapper = new \info\mapper\CommitteesMapper($pdo);
+require("packages/info/domain/Document.php");
+require("packages/info/mapper/documents/Documents.php");
+
+$documentsMapper = new info\mapper\documents\Documents($pdo);
 try {
-	$committees = $comMapper->findAll();
-	if (isset($_GET["id"])) {
-		$committee = $comMapper->find($_GET["id"]);
-	}
+	$documents = $documentsMapper->getDocuments();
 } catch (Exception $e) {
 	die($e->getMessage());
 }
@@ -28,49 +26,36 @@ try {
         <? $page = "about"; include("blocks/nav.php"); ?>
        <div id="committees">
             <section class="documents">
-            	<div class="document">
-                	<a href="#" class="save"><div><p>docx</p></div></a>
-                    <div class="title">
-	                    <a href="#"><p>Устав Союза</p></a>
-						<div><p>9 июня 2015 в 23:11</p></div>
-					</div>
-                    <div class="description">
-                    	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            	<? for ($i = 0; $i < count($documents); $i += 2) { ?>
+                    <div class="document">
+                        <a href="documents/<?=$documents[$i]->getSrc(); ?>" class="save">
+                        	<div><p><?=$documents[$i]->getFormat(); ?></p></div>
+						</a>
+                        <div class="title">
+                            <a href="documents/<?=$documents[$i]->getSrc(); ?>"><p><?=$documents[$i]->getTitle(); ?></p></a>
+                            <div><p><?=$documents[$i]->getDate(); ?></p></div>
+                        </div>
+                        <div class="description">
+                            <p><?=$documents[$i]->getDescription(); ?></p>
+                        </div>
                     </div>
-                </div>
-                <div class="document">
-                	<a href="#" class="save"><div><p>docx</p></div></a>
-                    <div class="title">
-	                    <a href="#"><p>Документ</p></a>
-						<div><p>9 июня 2015 в 23:11</p></div>
-					</div>
-                    <div class="description">
-                    	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    </div>
-                </div>
+				<? } ?>
             </section>
             <aside class="documents">
-            	<div class="document">
-                	<a href="#" class="save"><div><p>docx</p></div></a>
-                    <div class="title">
-	                    <a href="#"><p>Документ</p></a>
-						<div><p>9 июня 2015 в 23:11</p></div>
-					</div>
-                    <div class="description">
-                    	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            	<? for ($i = 1; $i < count($documents) - 1; $i += 2) { ?>
+                    <div class="document">
+                        <a href="documents/<?=$documents[$i]->getSrc(); ?>" class="save">
+                        	<div><p><?=$documents[$i]->getFormat(); ?></p></div>
+						</a>
+                        <div class="title">
+                            <a href="documents/<?=$documents[$i]->getSrc(); ?>"><p><?=$documents[$i]->getTitle(); ?></p></a>
+                            <div><p><?=$documents[$i]->getDate(); ?></p></div>
+                        </div>
+                        <div class="description">
+                            <p><?=$documents[$i]->getDescription(); ?></p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="document">
-                	<a href="#" class="save"><div><p>docx</p></div></a>
-                    <div class="title">
-	                    <a href="#"><p>Документ</p></a>
-						<div><p>9 июня 2015 в 23:11</p></div>
-					</div>
-                    <div class="description">
-                    	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    </div>
-                </div>
+				<? } ?>
             </aside>
         </div>
         <? include("blocks/footer.php"); ?>

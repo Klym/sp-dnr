@@ -474,7 +474,7 @@ nav.pagination > ul > a > li.active {
 	float:none;
 	width:765px;
 	margin-top:20px;
-	padding:0 5px 50px 5px;
+	padding:0 5px 5px 5px;
 	margin-left:0px;
 	border-bottom:none;
 	border-right:none;
@@ -899,14 +899,14 @@ section > header {
 }
 
 .save > div {
-	width:40px;
+	min-width:25px;
 	height:13px;
 	background-color:#e1e7ed;
 	background-image:url(../img/save.gif);
 	background-repeat:no-repeat;
 	background-position:4px;
 	border-radius:3px;
-	padding:7px 0px 5px 20px;
+	padding:7px 10px 5px 20px;
 	color:#777777;
 }
 
@@ -933,7 +933,7 @@ section > header {
 }
 
 .document div.description {
-	width:415px;
+	width:345px;
 }
 
 .document div.description > p {

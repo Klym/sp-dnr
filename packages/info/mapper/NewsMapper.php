@@ -55,6 +55,11 @@ class NewsMapper extends DataMapper {
 		return $years;
 	}
 	
+	function getDocuments($id) {
+		$documentsMapper = new documents\NewsDocuments($this->pdo);
+		return $documentsMapper->getDocuments($id);
+	}
+	
 	protected function createObject(array $array) {
 		$obj = new \info\domain\News($array["id"], $array["title"], $array["text"], $array["author"], $array["type"], $array["views"], $array["date"]);
 		return $obj;

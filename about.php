@@ -1,5 +1,14 @@
 <?php
 require("blocks/connect.php");
+require("packages/info/domain/Document.php");
+require("packages/info/mapper/documents/AboutDocuments.php");
+
+$documentsMapper = new info\mapper\documents\AboutDocuments($pdo);
+try {
+	$documents = $documentsMapper->getDocuments();
+} catch (Exception $e) {
+	die($e->getMessage());
+}
 ?>
 <!doctype html>
 <html>
@@ -208,6 +217,20 @@ require("blocks/connect.php");
 					<strong>Деятельность Союза не может быть направлена на ограничение конкуренции или предоставление конкурентных преимуществ тем или иным субъектам хозяйствования. Организация не проводит рекламные кампании, промо-акции, маркетинговые меры или иные мероприятия, которые могут побуждать участников Союза к приобретению товаров, работ или услуг у третьих лиц.</strong></p>
 										
 				</div>
+                <? if (count($documents) > 0 ) foreach ($documents as $document) { ?>
+                    <div class="document">
+                        <a href="documents/<?=$document->getSrc(); ?>" class="save">
+                        	<div><p><?=$document->getFormat(); ?></p></div>
+						</a>
+                        <div class="title">
+                            <a href="documents/<?=$document->getSrc(); ?>"><p><?=$document->getTitle(); ?></p></a>
+                            <div><p><?=$document->getDate(); ?></p></div>
+                        </div>
+                        <div class="description">
+                            <p><?=$document->getDescription(); ?></p>
+                        </div>
+                    </div>
+				<? } ?>
             </section>
             <aside class="about">
 				<div class="committeesListItem">

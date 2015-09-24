@@ -3,10 +3,13 @@ require("blocks/connect.php");
 require("packages/info/mapper/NewsMapper.php");
 require("packages/info/domain/News.php");
 require("packages/info/domain/Category.php");
+require("packages/info/domain/Document.php");
+require("packages/info/mapper/documents/NewsDocuments.php");
 
 $news = new info\mapper\NewsMapper($pdo);
 try {
 	$newsItem = $news->find($_GET["id"]);
+	$documents = $news->getDocuments($newsItem->getId());
 } catch(Exception $e) {
 	die($e->getMessage());
 }
@@ -43,6 +46,20 @@ try {
 					<div class="newsInfo">Добавлено <?=$newsItem->getDate(); ?> | <span class="eye"><img src="img/eye.png" width="28" height="20" alt="Просмотры"></span> <?=$newsItem->getViews(); ?> <span class="pull-right">| <?=$newsItem->getType()->getTitle(); ?></span></div>
                     <p><?=$newsItem->getText(); ?></p>
                 </article>
+                <? if (count($documents) > 0 ) foreach ($documents as $document) { ?>
+                    <div class="document">
+                        <a href="documents/<?=$document->getSrc(); ?>" class="save">
+                        	<div><p><?=$document->getFormat(); ?></p></div>
+						</a>
+                        <div class="title">
+                            <a href="documents/<?=$document->getSrc(); ?>"><p><?=$document->getTitle(); ?></p></a>
+                            <div><p><?=$document->getDate(); ?></p></div>
+                        </div>
+                        <div class="description">
+                            <p><?=$document->getDescription(); ?></p>
+                        </div>
+                    </div>
+				<? } ?>
             </section>
             <aside>
                 <? include("blocks/filter.php"); ?>
