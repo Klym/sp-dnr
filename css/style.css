@@ -621,7 +621,7 @@ nav.pagination > ul > a > li.active {
 	border-bottom:2px solid #c7cfff;
 }
 
-#partners > header, #about > header, #reg > header {
+#partners > header, #about > header, #reg > header, #documents > header {
 	height:25px;
 	border-bottom:2px solid #c7cfff;
 }
@@ -751,6 +751,16 @@ header > .title > a {
 
 #regText > p {
 	font-size:18px;
+}
+
+#documents {
+	position:relative;
+	margin:0 10px;
+	border-bottom:2px solid #c7cfff;
+}
+
+#documents > #committees {
+	background:none;
 }
 
 #committees {

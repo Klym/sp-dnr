@@ -2,15 +2,19 @@
 require("blocks/connect.php");
 require("packages/info/mapper/NewsMapper.php");
 require("packages/info/mapper/PartnerMapper.php");
+require("packages/info/mapper/documents/Documents.php");
 require("packages/info/domain/News.php");
 require("packages/info/domain/Category.php");
 require("packages/info/domain/Partner.php");
+require("packages/info/domain/Document.php");
 
 $news = new info\mapper\NewsMapper($pdo);
 $partners = new info\mapper\PartnerMapper($pdo);
+$documentsMapper = new info\mapper\documents\Documents($pdo);
 try {
 	$latestNews = $news->getLatestData();
 	$bannerPartners = $partners->getBannerPartners();
+	$documents = $documentsMapper->getLatestDocuments();
 } catch(Exception $e) {
 	die($e->getMessage());
 }
@@ -88,6 +92,45 @@ try {
             <div id="regText">
 	            <p>Для того чтобы стать членом Союза Предпринимателей перейдите <a href="applicationForm.php">по этой ссылке</a> и заполните форму.</p>
            	</div>
+        </div>
+        <div id="documents">
+        	<header>
+            	<span class="title"><a href="documents.php">Документы »</a></span>
+			</header>
+            <div id="committees">
+                <section class="documents">
+                    <? for ($i = 0; $i < count($documents); $i += 2) { ?>
+                        <div class="document">
+                            <a href="documents/<?=$documents[$i]->getSrc(); ?>" class="save">
+                                <div><p><?=$documents[$i]->getFormat(); ?></p></div>
+                            </a>
+                            <div class="title">
+                                <a href="documents/<?=$documents[$i]->getSrc(); ?>"><p><?=$documents[$i]->getTitle(); ?></p></a>
+                                <div><p><?=$documents[$i]->getDate(); ?></p></div>
+                            </div>
+                            <div class="description">
+                                <p><?=$documents[$i]->getDescription(); ?></p>
+                            </div>
+                        </div>
+                    <? } ?>
+                </section>
+                <aside class="documents">
+                    <? for ($i = 1; $i < count($documents) - 1; $i += 2) { ?>
+                        <div class="document">
+                            <a href="documents/<?=$documents[$i]->getSrc(); ?>" class="save">
+                                <div><p><?=$documents[$i]->getFormat(); ?></p></div>
+                            </a>
+                            <div class="title">
+                                <a href="documents/<?=$documents[$i]->getSrc(); ?>"><p><?=$documents[$i]->getTitle(); ?></p></a>
+                                <div><p><?=$documents[$i]->getDate(); ?></p></div>
+                            </div>
+                            <div class="description">
+                                <p><?=$documents[$i]->getDescription(); ?></p>
+                            </div>
+                        </div>
+                    <? } ?>
+                </aside>
+			</div>
         </div>
         <? include("blocks/footer.php"); ?>
     </div>
