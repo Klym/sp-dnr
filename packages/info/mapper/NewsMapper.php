@@ -61,7 +61,7 @@ class NewsMapper extends DataMapper {
 	}
 	
 	protected function createObject(array $array) {
-		$obj = new \info\domain\News($array["id"], $array["title"], $array["text"], $array["author"], $array["type"], $array["views"], $array["date"]);
+		$obj = new \info\domain\News($array["id"], $array["title"], $array["text"], $array["author"], $array["type"], $array["views"], $array["date"], $array["img"]);
 		return $obj;
 	}
 	

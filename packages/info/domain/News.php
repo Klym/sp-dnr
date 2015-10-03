@@ -10,8 +10,9 @@ class News extends DomainObject {
 	private $type;
 	private $views;
 	private $date;
+	private $img;
 	
-	function __construct($id, $title, $text, $author, $type, $views, $date) {
+	function __construct($id, $title, $text, $author, $type, $views, $date, $img) {
 		parent::__construct($id, $title, $text);
 		$this->author = $author;
 		$db = \database\Db::getInstance();
@@ -20,6 +21,7 @@ class News extends DomainObject {
 		$this->type = $category->find($type);
 		$this->views = $views;
 		$this->date = $date;
+		$this->img = $img;
 	}
 	
 	public function getAuthor() {
@@ -36,6 +38,10 @@ class News extends DomainObject {
 	
 	public function getDate() {
 		return $this->date;
+	}
+	
+	public function getImg() {
+		return $this->img;
 	}
 }
 

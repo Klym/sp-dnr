@@ -47,7 +47,7 @@ $pagination->generate();
 					foreach ($limitNews as $newsItem) : ?>
                     <article>
                         <div class="newsTitle"><?=$newsItem->getTitle(); ?></div>
-                        <div class="newsImg"><img src="img/newsImg.jpg" width="380" height="160" alt="Изображение новости"></div>
+                        <div class="newsImg"><img src="news_imgs/<?=$newsItem->getImg(); ?>.jpg" width="380" height="160" alt="Изображение новости"></div>
                         <div class="newsInfo">Добавлено <?=$newsItem->getDate(); ?> | <span class="eye"><img src="img/eye.png" width="28" height="20" alt="Просмотры"></span> <?=$newsItem->getViews(); ?> | <?=$newsItem->getType()->getTitle(); ?></div>
                         <p><?=$newsItem->getShortText(); ?><br><p><a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">Читать далее...</a></a></p>
                     </article>
