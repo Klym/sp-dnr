@@ -2,8 +2,9 @@
 
 namespace info\domain;
 use info\mapper\CategoryMapper;
+define('__ROOT__', dirname(dirname(__FILE__))); 
 require_once("DomainObject.php");
-require_once("packages/info/mapper/CategoryMapper.php");
+require_once(__ROOT__."/packages/info/mapper/CategoryMapper.php");
 
 class News extends DomainObject {
 	private $author;
