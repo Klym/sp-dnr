@@ -39,8 +39,10 @@ abstract class DomainObject {
 		return $this->text;
 	}
 	
-	public function getShortText($count) {
-		$this->shortText = $this->cutText($this->text, $count);
+	public function getShortText($count = null) {
+		if ($count != null){
+			$this->shortText = $this->cutText($this->text, $count);
+		}
 		return $this->shortText;
 	}
 }

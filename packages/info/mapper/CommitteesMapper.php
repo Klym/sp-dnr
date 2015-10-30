@@ -16,7 +16,7 @@ class CommitteesMapper extends DataMapper {
 	}
 	
 	protected function createObject(array $array) {
-		$obj = new \info\domain\Committees($array["id"], $array["title"], $array["text"]);
+		$obj = new \info\domain\Committees($array["id"], $array["title"], $array["text"], $array["description"]);
 		return $obj;
 	}
 	

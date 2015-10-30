@@ -43,6 +43,15 @@ try {
                 <div class="committeesText">
                 	<? if (!isset($_GET["id"])) { ?>
 	                    <?=$pageText->getText(); ?>
+                        <br>
+                        <? foreach($committees as $comm) : ?>
+						<article>
+                            <div class="committeesTitle">
+                                <a href="viewArticle.php?id=<?=$comm->getId(); ?>"><?=$comm->getTitle(); ?></a>
+                            </div>
+                            <p><?=$comm->getShortText(); ?><br><p><a href="viewArticle.php?id=<?=$comm->getId(); ?>">Читать далее...</a></p>
+                        </article>
+                        <? endforeach; ?>
 					<? } else { ?>
                     	<p><?=$committee->getText(); ?></p>
                         <? if (count($documents) > 0 ) foreach ($documents as $document) { ?>
