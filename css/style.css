@@ -217,8 +217,8 @@ select:focus, input:focus, textarea:focus {
 	position:absolute;
 	height:0%;
 	z-index:2;
-	background-color:#FFF;
-	font-size:23px;
+	background-color:#ECEFEF;
+	font-size:18px;
 	overflow:hidden;
 	transition:height .2s;
 }
@@ -288,7 +288,7 @@ section {
 
 .articleBody p > img {
 	float:left;
-	margin-right:16px;
+	margin-right:5px;
 }
 
 article a {
@@ -300,51 +300,48 @@ article a:hover {
 }
 
 #news {
-	display:-webkit-box;
-	display:-moz-box;
-	display:-ms-box;
 	display:flex;
 	background-color:#ebebeb;
 	padding:15px 0 0 10px;
 }
 
 #news > section {
-	width:787px;
+	width:816px;
 	height:100%;
 	background-color:#FFF;
-	display:flex;
-	flex-wrap:wrap;
 	padding-bottom:15px;
 }
 
 #news > section > article {
-	width:380px;
 	padding:7px 0 10px 0;
-	margin-left:4px;
-	border-bottom:1px solid #404040;
-	border-right:1px solid #404040;
-	margin-bottom:15px;
-	box-shadow:#000 1px 1px 1px -1px;
+	margin:0 4px 5px 4px;
 }
 
 #news > section > article .newsTitle {
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:20px;
 	font-weight:bold;
-	text-align:center;
+	margin-bottom:5px;
 }
 
-#news > section > article > .newsImg {
-	margin-top:20px;
+#news > section > article .newsTitle > a {
+	text-decoration:none;
+	color:#000;
+}
+
+#news > section > article > div > .newsImg {
+	float:left;
+	margin-right:10px;
 }
 
 #news > section > article > .newsInfo {
+	position:relative;
 	color:#767676;
 	font-family:Verdana, Geneva, sans-serif;
 	font-size:12px;
 	height:25px;
+	border-top:1px solid #767676;
 	border-bottom:1px solid #767676;
-	padding-bottom:5px;
 	margin-bottom:10px;
 }
 
@@ -353,8 +350,15 @@ article a:hover {
 	top:3px;
 }
 
+.type {
+    position:absolute;
+    top:7px;
+    right:1px;
+}
+
 #news > section.view {
 	display:block;
+	width:99%;
 }
 
 #news > section > article > p {
@@ -366,7 +370,7 @@ article a:hover {
 #news > section > nav.pagination {
 	position:relative;
 	display:inline-block;
-	margin:0 auto;
+	margin-left:40px;
 	height:35px;
 }
 
@@ -482,7 +486,6 @@ nav.pagination > ul > a > li.active {
 
 #news > section > article.view {
 	float:none;
-	width:765px;
 	margin-top:20px;
 	padding:0 5px 5px 5px;
 	margin-left:0px;
@@ -742,7 +745,7 @@ header > .title > a {
 }
 
 .headerText.partners {
-	width:877px;
+	width:865px;
 }
 
 #reg {

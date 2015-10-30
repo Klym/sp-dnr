@@ -14,7 +14,6 @@ try {
 	die($e->getMessage());
 }
 $pagination = new pagination\Pagination($count, $selected);
-$pagination->generate();
 ?>
 <!doctype html>
 <html>

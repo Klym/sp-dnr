@@ -39,10 +39,12 @@ try {
             <article>
             	<header><?=$newsItem->getType()->getTitle(); ?></header>
                 <div class="articleBody">
-                	<p><img src="news_imgs/<?=$newsItem->getImg(); ?>.jpg" width="123" height="98" alt="Логотип статьи"></p>
+                	<? if ($newsItem->getImg() != "") { ?>
+	                    <p><img src="news_imgs/<?=$newsItem->getImg(); ?>.jpg" width="123" height="98" alt="Логотип статьи"></p>
+					<? } ?>
                     <div class="articleTitle"><p><?=$newsItem->getTitle(); ?></p></div>
                     <div class="articleDate"><p><?=$newsItem->getDate(); ?></p></div>
-                    <p><?=$newsItem->getShortText(); ?><a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">Читать далее...</a></p>
+                    <p><?=$newsItem->getShortText(330); ?><a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">Читать далее...</a></p>
                 </div>
                 <footer>
                 	<p><a href="news.php?type=<?=$newsItem->getType()->getId(); ?>">Перейти к категории "<?=$newsItem->getType()->getTitle(); ?>"</a></p>

@@ -61,9 +61,6 @@ try {
                     </div>
 				<? } ?>
             </section>
-            <aside>
-                <? include("blocks/filter.php"); ?>
-            </aside>
         </div>
         <? include("blocks/footer.php"); ?>
     </div>

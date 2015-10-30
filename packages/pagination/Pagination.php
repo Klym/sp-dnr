@@ -14,9 +14,10 @@ class Pagination {
 		if ($this->countPages < $this->count) {
 			$this->count = $this->countPages;
 		}
+		$this->generate();
 	}
 	
-	function generate() {
+	private function generate() {
 		if (!preg_match("|^[\d]+$|", $this->selected)) {
 			$this->selected = 0;
 		}

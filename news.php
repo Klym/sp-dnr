@@ -25,7 +25,6 @@ try {
 	die($e->getMessage());
 }
 $pagination = new pagination\Pagination($count, $selected);
-$pagination->generate();
 ?>
 <!doctype html>
 <html>
@@ -46,10 +45,20 @@ $pagination->generate();
             	<? 	if (!empty($limitNews)) {
 					foreach ($limitNews as $newsItem) : ?>
                     <article>
-                        <div class="newsTitle"><?=$newsItem->getTitle(); ?></div>
-                        <div class="newsImg"><img src="news_imgs/<?=$newsItem->getImg(); ?>.jpg" width="380" height="160" alt="Изображение новости"></div>
-                        <div class="newsInfo">Добавлено <?=$newsItem->getDate(); ?> | <span class="eye"><img src="img/eye.png" width="28" height="20" alt="Просмотры"></span> <?=$newsItem->getViews(); ?> | <?=$newsItem->getType()->getTitle(); ?></div>
-                        <p><?=$newsItem->getShortText(); ?><br><p><a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">Читать далее...</a></a></p>
+                    	<div class="articleBody">
+                        	<? if ($newsItem->getImg() != "") { ?>
+                            	<div class="newsImg">
+                                    <a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">
+                                        <img src="news_imgs/<?=$newsItem->getImg(); ?>.jpg" width="280" alt="Изображение новости">
+                                    </a>
+                                </div>
+                            <? } ?>
+                            <div class="newsTitle">
+                            	<a href="viewArticle.php?id=<?=$newsItem->getId(); ?>"><?=$newsItem->getTitle(); ?></a>
+							</div>
+                            <p><?=$newsItem->getShortText(760); ?><br><p><a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">Читать далее...</a></a></p>
+						</div>
+						<div class="newsInfo">Добавлено <?=$newsItem->getDate(); ?> | <span class="eye"><img src="img/eye.png" width="22" alt="Просмотры"></span> <?=$newsItem->getViews(); ?><span class="type"><?=$newsItem->getType()->getTitle(); ?></span></div>
                     </article>
                 <? endforeach; } ?>
                 <nav class="pagination">
