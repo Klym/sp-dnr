@@ -761,7 +761,6 @@ header > .title > a {
 #documents {
 	position:relative;
 	margin:0 10px;
-	border-bottom:2px solid #c7cfff;
 }
 
 #documents > #committees {
@@ -957,7 +956,7 @@ section > header {
 }
 
 .headerText.about {
-	width:682px;
+	width:671px;
 }
 
 #regSection {
