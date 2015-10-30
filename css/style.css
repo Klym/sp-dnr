@@ -170,6 +170,11 @@ select:focus, input:focus, textarea:focus {
 	background-repeat:repeat-y;
 }
 
+#wrapper > nav > div > div.hidden div {
+	width:inherit;
+	min-width:165px;
+}
+
 #wrapper > nav  a > div:hover {
 	background-color:#e2e3e4
 }
@@ -209,7 +214,7 @@ select:focus, input:focus, textarea:focus {
 }
 
 #wrapper > nav div.hidden {
-	position:relative;
+	position:absolute;
 	height:0%;
 	z-index:2;
 	background-color:#FFF;
@@ -220,7 +225,7 @@ select:focus, input:focus, textarea:focus {
 
 #wrapper > nav  div.hidden > a > div {
 	height:30px;
-	padding:14px 0 6px 20px;
+	padding:14px 15px 6px 20px;
 	cursor:pointer;
 }
 
