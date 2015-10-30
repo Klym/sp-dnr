@@ -254,8 +254,7 @@ section {
 }
 
 #wrapper > section > article > header {
-	font-family:"Comic Sans MS", cursive;
-	font-size:18px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 	border-bottom:1px solid #000;
 }
 
