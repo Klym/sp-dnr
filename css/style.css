@@ -1,7 +1,7 @@
 /* CSS Document */
 
 body {
-	background-color:#282828;
+	background-color:#fff;
 }
 
 p {
@@ -57,6 +57,8 @@ select:focus, input:focus, textarea:focus {
 	margin:0 auto;
 	background-color:#FFF;
 	background-repeat:no-repeat;
+	box-shadow:0 0 16px #000;
+
 }
 
 #wrapper.main {
