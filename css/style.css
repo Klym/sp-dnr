@@ -782,7 +782,7 @@ header > .title > a {
 }
 
 #committees > section, #partnersPage > section {
-	width:640px;
+	width:685px;
 	height:100%;
 	background-color:#FFF;
 }
@@ -823,7 +823,7 @@ section > header {
 
 #committees > aside {
 	margin-left:10px;
-	width:323px;
+	width:280px;
 	height:100%;
 	background-color:#FFF;
 	padding:20px 0 0 7px;
