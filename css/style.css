@@ -777,9 +777,6 @@ header > .title > a {
 	background-color:#ebebeb;
 	padding:15px 10px 10px 10px;
 	display:flex;
-	display:-webkit-box;
-	display:-moz-box;
-	display:-ms-box;
 }
 
 #committees > section, #partnersPage > section {
