@@ -77,9 +77,9 @@ try {
                 </div>
                 <div class="aboutContacts">
                 	<p class="title">Контакты:</p><br>
-                    <address><p>109240, ул. Лермонтова, 25. Донецк, ДНР</p></address>
-					<p>Телефон: +38 071 555 22 22</p>
-					<p>E-mail: sp-dnr@mail.ru</p><br>
+                    <address><p>г.Донецк, ул.Артема, 97</p></address>
+					<p>e-mail: spdpr2015@gmail.com</p>
+					<p>+38 066 6958629, +38 093 3994405</p><br>
 					<p><i>Схема проезда на карте</i></p>
                     <p class="link"><a href="#">Дополнительно</a></p>
                 </div>
