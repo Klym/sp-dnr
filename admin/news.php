@@ -1,4 +1,6 @@
 <?php
+session_start();
+include("blocks/check.php");
 require("../blocks/connect.php");
 require("../packages/info/mapper/NewsMapper.php");
 require("../packages/info/domain/News.php");

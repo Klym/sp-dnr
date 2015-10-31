@@ -1,3 +1,7 @@
+<?php
+session_start();
+include("blocks/check.php");
+?>
 <!doctype html>
 <html>
 <head>
