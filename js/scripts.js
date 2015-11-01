@@ -167,4 +167,11 @@ window.onload = function() {
 			}
 		}
 	}
+	
+	// Установка реальной высоты фрэйма
+	if (document.getElementsByClassName("newsText")) {
+		var newsText = document.getElementsByClassName("newsText")[0];
+		var iframe = newsText.getElementsByTagName("iframe")[0];
+		iframe.height = iframe.contentWindow.document.body.scrollHeight + 20;
+	}
 }

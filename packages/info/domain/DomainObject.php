@@ -17,6 +17,7 @@ abstract class DomainObject {
 	}
 	
 	private function cutText($str, $length) {
+		$str = preg_replace("/\<.+?\>/", "", $str);	// Удаляем все тэги
 		$str = iconv("utf-8", "windows-1251", $str);
 		if (strlen(utf8_decode($str)) > $length) {
 			$str = substr($str, 0, $length);
