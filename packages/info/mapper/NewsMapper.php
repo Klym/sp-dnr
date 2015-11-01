@@ -13,6 +13,8 @@ class NewsMapper extends DataMapper {
 		
 		$this->selectStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y в %H:%i') AS date FROM news WHERE id = ?");
 		$this->selectYearsStmt = $this->pdo->prepare("SELECT MAX(DATE_FORMAT(`date`, '%Y')) AS max, MIN(DATE_FORMAT(`date`, '%Y')) AS min FROM news");
+		$this->updateStmt = $this->pdo->prepare("UPDATE news SET title = ?, type = ?, text = ? WHERE id = ?");
+		$this->deleteStmt = $this->pdo->prepare("DELETE FROM news WHERE id = ?");
 	}
 	
 	function getLatestData() {
@@ -60,6 +62,14 @@ class NewsMapper extends DataMapper {
 		return $documentsMapper->getDocuments($id);
 	}
 	
+	function update(\info\domain\DomainObject $object) {
+		$values = array($object->getTitle(), $object->getType(), $object->getText(), $object->getId());
+		$result = $this->updateStmt->execute($values);
+		if (!$result) {
+			throw new \Exception("Ошибка базы данных. Запрос на обновление новости не прошел");
+		}
+	}
+	
 	protected function createObject(array $array) {
 		$obj = new \info\domain\News($array["id"], $array["title"], $array["text"], $array["author"], $array["type"], $array["views"], $array["date"], $array["img"]);
 		return $obj;
@@ -71,6 +81,10 @@ class NewsMapper extends DataMapper {
 	
 	protected function selectAllStmt() {
 		return $this->selectAllStmt;
+	}
+	
+	protected function deleteStmt() {
+		return $this->deleteStmt;
 	}
 }
 

@@ -10,6 +10,10 @@ class CategoryMapper extends DataMapper {
 		$this->selectAllStmt = $this->pdo->prepare("SELECT * FROM categories");
 	}
 	
+	function update(\info\domain\DomainObject $object) {
+		
+	}
+	
 	protected function createObject(array $array) {
 		$obj = new \info\domain\Category($array["id"], $array["title"]);
 		return $obj;
@@ -21,6 +25,10 @@ class CategoryMapper extends DataMapper {
 	
 	protected function selectAllStmt() {
 		return $this->selectAllStmt;
+	}
+	
+	protected function deleteStmt() {
+		return null;
 	}
 }
 

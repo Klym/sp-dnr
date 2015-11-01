@@ -9,6 +9,10 @@ class PageTextMapper extends DataMapper {
 		$this->selectStmt = $this->pdo->prepare("SELECT * FROM texsts WHERE id = ?");
 	}
 	
+	function update(\info\domain\DomainObject $object) {
+		
+	}
+	
 	protected function createObject(array $array) {
 		$obj = new \info\domain\PageText($array["id"], null, $array["text"]);
 		return $obj;
@@ -19,6 +23,10 @@ class PageTextMapper extends DataMapper {
 	}
 	
 	protected function selectAllStmt() {
+		return null;
+	}
+	
+	protected function deleteStmt() {
 		return null;
 	}
 }

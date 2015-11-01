@@ -15,6 +15,10 @@ abstract class DocumentsMapper extends DataMapper {
 		return $collection;
 	}
 	
+	function update(\info\domain\DomainObject $object) {
+		
+	}
+	
 	protected function createObject(array $array) {
 		$obj = new \info\domain\Document($array["id"], $array["title"], null, $array["description"], $array["date"], $array["src"]);
 		return $obj;
@@ -25,6 +29,10 @@ abstract class DocumentsMapper extends DataMapper {
 	}
 	
 	protected function selectAllStmt() {
+		return null;
+	}
+	
+	protected function deleteStmt() {
 		return null;
 	}
 }

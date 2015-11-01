@@ -33,6 +33,10 @@ class News extends DomainObject {
 		return $this->type;
 	}
 	
+	public function setType($value) {
+		$this->type = $value;
+	}
+	
 	public function getViews() {
 		return $this->views;
 	}

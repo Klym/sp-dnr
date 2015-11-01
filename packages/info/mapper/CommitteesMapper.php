@@ -15,6 +15,10 @@ class CommitteesMapper extends DataMapper {
 		return $documentsMapper->getDocuments($id);
 	}
 	
+	function update(\info\domain\DomainObject $object) {
+		
+	}
+	
 	protected function createObject(array $array) {
 		$obj = new \info\domain\Committees($array["id"], $array["title"], $array["text"], $array["description"]);
 		return $obj;
@@ -26,6 +30,10 @@ class CommitteesMapper extends DataMapper {
 	
 	protected function selectAllStmt() {
 		return $this->selectAllStmt;
+	}
+	
+	protected function deleteStmt() {
+		return null;
 	}
 }
 

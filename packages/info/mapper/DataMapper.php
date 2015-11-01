@@ -35,6 +35,16 @@ abstract class DataMapper {
 		$array = $this->getCollection($this->selectAllStmt());
 		return $array;
 	}
+		
+	public function delete($id) {
+		if (!preg_match("|^[\d]+$|",$id)) {
+			throw new \Exception("Ошибка. Параметр не является числом");
+		}
+		$result = $this->deleteStmt()->execute(array($id));
+		if (!$result) {
+			throw new \Exception("Ошибка базы данных. Запрос на удаление данных не прошел");
+		}
+	}
 	
 	protected function getCollection($handleStatement, $noException = false) {
 		$array = $handleStatement->fetchAll();
@@ -46,10 +56,12 @@ abstract class DataMapper {
 		}
 		return $data;
 	}
-
+	
+	public abstract function update(\info\domain\DomainObject $object);
 	protected abstract function createObject(array $array);
 	protected abstract function selectStmt();
 	protected abstract function selectAllStmt();
+	protected abstract function deleteStmt();
 }
 
 ?>

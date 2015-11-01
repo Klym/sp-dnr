@@ -27,6 +27,7 @@ $pagination = new pagination\Pagination($count, $selected);
 <script src="Bootstrap/js/jquery-1.11.1.min.js"></script>
 <script src="Bootstrap/js/bootstrap.min.js"></script>
 <script src="../js/scripts.js"></script>
+<script src="js/del.js"></script>
 <title>Админ Панель - Новости</title>
 </head>
 <body>
@@ -68,11 +69,13 @@ $pagination = new pagination\Pagination($count, $selected);
                                        <td><?=$newsItem->getType()->getTitle(); ?></td>
                                        <td><?=$newsItem->getDate(); ?></td>
                                        <td style="text-align:center; vertical-align:middle;">
-                                            <button class="btn btn-default btn-xs" ng-click="goUpdate(newsItem.id)" ng-disabled="buttonDisable">
-                                                <span class="glyphicon glyphicon-pencil"></span>
-                                            </button>
+                                            <a href="editNews.php?id=<?=$newsItem->getid(); ?>">
+                                                <button class="btn btn-default btn-xs">
+                                                    <span class="glyphicon glyphicon-pencil"></span>
+                                                </button>
+                                            </a>
                                             &nbsp;
-                                            <button class="btn btn-default btn-xs" ng-click="del(newsItem.id)" ng-disabled="buttonDisable">
+                                            <button class="btn btn-default btn-xs" onClick="del(<?=$newsItem->getId()?>, this)">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </button>
                                        </td>

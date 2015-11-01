@@ -20,6 +20,10 @@ class PartnerMapper extends DataMapper {
 		return $collection;
 	}
 	
+	function update(\info\domain\DomainObject $object) {
+		
+	}
+	
 	protected function createObject(array $array) {
 	$obj = new \info\domain\Partner($array["id"], $array["title"],$array["text"], $array["address"], $array["email"], $array["tel1"], $array["tel2"], $array["img"], $array["bannerFlag"]);
 		return $obj;
@@ -31,6 +35,10 @@ class PartnerMapper extends DataMapper {
 	
 	protected function selectAllStmt() {
 		return $this->selectAllStmt;
+	}
+	
+	protected function deleteStmt() {
+		return null;
 	}
 }
 
