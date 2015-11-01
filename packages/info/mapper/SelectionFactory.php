@@ -21,7 +21,7 @@ class SelectionFactory {
 	}
 	
 	function selectData() {
-		$this->query = "SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y в %H:%i') AS date FROM news";
+		$this->query = "SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y в %H:%i') AS new_date FROM news";
 		$stmt = $this->buildStatement();
 		return $stmt;
 	}

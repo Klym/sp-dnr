@@ -9,9 +9,9 @@ class NewsMapper extends DataMapper {
 	function __construct(\PDO $pdo) {
 		parent::__construct($pdo);		
 		// Запрос на выборку самых новых данных каждого типа
-		$this->selectLatestStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y') AS date FROM news WHERE date IN (SELECT MAX(date) FROM news GROUP BY type) ORDER BY type");		
+		$this->selectLatestStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y') AS new_date FROM news WHERE date IN (SELECT MAX(date) FROM news GROUP BY type) ORDER BY type");		
 		
-		$this->selectStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y в %H:%i') AS date FROM news WHERE id = ?");
+		$this->selectStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y в %H:%i') AS new_date FROM news WHERE id = ?");
 		$this->selectYearsStmt = $this->pdo->prepare("SELECT MAX(DATE_FORMAT(`date`, '%Y')) AS max, MIN(DATE_FORMAT(`date`, '%Y')) AS min FROM news");
 		$this->insertStmt = $this->pdo->prepare("INSERT INTO news (title, text, author, type, views, date, img) VALUES (?,?,?,?,?,?,?)");
 		$this->updateStmt = $this->pdo->prepare("UPDATE news SET title = ?, type = ?, text = ? WHERE id = ?");
@@ -80,7 +80,7 @@ class NewsMapper extends DataMapper {
 	}
 	
 	protected function createObject(array $array) {
-		$obj = new \info\domain\News($array["id"], $array["title"], $array["text"], $array["author"], $array["type"], $array["views"], $array["date"], $array["img"]);
+		$obj = new \info\domain\News($array["id"], $array["title"], $array["text"], $array["author"], $array["type"], $array["views"], $array["new_date"], $array["img"]);
 		return $obj;
 	}
 	
