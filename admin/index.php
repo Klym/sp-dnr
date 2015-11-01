@@ -1,6 +1,8 @@
 <?php
 session_start();
 include("blocks/check.php");
+require("../blocks/connect.php");
+$page = "index";
 ?>
 <!doctype html>
 <html>

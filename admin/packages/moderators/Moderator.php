@@ -16,7 +16,7 @@ class Moderator {
 		$this->pdo = $pdo;
 	}
 	
-	function checkUser($login, $password) {		
+	function checkUser($login, $password) {
 		$result = $this->pdo->prepare("SELECT * FROM moderators WHERE login = ? AND password = ?");
 		$result->execute(array($login, $password));
 		$rows = $result->fetch();

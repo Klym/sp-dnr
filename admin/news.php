@@ -6,7 +6,7 @@ require("../packages/info/mapper/NewsMapper.php");
 require("../packages/info/domain/News.php");
 require("../packages/info/domain/Category.php");
 require("../packages/pagination/Pagination.php");
-
+$page = "news";
 $selected = isset($_GET["page"]) ? $_GET["page"] : 0;
 $news = new info\mapper\NewsMapper($pdo);
 try {
@@ -26,6 +26,7 @@ $pagination = new pagination\Pagination($count, $selected);
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="Bootstrap/js/jquery-1.11.1.min.js"></script>
 <script src="Bootstrap/js/bootstrap.min.js"></script>
+<script src="../js/scripts.js"></script>
 <title>Админ Панель - Новости</title>
 </head>
 <body>

@@ -23,6 +23,14 @@ footer {
 	margin:100px 40px 0px 40px;
 }
 
+.embeded {
+	margin-left:15px;
+}
+
+.embeded > span.badge {
+	background-color:#f0ad4e;
+}
+
 .table-hover th {
 	cursor:pointer;
 }
