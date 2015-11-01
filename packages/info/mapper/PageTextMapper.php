@@ -9,6 +9,10 @@ class PageTextMapper extends DataMapper {
 		$this->selectStmt = $this->pdo->prepare("SELECT * FROM texsts WHERE id = ?");
 	}
 	
+	function insert(\info\domain\DomainObject $object) {
+		
+	}
+	
 	function update(\info\domain\DomainObject $object) {
 		
 	}

@@ -47,7 +47,9 @@ $pagination = new pagination\Pagination($count, $selected);
                           <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <button type="button" class="btn btn-success">Добавить &nbsp;<span class="glyphicon glyphicon-plus"></span></button>
+                                    <a href="addNews.php">
+                                    	<button type="button" class="btn btn-success">Добавить &nbsp;<span class="glyphicon glyphicon-plus"></span></button>
+									</a>
                                 </div>
                                 <div class="col-md-9 pull-right">
                                     <?php include("blocks/pagination.php"); ?>
@@ -69,7 +71,7 @@ $pagination = new pagination\Pagination($count, $selected);
                                        <td><?=$newsItem->getType()->getTitle(); ?></td>
                                        <td><?=$newsItem->getDate(); ?></td>
                                        <td style="text-align:center; vertical-align:middle;">
-                                            <a href="editNews.php?id=<?=$newsItem->getid(); ?>">
+                                            <a href="editNews.php?id=<?=$newsItem->getid(); ?>" class="editLink">
                                                 <button class="btn btn-default btn-xs">
                                                     <span class="glyphicon glyphicon-pencil"></span>
                                                 </button>

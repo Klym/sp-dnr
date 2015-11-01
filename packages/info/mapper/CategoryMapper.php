@@ -10,6 +10,10 @@ class CategoryMapper extends DataMapper {
 		$this->selectAllStmt = $this->pdo->prepare("SELECT * FROM categories");
 	}
 	
+	function insert(\info\domain\DomainObject $object) {
+		
+	}
+	
 	function update(\info\domain\DomainObject $object) {
 		
 	}

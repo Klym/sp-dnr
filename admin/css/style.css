@@ -31,6 +31,10 @@ footer {
 	background-color:#f0ad4e;
 }
 
+a.editLink:hover {
+	text-decoration:none;
+}
+
 .table-hover th {
 	cursor:pointer;
 }

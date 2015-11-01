@@ -15,6 +15,10 @@ class CommitteesMapper extends DataMapper {
 		return $documentsMapper->getDocuments($id);
 	}
 	
+	function insert(\info\domain\DomainObject $object) {
+		
+	}
+	
 	function update(\info\domain\DomainObject $object) {
 		
 	}

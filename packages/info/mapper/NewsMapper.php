@@ -13,6 +13,7 @@ class NewsMapper extends DataMapper {
 		
 		$this->selectStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y в %H:%i') AS date FROM news WHERE id = ?");
 		$this->selectYearsStmt = $this->pdo->prepare("SELECT MAX(DATE_FORMAT(`date`, '%Y')) AS max, MIN(DATE_FORMAT(`date`, '%Y')) AS min FROM news");
+		$this->insertStmt = $this->pdo->prepare("INSERT INTO news (title, text, author, type, views, date, img) VALUES (?,?,?,?,?,?,?)");
 		$this->updateStmt = $this->pdo->prepare("UPDATE news SET title = ?, type = ?, text = ? WHERE id = ?");
 		$this->deleteStmt = $this->pdo->prepare("DELETE FROM news WHERE id = ?");
 	}
@@ -60,6 +61,14 @@ class NewsMapper extends DataMapper {
 	function getDocuments($id) {
 		$documentsMapper = new documents\NewsDocuments($this->pdo);
 		return $documentsMapper->getDocuments($id);
+	}
+	
+	function insert(\info\domain\DomainObject $object) {
+		$values = array($object->getTitle(), $object->getText(), $object->getAuthor(), $object->getType()->getId(), $object->getViews(), $object->getDate(), $object->getImg());
+		$result = $this->insertStmt->execute($values);
+		if (!$result) {
+			throw new \Exception("Ошибка базы данных. Запрос на добавление новости не прошел");
+		}
 	}
 	
 	function update(\info\domain\DomainObject $object) {

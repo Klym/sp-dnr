@@ -57,6 +57,7 @@ abstract class DataMapper {
 		return $data;
 	}
 	
+	public abstract function insert(\info\domain\DomainObject $object);
 	public abstract function update(\info\domain\DomainObject $object);
 	protected abstract function createObject(array $array);
 	protected abstract function selectStmt();

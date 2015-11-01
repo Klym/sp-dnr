@@ -2,18 +2,7 @@
 session_start();
 include("blocks/check.php");
 require("../blocks/connect.php");
-require("../packages/info/mapper/NewsMapper.php");
-require("../packages/info/domain/News.php");
-require("../packages/info/domain/Category.php");
 $page = "news";
-if (isset($_GET["id"]) && !empty($_GET["id"])) {$id = $_GET["id"];}
-
-$news = new info\mapper\NewsMapper($pdo);
-try {
-	$newsItem = $news->find($id);
-} catch(Exception $e) {
-	die($e->getMessage());
-}
 ?>
 <!doctype html>
 <html>
@@ -25,7 +14,7 @@ try {
 <script src="Bootstrap/js/jquery-1.11.1.min.js"></script>
 <script src="Bootstrap/js/bootstrap.min.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
-<title>Админ Панель - Редактирование новостей</title>
+<title>Админ Панель - Добавление новости</title>
 </head>
 <body>
 	<?php include("blocks/navbar.php"); ?>
@@ -39,15 +28,15 @@ try {
                     <div class="col-md-12">
                         <div class="panel panel-success" ng-controller="newsCtrl">
                           <div class="panel-heading">
-                              <h3 class="panel-title">Редактирование новости</h3>
+                              <h3 class="panel-title">Добавление новости</h3>
                           </div>
                           <div class="panel-body">
                             <div class="row">
-                             <form class="form-horizontal form" name="updateForm" method="post" action="updateNews.php">
+                             <form class="form-horizontal form" name="updateForm" method="post" action="insertNews.php">
                               <div class="form-group">
                                 <label for="dataTitle" class="col-sm-2 control-label">Название</label>
                                 <div class="col-sm-4">
-                                  <input type="text" name="title" class="form-control" id="dataTitle" value="<?=$newsItem->getTitle(); ?>" required>
+                                  <input type="text" name="title" class="form-control" id="dataTitle" required>
                                 </div>
                               </div>
                               <div class="form-group">
@@ -55,7 +44,7 @@ try {
                                 <div class="col-sm-3">
                                     <select class="form-control" id="dataCat" name="type">
                                     	<? foreach ($categories as $category) : ?>
-                                        	<option value="<?=$category->getId(); ?>" <? if ($newsItem->getType()->getId() == $category->getId()) echo "selected"; ?>><?=$category->getTitle(); ?></option>
+                                        	<option value="<?=$category->getId(); ?>"><?=$category->getTitle(); ?></option>
                                         <? endforeach; ?>
                                     </select>
                                 </div>
@@ -63,28 +52,15 @@ try {
                               <div class="form-group">
                                 <label for="catDescription" class="col-sm-2 control-label">Текст</label>
                                 <div class="col-sm-10">
-                                    <textarea name="text" id="text" name="text"><?=$newsItem->getText(); ?></textarea>
+                                    <textarea name="text" id="text" name="text"></textarea>
 									<script type="text/javascript">
 	                                    CKEDITOR.replace('text');
                                     </script>
                                 </div>
                               </div>
                               <div class="form-group">
-                                <label for="catDate" class="col-sm-2 control-label">Дата добавления</label>
-                                <div class="col-sm-5">
-                                    <div class="form-control-static"><?=$newsItem->getDate(); ?></div>
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label class="col-sm-2 control-label">Просмотров</label>
-                                <div class="col-sm-5">
-                                    <div class="form-control-static"><?=$newsItem->getViews(); ?></div>
-                                </div>
-                              </div>
-                              <input type="hidden" value="<?=$id ?>" name="id">
-                              <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                  <input type="submit" class="btn btn-primary" value="Обновить">
+                                  <input type="submit" class="btn btn-primary" value="Добавить">
                                 </div>
                               </div>
                             </form>

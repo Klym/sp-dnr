@@ -1,5 +1,7 @@
 <?php
 require_once("../packages/info/mapper/NewsMapper.php");
+require_once("../packages/info/domain/News.php");
+require_once("../packages/info/domain/Category.php");
 $newsNavMapper = new info\mapper\NewsMapper($pdo);
 if ($page == "news") {
 	$categoryNavMapper = new info\mapper\CategoryMapper($pdo);
@@ -26,7 +28,7 @@ try {
 		foreach ($categories as $category) :
 	?>
 		<a href="news.php?type=<?=$category->getId(); ?>" class="list-group-item embeded <? if ($_GET["type"] == $category->getId()) echo "active"; ?>">
-        	<span class="badge"><?=$news->getCount($category->getId()); ?></span>
+        	<span class="badge"><?=$newsNavMapper->getCount($category->getId()); ?></span>
         	<?=$category->getTitle(); ?>
     	</a>
     <?  endforeach; } ?>

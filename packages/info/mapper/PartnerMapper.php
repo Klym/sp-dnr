@@ -20,6 +20,10 @@ class PartnerMapper extends DataMapper {
 		return $collection;
 	}
 	
+	function insert(\info\domain\DomainObject $object) {
+		
+	}
+	
 	function update(\info\domain\DomainObject $object) {
 		
 	}
