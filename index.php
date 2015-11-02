@@ -40,7 +40,7 @@ try {
             	<header><?=$newsItem->getType()->getTitle(); ?></header>
                 <div class="articleBody">
                 	<? if ($newsItem->getImg() != "") { ?>
-	                    <p><img src="news_imgs/<?=$newsItem->getImg(); ?>.jpg" width="123" height="98" alt="Логотип статьи"></p>
+	                    <p><img src="news_imgs/<?=$newsItem->getImg(); ?>.jpg" width="123" alt="Логотип статьи"></p>
 					<? } ?>
                     <div class="articleTitle"><p><?=$newsItem->getTitle(); ?></p></div>
                     <div class="articleDate"><p><?=$newsItem->getDate(); ?></p></div>

@@ -18,6 +18,17 @@ if (isset($id) && isset($title) && isset($type) && isset($text)) {
 		$newsItem->setTitle($title);
 		$newsItem->setType($type);
 		$newsItem->setText($text);
+		if (!empty($_FILES["img"]["name"])) {
+			$type = $_FILES["img"]["type"];
+			$path = $_FILES["img"]["tmp_name"];
+			$img = $newsItem->compressImg($path, $type);
+			if (!empty($img)) {
+				if ($newsItem->getImg() != "") {
+					unlink("../news_imgs/".$newsItem->getImg().".jpg");
+				}
+				$newsItem->setImg($img);
+			}
+		}
 		$news->update($newsItem);
 	} catch(Exception $e) {
 		die($e->getMessage());

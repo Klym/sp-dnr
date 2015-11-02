@@ -32,7 +32,7 @@ $page = "news";
                           </div>
                           <div class="panel-body">
                             <div class="row">
-                             <form class="form-horizontal form" name="updateForm" method="post" action="insertNews.php">
+                             <form enctype="multipart/form-data" class="form-horizontal form" name="updateForm" method="post" action="insertNews.php">
                               <div class="form-group">
                                 <label for="dataTitle" class="col-sm-2 control-label">Название</label>
                                 <div class="col-sm-4">
@@ -56,6 +56,12 @@ $page = "news";
 									<script type="text/javascript">
 	                                    CKEDITOR.replace('text');
                                     </script>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="dataImg" class="col-sm-2 control-label">Изображение</label>
+                                <div class="col-sm-4">
+                                  <input type="file" name="img" id="dataImg">
                                 </div>
                               </div>
                               <div class="form-group">

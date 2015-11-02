@@ -53,10 +53,13 @@ $pagination = new pagination\Pagination($count, $selected);
                                     </a>
                                 </div>
                             <? } ?>
-                            <div class="newsTitle">
-                            	<a href="viewArticle.php?id=<?=$newsItem->getId(); ?>"><?=$newsItem->getTitle(); ?></a>
+                            <div>
+                                <div class="newsTitle">
+                                    <a href="viewArticle.php?id=<?=$newsItem->getId(); ?>"><?=$newsItem->getTitle(); ?></a>
+                                </div>
+                                <p><?=$newsItem->getShortText(760); ?><br><p><a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">Читать далее...</a></p>
 							</div>
-                            <p><?=$newsItem->getShortText(760); ?><br><p><a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">Читать далее...</a></p>
+                            <div class="clear"></div>
 						</div>
 						<div class="newsInfo">Добавлено <?=$newsItem->getDate(); ?> | <span class="eye"><img src="img/eye.png" width="22" alt="Просмотры"></span> <?=$newsItem->getViews(); ?><span class="type"><?=$newsItem->getType()->getTitle(); ?></span></div>
                     </article>

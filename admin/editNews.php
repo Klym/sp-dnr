@@ -25,6 +25,7 @@ try {
 <script src="Bootstrap/js/jquery-1.11.1.min.js"></script>
 <script src="Bootstrap/js/bootstrap.min.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
+<script src="js/del.js"></script>
 <title>Админ Панель - Редактирование новостей</title>
 </head>
 <body>
@@ -43,7 +44,7 @@ try {
                           </div>
                           <div class="panel-body">
                             <div class="row">
-                             <form class="form-horizontal form" name="updateForm" method="post" action="updateNews.php">
+                             <form enctype="multipart/form-data" class="form-horizontal form" name="updateForm" method="post" action="updateNews.php">
                               <div class="form-group">
                                 <label for="dataTitle" class="col-sm-2 control-label">Название</label>
                                 <div class="col-sm-4">
@@ -67,6 +68,22 @@ try {
 									<script type="text/javascript">
 	                                    CKEDITOR.replace('text');
                                     </script>
+                                </div>
+                              </div>
+                              <? if ($newsItem->getImg() != "") { ?>
+                              <div class="form-group">
+                                <label for="dataImg" class="col-sm-2 control-label">Изображение</label>
+                                <div class="col-sm-2">
+                                  <img src="../news_imgs/<?=$newsItem->getImg(); ?>.jpg" width="120">
+                                </div>
+                                <div class="col-sm-2">
+                                	<button class="btn btn-primary btn-warning" onClick="delImg(<?=$newsItem->getId(); ?>, this); return false;">Удалить</button></div>
+                              </div>
+							  <? } ?>
+                              <div class="form-group">
+                                <label for="dataImg" class="col-sm-2 control-label">Новое изображение</label>
+                                <div class="col-sm-4">
+                                  <input type="file" name="img" id="dataImg">
                                 </div>
                               </div>
                               <div class="form-group">

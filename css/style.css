@@ -39,6 +39,10 @@ select:focus, input:focus, textarea:focus {
 	border:1px solid #29D9F8;
 }
 
+.clear {
+	clear:both;
+}
+
 #aboutCustomStyles p {
 	line-height:20px;
 	font-size:16px;

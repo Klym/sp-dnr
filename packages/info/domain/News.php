@@ -25,6 +25,33 @@ class News extends DomainObject {
 		$this->img = $img;
 	}
 	
+	public static function compressImg($path, $type) {
+		switch($type) {
+			case "image/jpeg" :
+				$img = imagecreatefromjpeg($path);
+			break;
+			case "image/gif" :
+				$img = imagecreatefromgif($path);
+			break;
+			case "image/png" :
+				$img = imagecreatefromgif($path);
+			break;
+			default:
+				return;
+			break;
+		}
+		$width = imagesx($img);
+		$height = imagesy($img);
+		$new_width = 280;
+		$new_height = floor( $height * ( $new_width / $width));
+		$tmp_img = imagecreatetruecolor($new_width, $new_height);
+		imagecopyresampled($tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+		$new_path = time();
+		if (imagejpeg($tmp_img, "../news_imgs/".$new_path.".jpg", 100)) {
+			return $new_path;
+		}
+	}
+	
 	public function getAuthor() {
 		return $this->author;
 	}
@@ -47,6 +74,10 @@ class News extends DomainObject {
 	
 	public function getImg() {
 		return $this->img;
+	}
+	
+	public function setImg($value) {
+		$this->img = $value;
 	}
 }
 

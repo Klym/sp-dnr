@@ -14,6 +14,14 @@ if (isset($title) && isset($type) && isset($text)) {
 	$news = new info\mapper\NewsMapper($pdo);
 	try {
 		$newsItem = new info\domain\News(0, $title, $text, 1, $type, 0, date("Y-m-d H:i:s"), "");
+		if (!empty($_FILES["img"]["name"])) {
+			$type = $_FILES["img"]["type"];
+			$path = $_FILES["img"]["tmp_name"];
+			$img = $newsItem->compressImg($path, $type);
+			if (!empty($img)) {
+				$newsItem->setImg($img);
+			}
+		}
 		$news->insert($newsItem);
 	} catch(Exception $e) {
 		die($e->getMessage());

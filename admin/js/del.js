@@ -40,3 +40,20 @@ function del(id, btn) {
 	req.open("GET","deleteNews.php?id=" + id + "", true);
 	req.send(null);
 }
+
+function delImg(id, btn) {
+	if (!confirm("Вы дейстивтельно хотите удалить изображение?")) return;
+	var req = new XMLHttpRequest();
+	req.onreadystatechange = function() {
+		if (req.readyState != 4) return;
+		var response = JSON.parse(req.responseText);
+		if (response.result == "200 OK") {
+			var group = btn.parentNode.parentNode;
+			group.parentNode.removeChild(group);
+		} else {
+			console.log(response.result);
+		}
+	}
+	req.open("GET","delImg.php?id=" + id + "", true);
+	req.send(null);
+}
