@@ -49,7 +49,7 @@ try {
                             <div class="committeesTitle">
                                 <a href="viewArticle.php?id=<?=$comm->getId(); ?>"><?=$comm->getTitle(); ?></a>
                             </div>
-                            <p><?=$comm->getShortText(); ?><br><p><a href="viewArticle.php?id=<?=$comm->getId(); ?>">Читать далее...</a></p>
+                            <p><?=$comm->getShortText(); ?><br><p><a href="committees.php?id=<?=$comm->getId(); ?>">Читать далее...</a></p>
                         </article>
                         <? endforeach; ?>
 					<? } else { ?>

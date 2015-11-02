@@ -45,7 +45,7 @@ try {
                 	<div class="newsTitle"><?=$newsItem->getTitle(); ?></div>
 					<div class="newsInfo">Добавлено <?=$newsItem->getDate(); ?> | <span class="eye"><img src="img/eye.png" width="28" height="20" alt="Просмотры"></span> <?=$newsItem->getViews(); ?> <span class="pull-right">| <?=$newsItem->getType()->getTitle(); ?></span></div>
                     <div class="newsText">
-	 	                <iframe src="ieFrame.php?id=<?=$newsItem->getId();?>" srcdoc="<style>body {font-family:Arial, Helvetica, sans-serif; font-size: 15px; font-weight: normal; color: #252424; line-height: 19px;}</style><?=$newsItem->getText();?>" width="100%" scrolling="no"></iframe>
+	 	                <iframe src="ieFrame.php?id=<?=$newsItem->getId();?>" width="100%" scrolling="no"></iframe>
 					</div>
                 </article>
                 <? if (count($documents) > 0 ) foreach ($documents as $document) { ?>

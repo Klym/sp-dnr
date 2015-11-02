@@ -5,6 +5,7 @@ require("../blocks/connect.php");
 require("../packages/info/mapper/NewsMapper.php");
 require("../packages/info/domain/News.php");
 require("../packages/info/domain/Category.php");
+require("../packages/statement/Statement.php");
 
 if (isset($_POST["id"]) && !empty($_POST["id"])) {$id = $_POST["id"];}
 if (isset($_POST["title"]) && !empty($_POST["title"])) {$title = $_POST["title"];}
@@ -15,7 +16,7 @@ if (isset($id) && isset($title) && isset($type) && isset($text)) {
 	$news = new info\mapper\NewsMapper($pdo);
 	try {
 		$newsItem = $news->find($id);
-		$newsItem->setTitle($title);
+		$newsItem->setTitle(statement\Statement::checkData($title));
 		$newsItem->setType($type);
 		$newsItem->setText($text);
 		if (!empty($_FILES["img"]["name"])) {
