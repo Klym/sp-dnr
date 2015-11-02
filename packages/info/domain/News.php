@@ -34,7 +34,7 @@ class News extends DomainObject {
 				$img = imagecreatefromgif($path);
 			break;
 			case "image/png" :
-				$img = imagecreatefromgif($path);
+				$img = imagecreatefrompng($path);
 			break;
 			default:
 				return;

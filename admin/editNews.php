@@ -87,6 +87,12 @@ try {
                                 </div>
                               </div>
                               <div class="form-group">
+                                <label for="dataFiles" class="col-sm-2 control-label">Документы</label>
+                                <div class="col-sm-4">
+                                  <input type="file" name="documents" id="dataFiles" multiple>
+                                </div>
+                              </div>
+                              <div class="form-group">
                                 <label for="catDate" class="col-sm-2 control-label">Дата добавления</label>
                                 <div class="col-sm-5">
                                     <div class="form-control-static"><?=$newsItem->getDate(); ?></div>

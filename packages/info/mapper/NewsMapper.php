@@ -9,7 +9,7 @@ class NewsMapper extends DataMapper {
 	function __construct(\PDO $pdo) {
 		parent::__construct($pdo);		
 		// Запрос на выборку самых новых данных каждого типа
-		$this->selectLatestStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y') AS new_date FROM news WHERE date IN (SELECT  MAX(date) FROM news GROUP BY type) ORDER BY type, date DESC LIMIT 4");		
+		$this->selectLatestStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y') AS date FROM news WHERE date IN (SELECT MAX(date) FROM news GROUP BY type) GROUP BY type LIMIT 4");
 		
 		$this->selectStmt = $this->pdo->prepare("SELECT *, DATE_FORMAT(`date`, '%d.%m.%Y в %H:%i') AS new_date FROM news WHERE id = ?");
 		$this->selectYearsStmt = $this->pdo->prepare("SELECT MAX(DATE_FORMAT(`date`, '%Y')) AS max, MIN(DATE_FORMAT(`date`, '%Y')) AS min FROM news");
@@ -65,6 +65,7 @@ class NewsMapper extends DataMapper {
 	
 	function deleteImg($id) {
 		$item = parent::find($id);
+		if ($item->getImg() == "") return;
 		$query = $this->pdo->prepare("UPDATE news SET img = '' WHERE id = ?");
 		$result = $query->execute(array($id));
 		if (!$result) {

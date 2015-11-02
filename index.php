@@ -18,7 +18,6 @@ try {
 } catch(Exception $e) {
 	die($e->getMessage());
 }
-
 ?>
 <!doctype html>
 <html>
