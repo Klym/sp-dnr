@@ -90,11 +90,6 @@ class NewsMapper extends DataMapper {
 		}
 	}
 	
-	function delete($id) {
-		$this->deleteImg($id);
-		parent::delete($id);
-	}
-	
 	protected function createObject(array $array) {
 		$obj = new \info\domain\News($array["id"], $array["title"], $array["text"], $array["author"], $array["type"], $array["views"], $array["new_date"], $array["img"]);
 		return $obj;
