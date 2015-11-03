@@ -55,11 +55,11 @@ class Statement {
 	
 	public function sendStatement($agents = null) {
 		$counts = array(1 => 'до 15 чел.', 2 => 'от 16 до 100 чел.', 3 => 'от 100 до 500 чел.', 4 => 'от 500 чел.');
-		$to = "admin@sp-dnr.ru";
+		$to = "spdpr2015@gmail.com";
 		$subject = "Новая заявка на вступление в Союз";
 		$subject ='=?utf-8?B?'. base64_encode($subject).'?=';
 		$headers  = "Content-type: text/html; charset=utf-8 \r\n";
-		$headers .= "From: <newapplication@sp-dnr.ru>\r\n";
+		$headers .= "From: Web Site Robot <newapplication@sp-dnr.ru>\r\n";
 		$message = "<html>
 					<head>
 					<style>body { font-family: Arial; font-size:13px; }</style>
