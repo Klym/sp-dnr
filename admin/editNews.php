@@ -74,7 +74,7 @@ try {
                               <div class="form-group">
                                 <label for="dataImg" class="col-sm-2 control-label">Изображение</label>
                                 <div class="col-sm-2">
-                                  <img src="../news_imgs/<?=$newsItem->getImg(); ?>.jpg" width="120">
+                                  <img src="../content_imgs/news_logos/<?=$newsItem->getImg(); ?>.jpg" width="120">
                                 </div>
                                 <div class="col-sm-2">
                                 	<button class="btn btn-primary btn-warning" onClick="delImg(<?=$newsItem->getId(); ?>, this); return false;">Удалить</button></div>

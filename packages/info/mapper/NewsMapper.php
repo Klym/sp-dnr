@@ -71,7 +71,7 @@ class NewsMapper extends DataMapper {
 		if (!$result) {
 			throw new \Exception("Ошибка базы данных. Запрос на обновление поля изображения не прошел");
 		}
-		unlink("../news_imgs/".$item->getImg().".jpg");
+		unlink("../content_imgs/news_logos/".$item->getImg().".jpg");
 	}
 	
 	function insert(\info\domain\DomainObject $object) {

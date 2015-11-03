@@ -47,7 +47,7 @@ class News extends DomainObject {
 		$tmp_img = imagecreatetruecolor($new_width, $new_height);
 		imagecopyresampled($tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
 		$new_path = time();
-		if (imagejpeg($tmp_img, "../news_imgs/".$new_path.".jpg", 100)) {
+		if (imagejpeg($tmp_img, "../content_imgs/news_logos/".$new_path.".jpg", 100)) {
 			return $new_path;
 		}
 	}

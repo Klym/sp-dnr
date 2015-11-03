@@ -30,6 +30,7 @@ $pagination = new pagination\Pagination($count, $selected);
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="js/scripts.js"></script>
@@ -49,7 +50,7 @@ $pagination = new pagination\Pagination($count, $selected);
                         	<? if ($newsItem->getImg() != "") { ?>
                             	<div class="newsImg">
                                     <a href="viewArticle.php?id=<?=$newsItem->getId(); ?>">
-                                        <img src="news_imgs/<?=$newsItem->getImg(); ?>.jpg" width="280" alt="Изображение новости">
+                                        <img src="content_imgs/news_logos/<?=$newsItem->getImg(); ?>.jpg" width="280" alt="Изображение новости">
                                     </a>
                                 </div>
                             <? } ?>

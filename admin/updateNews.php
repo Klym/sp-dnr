@@ -25,7 +25,7 @@ if (isset($id) && isset($title) && isset($type) && isset($text)) {
 			$img = $newsItem->compressImg($path, $type);
 			if (!empty($img)) {
 				if ($newsItem->getImg() != "") {
-					unlink("../news_imgs/".$newsItem->getImg().".jpg");
+					unlink("../content_imgs/news_logos/".$newsItem->getImg().".jpg");
 				}
 				$newsItem->setImg($img);
 			}

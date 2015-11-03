@@ -36,7 +36,15 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><a href="#" id="imageUpload">Загрузить изображения</a></li>
+        <script>
+        	var ilink = document.getElementById("imageUpload");
+			ilink.onclick = function() {
+				var newWin = window.open("addImg.php", "Загрузка изображений", "top=50,width=460,height=230,resizable=yes,scrollbars=yes,status=yes");
+				newWin.focus();
+				return false;
+			}
+        </script>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           	<? echo $_SESSION["name"]." ".$_SESSION["surname"]; ?>

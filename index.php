@@ -23,6 +23,7 @@ try {
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="js/scripts.js"></script>
@@ -39,7 +40,7 @@ try {
             	<header><?=$newsItem->getType()->getTitle(); ?></header>
                 <div class="articleBody">
                 	<? if ($newsItem->getImg() != "") { ?>
-	                    <p><img src="news_imgs/<?=$newsItem->getImg(); ?>.jpg" width="123" alt="Логотип статьи"></p>
+	                    <p><img src="content_imgs/news_logos/<?=$newsItem->getImg(); ?>.jpg" width="123" alt="Логотип статьи"></p>
 					<? } ?>
                     <div class="articleTitle"><p><?=$newsItem->getTitle(); ?></p></div>
                     <div class="articleDate"><p><?=$newsItem->getDate(); ?></p></div>

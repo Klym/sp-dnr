@@ -18,6 +18,7 @@ try {
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/favicon.png">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="js/scripts.js"></script>
